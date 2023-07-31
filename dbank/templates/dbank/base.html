@@ -6,8 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="{% static 'dbank/css/b52css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'dbank/css/core.css' %}" />
 </head>
 <body>
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+          <a class="navbar-brand text-warning" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Investments</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">VCards</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Account & Deposit</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     {% block content %} {% endblock content %}
+
+    <script src="{% static 'dbank/js/b52js/bootstrap.min.js' %}"></script>
 </body>
 </html>
+
