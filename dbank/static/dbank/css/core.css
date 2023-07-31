@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar-expand-sm {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    background: black;
+    padding: 20px 5px 20px 5px !important;
+  }
+
+
+  .nav-link{
+    color: #dee2e6;
+    font-size: 14px;
+    padding: 5px 100px;
+    font-weight: bold;
+  }
+
+  .nav-link:hover{
+    color: white;
+  }
+
+  /** **/
+  .c-item{
+    height: 90vh;
+  } */
+
+.c-img{
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(1);
+  }
+
+  .drk:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: black;
+    opacity: 0.6;
+    z-index: 10;
+  }
+
+  .carousel-caption{
+    display: relative;
+    top: 25vh;
+    z-index: 100;
+  }
+
+  .carousel-caption h1{
+    font-size: 5rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 5px navy;
+    color: white;
+  }
+
+  .carousel-caption p{
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    text-shadow: 2px 2px 5px navy;
+  }
+
+  .carousel-dark .carousel-control-next-icon, .carousel-dark .carousel-control-prev-icon {
+    filter: invert(1) grayscale(100);
+    color: #dee2e6;
+    /* transform: translateX(-200px); */
+  }
