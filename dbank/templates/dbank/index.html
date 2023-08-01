@@ -16,7 +16,7 @@
               <h1 class="">First slide label</h1>
               <p>Some representative placeholder content for the first slide.</p>
               <p class="pt-4">
-                <a href="#" class="btn btn-primary btn-lg col-12 col-md-5 shadow-lg">EXPLORE</a>
+                <a href="#" class="btn btn-primary btn-lg rounded-pill shadow-lg">EXPLORE</a>
               </p>
             </div>
           </div>
@@ -50,6 +50,143 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+</section>
+<!-- slider section ends here -->
+
+<!-- about -->
+<section class="about">
+    <div class="container px-5 overflow-hidden">
+        <section class="row">
+            <div class="col-12 col-md-8 mx-auto text-center">
+                <div>
+                    <h1>Who We are and what we do</h1>
+                    <p class="py-5">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod eaque eum ipsum facilis officiis laudantium hic quidem accusamus quibusdam, quisquam unde corporis et sequi! Quam, velit atque. Vero, in quam.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="row gx-5 key-services">
+            <div class="col-12 col-md-6">
+                <img src="{% static 'dbank/images/slide3.jpg' %}" alt="Investment banking" class="img-fluid">
+                <div class="shadow bg-white rounded-7 mx-4 p-5 rounded-5" style="transform: translateY(-100px); ">
+                    <h3>Investment Banking</h3>
+                    <p class="py-4 text-muted">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem aliquid commodi nesciunt praesentium repellendus quia placeat alias ad harum facere. 
+                    </p>
+                    <p>
+                        <a href="#" class=" shadow btn btn-primary">KNOW MORE</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <img src="{% static 'dbank/images/slide3.jpg' %}" alt="Investment banking" class="img-fluid">
+                <div class="shadow bg-white rounded-7 mx-4  p-5 rounded-5" style="transform: translateY(-100px);">
+                    <h3>Wealth Accumulation</h3>
+                    <p class="py-4 text-muted">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem aliquid commodi nesciunt praesentium repellendus quia placeat alias ad harum facere. 
+                    </p>
+                    <p>
+                        <a href="#" class="shadow btn btn-primary">KNOW MORE</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+<section class="investment">
+    <div class="container">
+        <section class="row gx-5">
+            <div class="col-12 col-md-5 align-self-center">
+                    <h3>How Investment Works</h3>
+                    <p class="py-4">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In repudiandae ut, perspiciatis ex eum modi alias, odit officiis explicabo aperiam optio pariatur fugiat inventore suscipit nobis illum veritatis quibusdam praesentium!
+                    </p>
+                    <p>
+                        <a href="#" class="btn btn-lg btn-outline-primary col-12 col-md-8">START INVESTING.</a>
+                    </p>
+            </div>
+            <div class="col-12 col-md-7">
+                <div>
+                    <img src="{% static 'dbank/images/slide3.jpg' %}" alt="" class="img-fluid">
+                </div>
+            </div>
+        </section>
+        <section class="row pt-4">
+            <div class="col-6 col-md-3">
+                <div class=" why-us p-4">
+                    <i class="bi bi-briefcase-fill"></i>
+                    <h4>Easy Transaction</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class=" why-us p-4">
+                    <i class="bi bi-fingerprint"></i>
+                    <h4>Safe and Secure</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class=" why-us p-4">
+                    <i class="bi bi-safe2"></i>
+                    <h4>Fast Transfer</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class=" why-us p-4">
+                    <i class="bi bi-shield-lock"></i>
+                    <h4>Client Privacy</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+<section class="others">
+    <div class="container">
+        <section class="row">
+            <div class="col-12 col-md-8 mx-auto text-center">
+                <h1>How Much We Value Our Customers</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, adipisci quibusdam.
+                </p>
+            </div>
+        </section>
+
+        <section class="row gx-5 py-5">
+            <div class="col-12 col-md-4">
+                <a href="" class="creditcard shadow">
+                    <h4>Request For your credit card today</h4>
+                </a>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <a href="" class="savings">
+                    <h4>Explore more for your accounts</h4>
+                </a>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <a href="" class="investment-bank">
+                    <h4>Investments are future securities</h4>
+                </a>
+            </div>
+        </section>
+    </div>
 </section>
 
 {% endblock content %}
