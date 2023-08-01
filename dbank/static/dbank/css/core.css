@@ -48,7 +48,7 @@ p{
 
   /** **/
   .c-item{
-    height: 100vh;
+    height: 90vh;
   } */
 
 .c-img{
@@ -73,12 +73,11 @@ p{
 
   .carousel-caption{
     display: relative;
-    top: 30vh;
+    top: 25vh;
     z-index: 100;
   }
 
   .carousel-caption h1{
-    font-size: 5rem;
     font-weight: 800;
     text-shadow: 2px 2px 5px navy;
     color: white;
@@ -95,6 +94,13 @@ p{
     filter: invert(1) grayscale(100);
     color: #dee2e6;
     /* transform: translateX(-200px); */
+  }
+
+  .carousel-dark .carousel-indicators [data-bs-target] {
+    background-color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
   }
 
   .key-services{
