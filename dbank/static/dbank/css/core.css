@@ -107,7 +107,7 @@ p{
     padding: 3.5rem 10px 10px 0;
   }
 
-  .about, .others{
+  .about, .others, #partners{
     padding: 4rem 10px 4rem 10px;
   }
 
@@ -251,4 +251,9 @@ p{
     background: #7d85c7;
     z-index: -10;
     transition: .5s ease-in;   
+}
+
+#partners  img {
+    height: 70px;
+    width: 100%;
 }
