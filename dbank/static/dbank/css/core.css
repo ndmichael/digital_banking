@@ -258,3 +258,28 @@ p{
     height: 70px;
     width: 100%;
 }
+
+/*
+*   about page css
+*/
+.about .mission{
+    padding: 4em 30px;
+    background: #57d276;
+    border-radius: 20px;
+}
+
+.about .vision{
+    padding: 4em 30px;
+    background: #7c70c2;
+    border-radius: 20px;
+}
+
+.about .mission h2{
+    padding-top: 20px;
+    color: #006e1c;   
+}
+
+.about .vision h2{
+    padding-top: 20px;
+    color: #14017d; 
+}
