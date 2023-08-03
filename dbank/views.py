@@ -5,3 +5,7 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, 'dbank/index.html', {'title': 'home'})
+
+
+def about(request):
+    return render(request, 'dbank/about.html', {'title': 'about'})
