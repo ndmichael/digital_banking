@@ -202,7 +202,7 @@ p{
     width: 100%;
     height: 100%;
     border-radius: 20px;
-    background: #7d85c7;
+    background: #57d276;
     z-index: -10;
     transition: .5s ease-in;   
 }
@@ -249,7 +249,7 @@ p{
     height: 100%;
     border-radius: 20px;
     /* background: #7d85c7; */
-    background: #192378;
+    background: #c7d25f;
     z-index: -10;
     transition: .5s ease-in;   
 }
