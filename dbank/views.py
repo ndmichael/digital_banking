@@ -9,3 +9,6 @@ def index(request):
 
 def about(request):
     return render(request, 'dbank/about.html', {'title': 'about'})
+
+def investments(request):
+    return render(request, 'dbank/investments.html', {'title': 'investments'})
