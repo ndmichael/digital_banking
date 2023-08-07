@@ -12,3 +12,6 @@ def about(request):
 
 def investments(request):
     return render(request, 'dbank/investments.html', {'title': 'investments'})
+
+def visagold(request):
+    return render(request, 'dbank/visagold.html', {'title': 'visa gold'})
