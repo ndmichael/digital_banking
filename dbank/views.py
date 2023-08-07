@@ -15,3 +15,6 @@ def investments(request):
 
 def visagold(request):
     return render(request, 'dbank/visagold.html', {'title': 'visa gold'})
+
+def visainfinite(request):
+    return render(request, 'dbank/visainfinite.html', {'title': 'visa infinite'})
