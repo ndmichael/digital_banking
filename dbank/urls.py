@@ -9,4 +9,5 @@ urlpatterns = [
     path('about/', about, name="about"),
     path('investments/', investments, name="investments"),
     path('virtualcards/visagold', visagold, name="vcard"),
+    path('virtualcards/visainfinite', visagold, name="vcard"),
 ]
