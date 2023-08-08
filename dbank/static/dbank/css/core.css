@@ -214,7 +214,7 @@ p{
     background: linear-gradient(rgb(0,0,0,0.4), rgba(0,0,0,0.6)), url("/static/dbank/images/slide2.jpg");
     background-position: center;
     background-size: cover;
-    border-radius: 10px;
+    border-radius: 20px;
   }
 
 .savings::after{
