@@ -7,6 +7,10 @@
 
 h1, h2, h3, h4{
     color: black;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    line-height: 45px ;
+    letter-spacing: 0.02em;
 }
 
 h1{
@@ -283,6 +287,8 @@ p{
     padding-top: 20px;
     color: #14017d; 
 }
+
+
 
 
 /*
