@@ -340,10 +340,33 @@ p{
 }
 
 .vcards  .bi-check2-all{
-  background: rgba(255, 242, 172, 0.6);
+  background: rgba(255, 249, 219, 0.6);
   color: #ae6a00;
 }
 
 .vcards p{
   color: #6c757d !important;
+}
+
+
+/*
+* banking accounts
+*/
+
+.elite-account{
+  background: rgba(255, 249, 219, 0.6);
+  overflow: hidden;
+  /* color: #ae6a00; */
+}
+
+.elite-account img{
+  transform: translateY(10px);
+}
+
+.elite-account .bi{
+  color: orange;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  height: 30px;
+  width: 30px;
 }
