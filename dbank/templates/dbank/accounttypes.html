@@ -1,0 +1,34 @@
+{% extends 'dbank/base.html' %} {% load static %} 
+
+
+{% block content %}
+    <section>
+        <div class="container-fluid">
+            <section class="row g-5">
+                <div class="col-12 col-md-6">
+                    <article>
+                        <img src="{% static 'dbank/images/investment.jpg' %}" alt="" class="img-fluid shadow rounded-5 rounded-bottom">
+                        <div>
+                            <h3>SAVINGS ACCOUNT</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam tenetur nulla officia minima libero ex sequi. Autem consequuntur quisquam quae, dicta pariatur, numquam maiores accusamus ducimus, modi esse vero unde.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <article>
+                        <img src="{% static 'dbank/images/investment.jpg' %}" alt="" class="img-fluid shadow rounded-bottom rounded-5">
+                        <div>
+                            <h3>SAVINGS ACCOUNT</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam tenetur nulla officia minima libero ex sequi. Autem consequuntur quisquam quae, dicta pariatur, numquam maiores accusamus ducimus, modi esse vero unde.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </section>
+{% endblock content %}
