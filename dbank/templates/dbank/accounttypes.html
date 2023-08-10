@@ -2,33 +2,119 @@
 
 
 {% block content %}
-    <section>
-        <div class="container-fluid">
-            <section class="row g-5">
-                <div class="col-12 col-md-6">
-                    <article>
-                        <img src="{% static 'dbank/images/investment.jpg' %}" alt="" class="img-fluid shadow rounded-5 rounded-bottom">
-                        <div>
-                            <h3>SAVINGS ACCOUNT</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam tenetur nulla officia minima libero ex sequi. Autem consequuntur quisquam quae, dicta pariatur, numquam maiores accusamus ducimus, modi esse vero unde.
-                            </p>
-                        </div>
-                    </article>
-                </div>
 
-                <div class="col-12 col-md-6">
-                    <article>
-                        <img src="{% static 'dbank/images/investment.jpg' %}" alt="" class="img-fluid shadow rounded-bottom rounded-5">
-                        <div>
-                            <h3>SAVINGS ACCOUNT</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam tenetur nulla officia minima libero ex sequi. Autem consequuntur quisquam quae, dicta pariatur, numquam maiores accusamus ducimus, modi esse vero unde.
+<section style="background: #daedff; padding: 17vh 10px; height: 60vh;">
+    <div class="container">
+        <section class="row">
+            <div class=" col-12 col-md-8 text-center mx-auto">
+                <h1>Accounts and Benefits</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sit aliquam et labore! Ea corporis quidem debitis facilis ipsam asperiores natus optio, possimus, dolorem ipsum aliquid placeat quos esse. Fuga?
+                </p>
+            </div>
+        </section>
+
+        <!-- <section class="row">
+            <div class=" col-12 col-md-4 text-center mx-auto">
+                <div class=" d-flex">
+                    <i></i>
+
+                </div>
+            </div>
+
+            <div class=" col-12 col-md-4 text-center mx-auto">
+
+            </div>
+
+            <div class=" col-12 col-md-4 text-center mx-auto">
+
+            </div>
+        </section> -->
+    </div>
+</section>
+
+<section id="baccounts">
+    <div class="container">
+        <section class="row g-5 my-5 p-4 p-md-0 elite-account">
+            <div class="col-12 col-md-6">
+                    <img src="{% static 'dbank/images/investment.jpg' %}" alt="" class="img-fluid shadow rounded-bottom rounded-5">
+            </div>
+
+            <div class="col-12 col-md-6">
+                <article>
+                        <h3 class="pb-4">Elite Account</h3>
+                        <div class="d-flex">
+                            <i class=" bi bi-stars"></i>
+                            <p class="ps-4">
+                                4% charges per transactions only
                             </p>
                         </div>
-                    </article>
-                </div>
-            </section>
+                        <div class="d-flex">
+                            <i class=" bi bi-stars"></i>
+                            <p class="ps-4">
+                                Free from government and private privy eyes
+                            </p>
+                        </div>
+                        <div class="d-flex">
+                            <i class=" bi bi-stars"></i>
+                            <p class="ps-4">
+                                Instance transfer and ease of transactions
+                            </p>
+                        </div>
+                        <div class="pt-4">
+                            <a href="" class=" btn btn-primary">CREATE ACCOUNT</a>
+                        </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="row g-5 my-5 invenst-account">
+            <div class="col-12 col-md-6">
+                <article>
+                        <h3 class="pb-4">Investment Account</h3>
+                        <div class="d-flex">
+                            <i class=" bi bi-activity"></i>
+                            <p class="ps-4">
+                                4% charges per transactions only
+                            </p>
+                        </div>
+                        <div class="d-flex">
+                            <i class=" bi bi-activity"></i>
+                            <p class="ps-4">
+                                Free from government and private privy eyes
+                            </p>
+                        </div>
+                        <div class="d-flex">
+                            <i class=" bi bi-activity"></i>
+                            <p class="ps-4">
+                                Instance transfer and ease of transactions
+                            </p>
+                        </div>
+                        <div class="pt-4">
+                            <a href="" class=" btn btn-primary">CREATE ACCOUNT</a>
+                        </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6">
+                <img src="{% static 'dbank/images/investment.jpg' %}" alt="" class="img-fluid shadow rounded-5 rounded-bottom">
         </div>
-    </section>
+        </section>
+
+        <section class="row g-5 bg-info my-5">
+            <div class="col-12 col-md-6">
+                    <img src="{% static 'dbank/images/investment.jpg' %}" alt="" class="img-fluid shadow rounded-5 rounded-bottom">
+            </div>
+
+            <div class="col-12 col-md-6">
+                <article>
+                        <h3>Savings Account</h3>
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam tenetur nulla officia minima libero ex sequi. Autem consequuntur quisquam quae, dicta pariatur, numquam maiores accusamus ducimus, modi esse vero unde.
+                        </p>
+                </article>
+            </div>
+        </section>
+
+    </div>
+</section>
 {% endblock content %}
