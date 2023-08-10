@@ -356,6 +356,7 @@ p{
 .elite-account{
   background: rgba(255, 249, 219, 0.6);
   overflow: hidden;
+  border-radius: 20px;
   /* color: #ae6a00; */
 }
 
@@ -377,6 +378,7 @@ p{
 .investment-account {
   background: rgba(255, 204, 247, 0.6);
   overflow: hidden;
+  border-radius: 20px;
 }
 
 .investment-account .bi{
@@ -386,6 +388,7 @@ p{
 .fixed-account {
   background: rgba(192, 255, 246, 0.6);
   overflow: hidden;
+  border-radius: 20px;
 }
 
 .fixed-account .bi{
