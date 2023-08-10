@@ -18,3 +18,6 @@ def visagold(request):
 
 def visainfinite(request):
     return render(request, 'dbank/visainfinite.html', {'title': 'visa infinite'})
+
+def bank_account_types(request):
+    return render(request, 'dbank/accounttypes.html', {'title': 'visa infinite'})
