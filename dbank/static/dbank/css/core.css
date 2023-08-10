@@ -380,7 +380,16 @@ p{
 }
 
 .investment-account .bi{
-  
   color: #7d016a;
 }
+
+.fixed-account {
+  background: rgba(192, 255, 246, 0.6);
+  overflow: hidden;
+}
+
+.fixed-account .bi{
+  color: #016c7d;
+}
+
 
