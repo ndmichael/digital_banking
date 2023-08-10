@@ -359,14 +359,28 @@ p{
   /* color: #ae6a00; */
 }
 
-.elite-account img{
+#baccounts img{
   transform: translateY(10px);
+}
+
+#baccounts .bi{
+  font-size: 1.5rem;
+  height: 30px;
+  width: 30px;
+  margin-bottom: 10px;
 }
 
 .elite-account .bi{
   color: orange;
-  margin-bottom: 10px;
-  font-size: 1.5rem;
-  height: 30px;
-  width: 30px;
 }
+
+.investment-account {
+  background: rgba(255, 204, 247, 0.6);
+  overflow: hidden;
+}
+
+.investment-account .bi{
+  
+  color: #7d016a;
+}
+
