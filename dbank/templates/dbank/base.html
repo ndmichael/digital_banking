@@ -15,24 +15,32 @@
 <body>
     <nav class="navbar navbar-expand-sm ">
         <div class="container">
-          <a class="navbar-brand text-primary" href="#">Navbar</a>
+          <a class="navbar-brand text-primary" href="#">Banking</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Investments</a>
+                <a class="nav-link" href="{% url 'investments' %}">Investments</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">VCards</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Cards
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'visagold' %}">Visa Gold Credit</a></li>
+                  <li><a class="dropdown-item" href="{% url 'visaInfinite' %}">Visa Infinite Credit</a></li>
+                  <li><a class="dropdown-item" href="#">Visa Platinum Credit</a></li>
+                </ul>
               </li>
+      
               <li class="nav-item">
                 <a class="nav-link" href="#">Account & Deposit</a>
               </li>
@@ -49,6 +57,7 @@
     {% block content %} {% endblock content %}
 
     <script src="{% static 'dbank/js/b52js/bootstrap.min.js' %}"></script>
+    <!-- <script src="{% static 'dbank/js/b52js/bootstrap.bundle.min.js' %}"></script> -->
 </body>
 </html>
 
