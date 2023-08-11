@@ -192,7 +192,7 @@ p{
   }
 
  .others a:hover > h4{
-    color: hsl(220, 80%, 75%);
+    color: var(--primary-color);
     transition: .5s ease-in;
     text-shadow: 0 2px 5px rgba(0,0,0,0.6);
   }
