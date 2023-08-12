@@ -427,3 +427,18 @@ p{
 }
 
 
+/**
+**   property footer
+**/
+footer h3, footer h4{
+  color: white;
+}
+
+footer a{
+  text-decoration: none;
+  color: inherit;
+}
+
+footer p{
+  color: #daedff;
+}
