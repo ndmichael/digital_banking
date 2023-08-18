@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, about, investments, visagold, visainfinite, bank_account_types
+from .views import index, about, investments, visagold, visainfinite, visaplatinum, bank_account_types
 
 
 
@@ -10,6 +10,6 @@ urlpatterns = [
     path('investments/', investments, name="investments"),
     path('virtualcards/visagold', visagold, name="visagold"),
     path('virtualcards/visainfinite', visainfinite, name="visaInfinite"),
-    path('virtualcards/visaplatinum', visainfinite, name="visaInfinite"),
+    path('virtualcards/visaplatinum', visaplatinum, name="visaplatinum"),
     path('banking/accounts/types', bank_account_types, name="baccounts"),
 ]
