@@ -20,44 +20,50 @@
     </div>
 </section>
 
-<section class="bg-light py-5 px-2 vcards">
+<section class="py-5 px-2 vcards">
     <div class="container">
         <section class="row mb-5">
             <div class="col-12 col-md-8 mx-auto text-center">
                 <h3>Key Features and Benefits.</h3>
             </div>
         </section>
-        <section class="row g-4">
-            <div class="col-6 col-md-3">
-                <div class="bg-white shadow-sm p-4 rounded-5">
-                    <i class=" bi bi-credit-card-2-back "></i>
-                    <h4 class="pt-4 pb-3">Interest Free credit.</h4>
-                    <p>You don't need to pay any interest.</p>
+        <section class="row g-5">
+            <article class="col-12 col-md-7 align-self-center">
+                    <img src="{% static 'dbank/images/platinumcard.jpg' %}" alt=""  class="img-fluid rounded-5" style="height: 500px; width: 100%; object-fit: cover;">
+            </article>
+            <article class="col-12 col-md-5 ">
+                <div class="row mb-4 bg-white shadow-sm p-4 rounded-5">
+                    <i class=" bi bi-credit-card-2-back col-4"></i>
+                    <div class="ps-4 col-8">
+                        <h4>Interest Free credit.</h4>
+                        <p>You don't need to pay any interest.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="bg-white shadow-sm p-4 rounded-5">
-                    <i class=" bi bi-aspect-ratio"></i>
-                    <h4 class="pt-4 pb-3">Making Repayments.</h4>
-                    <p>Settle your internet bill through our online banking.</p>
+                <div class="row mb-4 bg-white shadow-sm p-4 rounded-5">
+                    <i class=" bi bi-aspect-ratio col-4"></i>
+                    <div class="ps-4 col-8">
+                        <h4 class="pt-4 pb-3">Making Repayments.</h4>
+                        <p>Settle your internet bill through our online banking.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="bg-white shadow-sm p-4 rounded-5">
-                    <i class=" bi bi-credit-card-2-front"></i>
-                    <h4 class="pt-4 pb-3">Interest Free credit.</h4>
-                    <p>You don't need to pay any interest.</p>
+                <div class="row mb-4 bg-white shadow-sm p-4 rounded-5">
+                    <i class="col-4 bi bi-credit-card-2-front"></i>
+                    <div class="col-8">
+                        <h4 class="pt-4 pb-3">Interest Free credit.</h4>
+                        <p>You don't need to pay any interest.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="bg-white shadow-sm p-4 rounded-5">
-                    <i class=" bi bi-check2-all"></i>
-                    <h4 class="pt-4 pb-3">Accepted Everywhere.</h4>
-                    <p>Over 23M merchant points and online payments.</p>
+                <div class="row mb-4 bg-white shadow-sm p-4 rounded-5">
+                    <i class="col-4 bi bi-check2-all"></i>
+                    <div class="col-8">
+                        <h4 class="pt-4 pb-3">Accepted Everywhere.</h4>
+                        <p>Over 23M merchant points and online payments.</p>
+                    </div>
                 </div>
-            </div>
+            </article>
         </section>
     </div>
 </section>
+
 
 {% endblock content %}
