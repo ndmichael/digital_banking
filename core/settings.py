@@ -81,13 +81,15 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'digital_bank',
+        'NAME': 'digitalbank',
         'USER': 'postgres',
         'PASSWORD': 'daliMIKE0417',
-        'HOST': 'postgres',
+        'HOST': 'localhost',
         'PORT': 5432,
     }
 }
+
+AUTH_USER_MODEL = "clients.CustomUser"
 
 
 # Password validation
