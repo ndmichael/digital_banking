@@ -1,0 +1,66 @@
+{% extends "account/base.html" %}  {% load crispy_forms_tags %} {% load i18n %} {% block head_title %}{% trans "Signup" %}{% endblock %} {% block content %}
+
+
+<div class="container py-5">
+    <div class="row">
+        <div class="offset-md-2 col-12 col-md-8">
+            <div class="form-override">
+                <h1>{% trans "Create Account" %}</h1>
+                <br />
+                <form class="signup" id="signup_form" method="post" enctype="multipart/form-data" action="{% url 'account_signup' %}">
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.first_name|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.last_name|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.username|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.email|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.password1|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.password2|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-3 mb-0">
+                            {{ form.balance|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-3 mb-0">
+                            {{ form.country|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-3 mb-0">
+                            {{ form.dob|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-3 mb-0">
+                            {{ form.gender|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-12 mb-0">
+                            {{ form.address|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-12 mb-0">
+                            {{ form.image|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="pt-4">
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
+                        <button class="btn btn-danger btn-lg" type="submit">
+              {% trans "CreateAccount" %} &raquo;
+            </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
