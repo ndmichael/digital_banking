@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # allauth
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
 ]
 
 MIDDLEWARE = [
@@ -131,6 +135,24 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = Path(BASE_DIR, "media")
 MEDIA_URL = "/media/"
+
+
+# django-allauth registraion settings
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "optional"
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 7
+ACCOUNT_AUTHENTICATION_METHOD = "username"
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "index"
+
+# 1 day
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
