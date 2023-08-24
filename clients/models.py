@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import PermissionsMixin, UserManager
+from django.contrib.auth.models import PermissionsMixin, UserManager, BaseUserManager
 from django.contrib.auth.validators import ASCIIUsernameValidator
 from django.contrib.auth.base_user import AbstractBaseUser
 # from django.contrib.postgres.fields import CICharField, CIEmailField
@@ -14,10 +14,10 @@ from django.core.mail import send_mail
 # Create your models here.
 
 class CustomUserManager(UserManager):
-    def get_by_natural_key(self, username, email):
+    def get_by_natural_key(self, username):
         case_insensitive_username_field = '{}__iexact'.format(self.model.USERNAME_FIELD)
-        case_insensitive_email_field = '{}__iexact'.format(self.model.USERNAME_FIELD)
-        return self.get(**{case_insensitive_username_field: username, case_insensitive_email_field: email})
+        return self.get(**{case_insensitive_username_field: username})
+
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
