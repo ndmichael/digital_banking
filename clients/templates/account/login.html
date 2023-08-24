@@ -8,24 +8,20 @@
 
 {% get_providers as socialaccount_providers %}
 
-<div class="container my-5" style="min-height: 65vh;">
-    <div class="row pb-4">
-        <div class="col-12 col-sm-6 mx-auto text-center">
-            <p class=" text-primary">Welcome Back.</p>
-        </div>
-    </div>
+<div class="container">
     <div class="row">
         <div class="offset-md-2 col-12 col-md-5 mx-auto">
-            <div class=" p-4 border border-dark rounded-7">
-                <h1 class="h4 text-center">{% trans "Login Into Account" %}
+            <div class=" p-4 shadow bg-white rounded-5">
+                <h1 class="h3 text-center">{% trans "Login Into Account" %}
                 </h1>
+                <p class="text-center text-muted">Kindly login with your user ID or email.</p>
                 <br />
                 <form class="login" method="POST" action="{% url 'account_login' %}">
                     {% csrf_token %} {{ form|crispy }} {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
 
                     <div class="py-4">
-                        <button class="btn btn-danger btn-lg btn-block primaryAction" type="submit">{% trans "Log In" %}</button>
+                        <button class="btn btn-primary btn-lg col-12 primaryAction" type="submit">{% trans "Log In" %}</button>
                     </div>
                     <a class="button secondaryAction" href="{% url 'account_reset_password' %}">
                         {% trans "Forgot Password?" %}
