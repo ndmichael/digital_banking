@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    margin-left: -300px;
+    background-color: #080808;
+    transition: .4s;
+}
+
+.nav-link{
+    font-size: 1.25em;
+}
+
+.navlink.active,
+.nav-link.focus,
+.nav-link.hover{
+    background: #fff;
+    color: #000;
+
+}
+
+h1{
+    color: blue;
+    font-weight: bolder;
+    font-size: 9em;
+}

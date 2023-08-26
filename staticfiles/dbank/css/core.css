@@ -1,0 +1,444 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* word-wrap: break-word; */
+}
+
+:root{
+  --primary-color: #4169E1;
+  --secondary-bg-one: #FAF9F6;
+  --secondary-bg-two: #FFF7D6;
+}
+
+.btn-primary{
+  background: var(--primary-color);
+}
+
+.text-primary{
+  color: var(--primary-color);
+}
+
+.btn {
+  --bs-btn-padding-x: 2.75rem;
+  --bs-btn-padding-y: 0.75rem;
+  font-weight: bold;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0px 15px 15px -10px rgba(21, 10, 141, 0.4);
+
+  
+}
+
+body{
+  background: var(--secondary-bg-one) !important;
+}
+
+
+h1, h2, h3, h4{
+    color: black;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    /* line-height: 45px ; */
+    letter-spacing: 0.02em;
+}
+
+h1{
+    font-size: 3.5rem;
+    font-weight: bolder;
+}
+h2{
+    font-size: 3.2rem;
+}
+
+h3{
+    font-size: 3rem;
+}
+
+p{
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.navbar-expand-sm {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    background: #daedff;
+    padding: 20px 5px 20px 5px !important;
+  }
+
+
+  .nav-link{
+    color: #000;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 20px !important;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;;
+  }
+
+  .nav-link:hover{
+    color: navy;
+  }
+
+  /** **/
+  .c-item{
+    height: 90vh;
+  } */
+
+.c-img{
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(1);
+  }
+
+  .drk:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: black;
+    opacity: 0.6;
+    z-index: 10;
+  }
+
+  .carousel-caption{
+    display: relative;
+    top: 25vh;
+    z-index: 100;
+  }
+
+  .carousel-caption h1{
+    font-weight: 800;
+    text-shadow: 2px 2px 5px navy;
+    color: white;
+  }
+
+  .carousel-caption p{
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    text-shadow: 2px 2px 5px navy;
+  }
+
+  .carousel-dark .carousel-control-next-icon, .carousel-dark .carousel-control-prev-icon {
+    filter: invert(1) grayscale(100);
+    color: #dee2e6;
+    /* transform: translateX(-200px); */
+  }
+
+  .carousel-dark .carousel-indicators [data-bs-target] {
+    background-color: #fff;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .key-services{
+    padding: 3.5rem 10px 10px 0;
+  }
+
+  .about, .others, #partners{
+    padding: 4rem 10px 4rem 10px;
+  }
+
+  .investment{
+    padding: 5rem 10px 4rem 10px;
+    background: black;
+    color: white;
+  }
+
+  .investment h3, .investment h4{
+    color: white;
+    padding: 10px 0 10px 0;
+  }
+
+  .investment p{
+    color: #98a2b3;
+  }
+
+  .why-us{
+    background: #0e101f;
+     border:1px solid #181c22; 
+    border-radius: 16px;
+    /* box-shadow:  0px 4px 24px rgba(23, 92, 230, 0.15) ; */
+  }
+
+  .investment  .bi {
+    color: rgb(80, 69, 238);
+    font-size: 20px;
+    background: #3c53d15e;
+    /* padding: 10px; */
+    height: 40px;
+    width: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+  }
+
+  .others a{
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    transition: .5s ease-in-out;
+    
+  }
+
+ .others a:hover > h4{
+    color: var(--primary-color);
+    transition: .5s ease-in;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+  }
+
+  .others a:hover::after{
+    transform: translateY(-20px);
+    transition: .5s;
+    z-index: -1;
+  }
+
+.others h4{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 100;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+}
+
+.creditcard{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(rgb(0,0,0,0.4), rgba(0,0,0,0.6)), url("/static/dbank/images/ccard2.jpg");
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+    padding: 10px;
+    transition: .5s ease-in-out;    
+    /* z-index: 500; */
+  }
+
+.creditcard::after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: -10px;  
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: #57d276;
+    z-index: -10;
+    transition: .5s ease-in;   
+}
+
+  .savings{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(rgb(0,0,0,0.4), rgba(0,0,0,0.6)), url("/static/dbank/images/slide2.jpg");
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+  }
+
+.savings::after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: -10px;  
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: #7d85c7;
+    z-index: -10;
+    transition: .5s ease-in;   
+}
+
+  .investment-bank{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(rgb(0,0,0,0.4), rgba(0,0,0,0.6)), url("/static/dbank/images/business-investment.jpg");
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+  }
+
+.investment-bank::after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: -10px;  
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    /* background: #7d85c7; */
+    background: #c7d25f;
+    z-index: -10;
+    transition: .5s ease-in;   
+}
+
+#partners  img {
+    height: 70px;
+    width: 100%;
+}
+
+/*
+*   about page css
+*/
+.about .mission{
+    padding: 4em 30px;
+    background: #57d276;
+    border-radius: 20px;
+}
+
+.about .vision{
+    padding: 4em 30px;
+    background: #7c70c2;
+    border-radius: 20px;
+}
+
+.about .mission h2{
+    padding-top: 20px;
+    color: #006e1c;   
+}
+
+.about .vision h2{
+    padding-top: 20px;
+    color: #14017d; 
+}
+
+
+
+
+/*
+*  Cards css
+*/
+
+#visagold{
+  width: 100%;
+  height: 80vh;
+  padding-top: 15vh;
+  background: url("/static/dbank/images/fetchcash.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+#visagold .write-up{
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  border: 1px solid rgb(0,0,0,0.2);
+}
+
+.vcards .bi {
+    font-size: 2rem;
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+}
+
+.vcards .bi-aspect-ratio{
+  background: rgba(175, 172, 255, 0.6);
+  color: #14017d;
+}
+
+.vcards .bi-credit-card-2-back{
+  background: rgba(255, 172, 242, 0.6);
+  color: #7d016a;
+}
+
+.vcards .bi-credit-card-2-front{
+  background: rgba(172, 255, 243, 0.6);
+  color: #016c7d;
+}
+
+.vcards  .bi-check2-all{
+  background: rgba(255, 249, 219, 0.6);
+  color: #ae6a00;
+}
+
+.vcards p{
+  color: #6c757d !important;
+}
+
+
+/*
+* banking accounts
+*/
+
+.elite-account{
+  background: rgba(255, 249, 219, 0.6);
+  overflow: hidden;
+  border-radius: 20px;
+  /* color: #ae6a00; */
+}
+
+#baccounts img{
+  transform: translateY(10px);
+}
+
+#baccounts .bi{
+  font-size: 1.5rem;
+  height: 30px;
+  width: 30px;
+  margin-bottom: 10px;
+}
+
+.elite-account .bi{
+  color: orange;
+}
+
+.investment-account {
+  background: rgba(255, 204, 247, 0.6);
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.investment-account .bi{
+  color: #7d016a;
+}
+
+.fixed-account {
+  background: rgba(192, 255, 246, 0.6);
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.fixed-account .bi{
+  color: #016c7d;
+}
+
+
+/**
+**   property footer
+**/
+footer h3, footer h4{
+  color: white;
+}
+
+footer a{
+  text-decoration: none;
+  color: inherit;
+}
+
+footer p{
+  color: #daedff;
+}
