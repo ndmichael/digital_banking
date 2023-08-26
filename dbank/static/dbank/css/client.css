@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* word-wrap: break-word; */
+}
+
+.navbar{
+    width: 250px;
+    height: 100vh;
+    position: fixed; 
+    background: #3c24aa;
+    z-index: 1;
+    overflow-y: hidden;
+
+}
+
+.nav-link{
+    font-size: 1.25em;
+    z-index: 100;
+    color:  whitesmoke;
+    margin-top: 10px;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
+
+/* .nav-link:active,
+.nav-link:focus,
+.nav-link:hover{
+    background-color: #fff;
+    color: black;
+} */
+
+#tab-content{
+    width: 100%;
+    padding: 15px;
+    padding-left: 270px;
+    position: absolute;
+}
+
+
