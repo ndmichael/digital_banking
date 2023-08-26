@@ -7,11 +7,15 @@ from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 from django_countries.fields import CountryField
 from django.core.mail import send_mail
+# from dateutil.relativedelta import relativedelta
 
 
 
 
 # Create your models here.
+
+def today():
+    return timezone.now().date
 
 class CustomUserManager(UserManager):
     def get_by_natural_key(self, username):
@@ -98,3 +102,52 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def email_user(self, subject, message, from_email=None, **kwargs):
         """Send an email to this user."""
         send_mail(subject, message, from_email, [self.email], **kwargs)
+
+
+class Savings(models.Model):
+    user = models.OneToOneField(CustomUser, unique=True, on_delete=models.CASCADE, related_name="savings")
+    number = models.CharField(max_length=20,  null=True, blank=True)
+    balance = models.DecimalField(max_digits=10, decimal_places=2)
+    pin = models.CharField(max_length=4, null=True, blank=True)
+    created = models.DateTimeField(default=timezone.now)
+
+
+class FixedDeposit(models.Model):
+    interest_type = (
+        ('monthly', 'MONTHLY'),
+        ('yearly', 'YEARLY')
+    )
+    user = models.OneToOneField(CustomUser, unique=True, on_delete=models.CASCADE, related_name="fixeddeposit")
+    number = models.CharField(max_length=20,  null=True, blank=True)
+    balance = models.DecimalField(max_digits=10, decimal_places=2)
+    pin = models.CharField(max_length=4, null=True, blank=True)
+    created = models.DateTimeField(default=timezone.now)
+    int_type = models.CharField(default='gold', choices=interest_type, max_length=10)
+    duration = models.DateField(default=today)
+    
+    def interest(self):
+        pass
+
+
+class Investment(models.Model):
+    pass
+
+
+class Card(models.Model):
+    cardTypes = (
+        ('gold', 'GOLD'),
+        ('infinite', 'INFINITE'),
+        ('platinum', 'PLATINUM')
+    )
+    user = models.ForeignKey(CustomUser, unique=False, on_delete=models.CASCADE, related_name="client")
+    cardtype = models.CharField(default='gold', choices=cardTypes, max_length=10)
+    number = models.CharField(max_length=16,  null=True, blank=True)
+    cvv = models.CharField(max_length=3,  null=True, blank=True)
+    zipcode = models.CharField(max_length=7,  null=True, blank=True)
+    status = models.BooleanField(default=True)
+    address = models.TextField()
+    created = models.DateTimeField(default=timezone.now)
+
+    def ExpiringDate(self):
+        expires = self.created - timezone.timedelta(days=1460)
+        return expires
