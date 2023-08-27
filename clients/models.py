@@ -111,6 +111,9 @@ class Savings(models.Model):
     pin = models.CharField(max_length=4, null=True, blank=True)
     created = models.DateTimeField(default=timezone.now)
 
+    def __str__(self) -> str:
+        return f"{self.number}"
+
 
 class FixedDeposit(models.Model):
     interest_type = (
@@ -151,3 +154,20 @@ class Card(models.Model):
     def ExpiringDate(self):
         expires = self.created - timezone.timedelta(days=1460)
         return expires
+
+
+class Transfer(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="transfer")
+    account = models.ForeignKey(Savings, on_delete=models.CASCADE, related_name="transfer")
+    currency = models.CharField(max_length=10, default="US DOLLAR")
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    swift_code = models.CharField(max_length = 11, blank=True, null=True)
+    receivers_name = models.CharField(max_length=50)
+    beneficiary_account_number = models.CharField(max_length=20)
+    beneficiary_bank_address = models.TextField()
+    country = CountryField()
+    dotf = models.DateTimeField(default=timezone.now)
+    is_success =  models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.receivers_name}'
