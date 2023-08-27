@@ -5,5 +5,5 @@ from .views import profile
 
 
 urlpatterns = [
-    path('profile/', profile , name="clientprofile"),
+    path('profile/<str:username>', profile , name="clientprofile"),
 ]
