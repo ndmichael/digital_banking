@@ -35,6 +35,10 @@
                     Make Transfer
                 </a>
             </li>
+            <a href="#" class="nav-link ps-4" data-bs-toggle="tab">
+                <i class=" bi bi-send-plus" style="font-size: 1.2em;"></i>
+                <span class="text-dark">Logout</span>
+            </a>
         </ul>
 
     </nav>
@@ -43,8 +47,9 @@
         <div id="dashboard" class="container tab-pane active">
             <section class="row">
                 <div class="col-12">
-                    <h1>Welcome, <small class="text-muted">Michael</small></h1>
+                    <h1>Welcome, <small class="text-muted">{{user.username}}</small></h1>
                 </div>
+                <p>{{user.get_full_name}}</p> 
             </section>
         </div>
         <div id="cards" class="container tab-pane fade">
