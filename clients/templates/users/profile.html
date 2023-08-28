@@ -13,31 +13,37 @@
         <ul class="nav nav-tabs d-flex flex-column mt-5 w-100" id="myTab" role="tablist">
             <li class="nav-item w-100">
                 <a href="#dashboard" class="nav-link active ps-4" data-bs-toggle="tab">
-                    <i class=" bi bi-house-door" style="font-size: 1.2em;"></i>
+                    <i class=" bi bi-house-door" style="font-size: 1em;"></i>
                     Dashboard
                 </a>
             </li>
             <li class="nav-item w-100">
+                <a href="#account" class="nav-link ps-4" data-bs-toggle="tab">
+                    <i class=" bi bi-wallet2" style="font-size: 1em;"></i>
+                    Account
+                </a>
+            </li>
+            <li class="nav-item w-100">
                 <a href="#cards" class="nav-link ps-4" data-bs-toggle="tab">
-                    <i class=" bi bi-credit-card-2-back" style="font-size: 1.2em;"></i>
+                    <i class=" bi bi-credit-card-2-back" style="font-size: 1em;"></i>
                     Cards
                 </a>
             </li>
             <li class="nav-item w-100">
                 <a href="#investment" class="nav-link ps-4" data-bs-toggle="tab">
-                    <i class=" bi bi-bar-chart-line" style="font-size: 1.2em;"></i>
+                    <i class=" bi bi-bar-chart-line" style="font-size: 1em;"></i>
                     Investment
                 </a>
             </li>
             <li class="nav-item w-100">
                 <a href="#transfer" class="nav-link ps-4" data-bs-toggle="tab">
-                    <i class=" bi bi-send-plus" style="font-size: 1.2em;"></i>
+                    <i class=" bi bi-send-plus" style="font-size: 1em;"></i>
                     Make Transfer
                 </a>
             </li>
-            <a href="#" class="nav-link ps-4" data-bs-toggle="tab">
-                <i class=" bi bi-send-plus" style="font-size: 1.2em;"></i>
-                <span class="text-dark">Logout</span>
+            <a href="{% url 'account_logout' %}" class="nav-link ps-4">
+                <i class=" bi bi-door-closed" style="font-size: .7em;"></i>
+                <small class="text-muted">Logout</small>
             </a>
         </ul>
 
@@ -49,7 +55,88 @@
                 <div class="col-12">
                     <h1>Welcome, <small class="text-muted">{{user.username}}</small></h1>
                 </div>
-                <p>{{user.get_full_name}}</p> 
+                <div class="col-12 col-md-8 mx-auto mt-5">
+                    <table class="table table-borderless border-center">
+
+                        <tbody>
+                          <tr>
+                            <td>First name:</td>
+                            <td class="text-end"><b>{{user.first_name}}</b></td>
+                          </tr>
+                          <tr>
+                            <td>Last name:</td>
+                            <td class="text-end"><b>{{user.last_name}}</b></td>
+                          </tr>     
+                          <tr>
+                            <td>Email:</td>
+                            <td class="text-end"><b>{{user.email}}</b></td>
+                          </tr>
+                          <tr>
+                            <td>Address</td>
+                            <td class="text-end"><b>{{user.address}}</b></td>
+                          </tr>
+                          <tr>
+                            <td>Country</td>
+                            <td class="text-end"><b>{{user.country.name}}</b></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </section>
+            <section class="row pt-5">
+                <div class="col-12 col-md-8 mx-auto p-5 bg-white shadow-sm rounded-4">
+                    <h3 class="text-primary">
+                        No recent transactions
+                    </h3>
+                </div>
+            </section>
+        </div>
+        <!-- account section-->
+        <div id="account" class="container tab-pane fade">
+            <section class="row pt-5">
+                <div class="col-12">
+                    <table class="table table-borderless">
+                        <h5>Bank Account Details</h5>
+                        <thead>
+                            <tr>
+                                <th class="text-muted">Account Number</th>
+                                <th class="text-muted">Account Balance</th>
+                                <th class="text-muted">Available Balance</th>
+                                <th class="text-muted">Account Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-primary"><p>{{account.number}}</p></td>
+                                <td><p>${{account.balance}}</p></td>
+                                <td><p>${{account.balance}}</p></td>
+                                <td class="text-success"><p><b>Active</b></p></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-12">
+                    <table class="table table-light table-borderless shadow-sm">
+                        <tbody>
+                            <tr>
+                                <td class="text-muted p-4">Account Type:</td>
+                                <td class=" text-primary fw-bold  p-4">Savings</td>
+                            </tr>
+                            <tr >
+                                <td class="text-muted p-4">Currency:</td>
+                                <td class="text-primary fw-bold p-4">$ (Dollars)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section class="row g-5">
+                <div class="col-12 col-md-6">
+                    <div class="bg-white shadow-sm p-5">box will be here</div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="bg-white shadow-sm p-5">box will be here</div>
+                </div>
             </section>
         </div>
         <div id="cards" class="container tab-pane fade">
@@ -68,11 +155,10 @@
         </div>
         <div id="transfer" class="container tab-pane fade">
             <section class="row">
-                <div class="col-12 col-md-6 mx-auto">
-                        <div class="text-center bg-primary  p-3">
-                            <h4 class="text-white p-0 m-0">INTERNATIONAL TRANSFER FORM</h4>
-                        </div>
-                        <form method="post" action="" class="p-2 p-md-5">
+                <div class="col-12 col-md-10  mx-auto">
+                    <div class="bg-white shadow rounded-5 p-2 p-md-5">
+                        <h3 class="py-4">International Transfer Form.</h3>
+                        <form method="post" action="">
                             {% csrf_token %}
                             <div class="row">
                                 <div class="form-group col-12 col-md-6 mb-3">
@@ -98,13 +184,13 @@
                                 </div>
         
                                 <div class="pt-4">
-                                    <button class="btn btn-lg btn-primary col-12" type="submit">
+                                    <button class="btn btn-lg btn-primary col-12 col-md-6" type="submit">
                                         SUBMIT TRANSFER
                                     </button>
                                 </div>
                             </div>
                         </form>
-        
+                    </div>
                 </div>
             </section>
           </div>
