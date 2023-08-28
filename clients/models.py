@@ -71,7 +71,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     )
     date_joined = models.DateTimeField(_("date joined"), default=timezone.now)
 
-    objects = CustomUserManager()
+    objects = UserManager()
 
     EMAIL_FIELD = "email"
     USERNAME_FIELD = "username"
@@ -110,6 +110,7 @@ class Savings(models.Model):
     balance = models.DecimalField(max_digits=10, decimal_places=2)
     pin = models.CharField(max_length=4, null=True, blank=True)
     created = models.DateTimeField(default=timezone.now)
+    status = models.BooleanField(default=True)
 
     def __str__(self) -> str:
         return f"{self.number}"
@@ -157,8 +158,13 @@ class Card(models.Model):
 
 
 class Transfer(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="transfer")
-    account = models.ForeignKey(Savings, on_delete=models.CASCADE, related_name="transfer")
+    status_choices = (
+        ('success', 'SUCCESS'),
+        ('pending', 'PENDING'),
+        ('failed', 'FAILED')
+    )
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="cl_transfer")
+    account = models.ForeignKey(Savings, on_delete=models.CASCADE, related_name="acc_transfer")
     currency = models.CharField(max_length=10, default="US DOLLAR")
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     swift_code = models.CharField(max_length = 11, blank=True, null=True)
@@ -167,7 +173,8 @@ class Transfer(models.Model):
     beneficiary_bank_address = models.TextField()
     country = CountryField()
     dotf = models.DateTimeField(default=timezone.now)
-    is_success =  models.BooleanField(default=False)
+    is_success =  models.CharField(choices=status_choices, default="pending")
+    reference = models.CharField(null=False, blank=False, max_length=15)
 
     def __str__(self):
         return f'{self.receivers_name}'
