@@ -1,5 +1,8 @@
 from allauth.account.forms import SignupForm, LoginForm
 from django import forms
+from django_countries.fields import CountryField
+from crispy_bootstrap5.bootstrap5 import FloatingField
+from django_countries.widgets import CountrySelectWidget
 
 
 
@@ -12,3 +15,32 @@ class SelfLoginForm (LoginForm):
             {'class': 'form-control-lg rounded-4  mb-4'})
         self.fields["password"].widget.attrs.update(
             {'class': 'form-control-lg rounded-4 mb-4 '})
+        
+class TransferForm(forms.Form):
+    beneficiary_bank_address = forms.CharField(widget=forms.Textarea(attrs={'rows':'3'}))
+    pin = forms.IntegerField()
+    amount = forms.DecimalField()
+    swift_code = forms.CharField(max_length=34, required=False)
+    receivers_name = forms.CharField(max_length=30)
+    beneficiary_account_number = forms.CharField(max_length=15)
+    country = CountryField(blank_label="(Select country)").formfield(widget =  CountrySelectWidget())
+    
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        
+
+        self.fields["amount"].widget.attrs.update(  
+            {'class': 'form-control-lg '})
+        self.fields['amount'].label = 'Amount $'
+        
+        self.fields["country"].widget.attrs.update(
+            {'class': 'form-control-lg rounded-4'})
+        self.fields["pin"].widget.attrs.update(
+            {'class': 'form-control-lg rounded-4'})
+        self.fields["swift_code"].widget.attrs.update(
+            {'class': 'form-control-lg rounded-4'})
+        self.fields["receivers_name"].widget.attrs.update(
+            {'class': 'form-control-lg rounded-4'})
+        self.fields["beneficiary_account_number"].widget.attrs.update(
+            {'class': 'form-control-lg rounded-4'})
