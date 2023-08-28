@@ -1,4 +1,4 @@
-{% extends 'users/base.html' %} {% load static %} 
+{% extends 'users/base.html' %} {% load static %} {% load crispy_forms_tags %}
 
 
 {% block content %}
@@ -68,8 +68,43 @@
         </div>
         <div id="transfer" class="container tab-pane fade">
             <section class="row">
-                <div class="col-12">
-                    <h1>This is the transfer section</h1>
+                <div class="col-12 col-md-6 mx-auto">
+                        <div class="text-center bg-primary  p-3">
+                            <h4 class="text-white p-0 m-0">INTERNATIONAL TRANSFER FORM</h4>
+                        </div>
+                        <form method="post" action="" class="p-2 p-md-5">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="form-group col-12 col-md-6 mb-3">
+                                    {{form.amount|as_crispy_field}}             
+                                </div>
+                                <div class="form-group col-12 col-md-6 mb-3">
+                                    {{ form.swift_code|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-12 col-md-8 mb-3">
+                                    {{ form.receivers_name|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-4 col-md-4 mb-3">
+                                    {{ form.pin|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-8 col-md-6 mb-4">
+                                    {{ form.beneficiary_account_number|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-12 col-md-6">
+                                    {{ form.country|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-12">
+                                    {{ form.beneficiary_bank_address|as_crispy_field }}
+                                </div>
+        
+                                <div class="pt-4">
+                                    <button class="btn btn-lg btn-primary col-12" type="submit">
+                                        SUBMIT TRANSFER
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+        
                 </div>
             </section>
           </div>
