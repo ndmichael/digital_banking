@@ -1,0 +1,119 @@
+{% extends 'dbank/base.html' %} {% load static %} 
+
+
+{% block content %}
+
+<section id="staffadmin" class=" bg-light">
+    <div class="container py-5">
+        <section class="row py-4">
+            <article class="col-8 col-md-6">
+                <div class="d-flex">
+                    <img class="img-fluid rounded-circle shadow" style="height: 100px; width: 100px; object-fit: cover;" src="{{ request.user.profile.photo_url }}">
+                    <span class="ps-4 align-self-center">
+                        <h5>{{request.user.first_name}} {{request.user.last_name}}</h5>
+                        <b class="text-danger">admin</b>
+                    </span>
+                </div>
+            </article>
+            <article class="col-4 col-md-6 text-end">
+                <a href="" class=" btn btn-primary">
+                    Add Client
+                </a>
+            </article>
+        </section>
+        <section class="row">
+            <article class="col-12 col-md-4 mb-3">
+                <a href="" class="shadow-sm py-4 px-3 rounded-4 bg-white hvr-float-shadow">
+                    <div class=" d-flex  justify-content-around">
+                        <i class="bi bi-person-circle text-danger "></i>
+                        <div class="ps-3">
+                            <h4>Manage All Accounts</h4>
+                            <p class="text-muted">
+                                delete, change pin, password...
+                            </p>
+                            <span><b>{{total_clients}}</b> Active
+                                Accounts</span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+            <article class="col-12 col-md-4 mb-3">
+                <a href="" class="shadow-sm py-4 px-3 border-start border-5 border-primary bg-white hvr-float-shadow d-block">
+                    <div class=" d-flex  justify-content-around">
+                        <i class="bi bi-credit-card text-primary  "></i>
+                        <div class="ps-3">
+                            <h4>Transfer Request</h4>
+                            <p class="text-muted">
+                                Accept or Reject...
+                            </p>
+                            <span><b>{{pending_transfers}}</b> Pending</span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+            <article class="col-12 col-md-4 mb-3">
+                <a href="" class="shadow-sm py-4 px-3 rounded-4 bg-white hvr-float-shadow">
+                    <div class=" d-flex  justify-content-around">
+                        <i class="bi bi-currency-exchange text-secondary "></i>
+                        <div class="ps-3">
+                            <h4>Load Balance</h4>
+                            <p class="text-muted">
+                                load, update balance...
+                            </p>
+                            <span>All Accounts</span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        </section>
+        <section class="row mt-5">
+            <div class="col-12 col-md-12">
+                <h4 class="pt-4">List Of Recently Created Clients</h4>
+                <table class="table table-responsive bg-white shadow">
+                    <thead class=" bg-primary text-white">
+                        <tr>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">Acc Number</th>
+                            <th scope="col">Balance</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for client in clients %}
+                        <tr>
+                            <td>
+                                <b>
+                                    <a href=""
+                                        class="text-primary">
+                                        {{client.user.last_name}}
+                                        {{client.user.first_name}}
+                                    </a>
+                                </b>
+                            </td>
+                            <td>
+                                {{client.user.email}}
+                            </td>
+                            <td>{{ client.country.name}}</td>
+                            <td>{{client.account_number }}</td>
+                            <td>&#36;{{client.balance}}</td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-primary text-light">
+                                    Add History
+                                </a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <h1>No Registered Clients</h1>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</section>
+
+{% endblock content %}
