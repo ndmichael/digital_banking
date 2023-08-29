@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'dbank',
     'clients',
+    'admin_dashboard',
     'django_countries',
     'django.contrib.admin',
     'django.contrib.auth',
