@@ -169,7 +169,8 @@ LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_REDIRECT_URL = "/"
 
 ACCOUNT_FORMS = {
-    "login": "clients.forms.SelfLoginForm"
+    "login": "clients.forms.SelfLoginForm",
+    "signup": "admin_dashboard.forms.MyCustomSignupForm"
 }
 
 # Default primary key field type
