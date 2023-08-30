@@ -3,6 +3,7 @@ from django import forms
 from django_countries.fields import CountryField
 from crispy_bootstrap5.bootstrap5 import FloatingField
 from django_countries.widgets import CountrySelectWidget
+from clients.models import CustomUser
 
 
 
@@ -44,3 +45,13 @@ class TransferForm(forms.Form):
             {'class': 'form-control-lg rounded-4'})
         self.fields["beneficiary_account_number"].widget.attrs.update(
             {'class': 'form-control-lg rounded-4'})
+        
+
+class UserUpdateForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['last_name', 'first_name', 'address', 'country', 'dob', 'mobile_number', 'image']
+
+
+class DeactivateUser(forms.Form):
+    deactivate = forms.BooleanField()
