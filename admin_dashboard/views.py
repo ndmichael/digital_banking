@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import MyCustomSignupForm
+from clients.models import  CustomUser
 
 # Create your views here.
 
@@ -54,3 +55,11 @@ def register(request):
         'title': "Registeration"
     }
     return render(request, 'dashboard/register.html', context)
+
+
+def all_users(request):
+    users = get_object_or_404(CustomUser, is_active=True)
+    context = {
+        'users': 'users',
+    }
+    return render(request, context)
