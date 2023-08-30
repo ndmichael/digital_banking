@@ -1,0 +1,142 @@
+{% extends 'dbank/base.html' %} {% load static %} 
+
+
+{% block content %}
+
+<section id="staffadmin">
+    <div class="container py-5">
+        <section class="row py-4">
+            <article class="col-8 col-md-6">
+                <div class="d-flex">
+                    <img class="img-fluid rounded-circle shadow" style="height: 100px; width: 100px; object-fit: cover;" src="{{ request.user.profile.photo_url }}">
+                    <span class="ps-4 align-self-center">
+                        <h5>{{request.user.get_full_name}}</h5>
+                        <b class="text-danger">admin</b>
+                    </span>
+                </div>
+            </article>
+            <article class="col-4 col-md-6 text-end">
+                <a href="" class=" btn btn-primary">
+                    Add Client
+                </a>
+            </article>
+        </section>
+        <section class="row g-5 pt-5">
+            <article class="col-12 col-md-4 mb-3">
+                <a href="" class="shadow-sm py-4 px-3 border-start border-success border-5  hvr-float-shadow actions">
+                    <div class=" d-flex  justify-content-around">
+                        <div class="ps-3">
+                            <h4>Manage Accounts</h4>
+                            <p class="text-muted">
+                                delete, change pin...
+                            </p>
+                            <span><b>{{total_clients}}</b> Active
+                                Accounts</span>
+                        </div>
+                        <i class="bi bi-person-circle "></i>
+                    </div>
+                </a>
+            </article>
+            <article class="col-12 col-md-4 mb-3">
+                <a href="" class="shadow-sm py-4 px-3 border-start border-primary border-5  hvr-float-shadow d-block actions">
+                    <div class=" d-flex  justify-content-around">
+                        <div class="ps-3">
+                            <h4>Transfer Request</h4>
+                            <p class="text-muted">
+                                Accept or Reject...
+                            </p>
+                            <span><b>{{pending_transfers}}</b> Pending</span>
+                        </div>
+                        <i class="bi bi-arrow-left-right"></i>
+                    </div>
+                </a>
+            </article>
+            <article class="col-12 col-md-4 mb-3">
+                <a href="" class="shadow-sm py-4 px-3 border-start border-danger border-5  bg-white hvr-float-shadow actions">
+                    <div class=" d-flex  justify-content-around">
+                        <div class="ps-3">
+                            <h4>Load Balance</h4>
+                            <p class="text-muted">
+                                load, update balance...
+                            </p>
+                            <span>All Accounts</span>
+                        </div>
+                        <i class="bi bi-currency-exchange "></i>
+                    </div>
+                </a>
+            </article>
+        </section>
+        <section class="row mt-5 g-5">
+            <div class="col-12 col-md-8">
+                <div>
+                    <img src="{% static 'dashboard/images/chart1.jpg' %}" alt="" class="img-fluid" style="height: 300px; width: 100%; object-fit: cover; object-position: bottom;">
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div>
+                    <a href="" class="shadow-sm py-4 px-3 border-start border-dark border-5  bg-white hvr-float-shadow actions">
+                        <div class=" d-flex  justify-content-around">
+                            <div class="ps-3">
+                                <h4>Manage Card Request</h4>
+                                <p class="text-muted">
+                                    Card Request Details
+                                </p>
+                                <span>All Cards</span>
+                            </div>
+                            <i class="bi bi-credit-card-2-back "></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="row mt-5">
+            <div class="col-12 col-md-12">
+                <h4 class="pt-4">List Of Recently Created Clients</h4>
+                {% if clients %}
+                <table class="table table-responsive bg-white shadow">
+                    <thead>
+                        <tr>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">Acc Number</th>
+                            <th scope="col">Balance</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for client in clients %}
+                        <tr>
+                            <td>
+                                <b>
+                                    <a href=""
+                                        class="text-primary">
+                                        {{client.user.last_name}}
+                                        {{client.user.first_name}}
+                                    </a>
+                                </b>
+                            </td>
+                            <td>
+                                {{client.user.email}}
+                            </td>
+                            <td>{{ client.country.name}}</td>
+                            <td>{{client.account_number }}</td>
+                            <td>&#36;{{client.balance}}</td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-primary text-light">
+                                    Add History
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h3>No registered clients.</h3>
+                {% endif %}
+            </div>
+        </section>
+    </div>
+</section>
+
+{% endblock content %}
