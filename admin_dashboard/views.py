@@ -4,4 +4,4 @@ from django.shortcuts import render
 
 
 def admin_dashboard(request):
-    return render(request, 'dashboard/admin.html', {'title': 'admin-dashboard'})
+    return render(request, 'dashboard/dashboard.html', {'title': 'admin-dashboard'})
