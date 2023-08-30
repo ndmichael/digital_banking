@@ -1,0 +1,16 @@
+{% extends 'dbank/base.html' %} {% load static %}  {% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<section id="staffadmin">
+    <div class="container py-5">
+        <section class="row py-4">
+            <div class="col-12 col-md-10 mx-auto">
+                {% crispy c_form %}
+            </div>
+        </section>
+    </div>
+</section>
+
+{% endblock content %}
