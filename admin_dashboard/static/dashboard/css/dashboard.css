@@ -40,3 +40,11 @@
     color: black;
 }
 
+#staffadmin .form-floating > label{
+    left: 10px;
+}
+
+#staffadmin textarea{
+    height: 100px;
+}
+
