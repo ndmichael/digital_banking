@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import MyCustomSignupForm
-from clients.models import  CustomUser
+from clients.models import  CustomUser, Transfer
 
 # Create your views here.
 
@@ -63,3 +63,10 @@ def all_users(request):
         'users': users,
     }
     return render(request, 'dashboard/all_users.html', context)
+
+def all_transfers(request):
+    transfers = Transfer.objects.all()
+    context = {
+        'transfers': transfers,
+    }
+    return render(request, 'dashboard/all_transfers.html', context)
