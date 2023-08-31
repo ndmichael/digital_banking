@@ -16,12 +16,16 @@
 }
 
 .nav-link{
-    font-size: 1.25em;
+    font-size: 1em;
     z-index: 100;
     color:  whitesmoke;
     margin-top: 10px;
     border: 0 !important;
     border-radius: 0 !important;
+}
+ 
+.nav-link .bi{
+    padding-right: 10px;
 }
 
 /* .nav-link:active,
