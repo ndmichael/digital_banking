@@ -106,9 +106,15 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 
 class Savings(models.Model):
+    TIER_TUP = (
+        ('tier1', 'TIER1'),
+        ('tier2', 'TIER2'),
+        ('tier3', 'TIER3')
+    )
     user = models.OneToOneField(CustomUser, unique=True, on_delete=models.CASCADE, related_name="savings")
     number = models.CharField(max_length=20,  null=True, blank=True)
     balance = models.DecimalField(max_digits=10, decimal_places=2)
+    tiers = models.CharField(max_length=10, choices=TIER_TUP, default="tier1")
     pin = models.CharField(max_length=4, null=True, blank=True)
     created = models.DateTimeField(default=timezone.now)
     status = models.BooleanField(default=True)
