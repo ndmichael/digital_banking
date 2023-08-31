@@ -17,13 +17,13 @@
             </article>
             <article class="col-4 col-md-6 text-end">
                 <a href="" class=" btn btn-primary">
-                    Add Client
+                    ADD NEW CLIENT
                 </a>
             </article>
         </section>
         <section class="row g-5 pt-5">
             <article class="col-12 col-md-4 mb-3">
-                <a href="" class="shadow-sm py-4 px-3 border-start border-success border-5  hvr-float-shadow actions">
+                <a href="{% url 'all_users' %}" class="shadow-sm py-4 px-3 border-start border-success border-5  hvr-float-shadow actions">
                     <div class=" d-flex  justify-content-around">
                         <div class="ps-3">
                             <h4>Manage Accounts</h4>
@@ -38,7 +38,7 @@
                 </a>
             </article>
             <article class="col-12 col-md-4 mb-3">
-                <a href="" class="shadow-sm py-4 px-3 border-start border-primary border-5  hvr-float-shadow d-block actions">
+                <a href="{% url 'all_transfers' %}" class="shadow-sm py-4 px-3 border-start border-primary border-5  hvr-float-shadow d-block actions">
                     <div class=" d-flex  justify-content-around">
                         <div class="ps-3">
                             <h4>Transfer Request</h4>
