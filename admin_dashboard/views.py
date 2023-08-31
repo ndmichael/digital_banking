@@ -58,8 +58,8 @@ def register(request):
 
 
 def all_users(request):
-    users = get_object_or_404(CustomUser, is_active=True)
+    users = CustomUser.objects.all()
     context = {
-        'users': 'users',
+        'users': users,
     }
-    return render(request, context)
+    return render(request, 'dashboard/all_users.html', context)
