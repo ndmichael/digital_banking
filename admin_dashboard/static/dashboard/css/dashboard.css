@@ -48,3 +48,26 @@
     height: 100px;
 }
 
+
+#all_user{
+    padding-top: 4em;
+    padding-bottom: 4em;
+}
+
+#all_user a{
+    padding: 5px 12px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+#all_user a > .bi {
+    font-size: 14px;
+}
+
+#all_user th{
+    padding: 20px;
+}
+ 
+#all_user .table tr > td{
+    padding: 10px 7px;
+}
+
