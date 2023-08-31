@@ -1,12 +1,14 @@
 from django.urls import path
 from .views import (
     admin_dashboard,
-    register
+    register,
+    all_users
 )
 
 
 
 urlpatterns = [
     path("", admin_dashboard, name="admindashboard"),
-    path("register/client/", register, name="register"),
+    path("register/", register, name="register"),
+    path("users/all/", all_users, name="all_users"),
 ]
