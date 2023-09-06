@@ -53,34 +53,33 @@
         <div id="dashboard" class="container tab-pane active">
             <section class="row">
                 <div class="col-12">
-                    <h3><span class="text-muted">Welcome, </span><small>{{user.username}}</small> <i class="bi bi-hand-thumbs-up-fill text-danger"></i></h3>
-                </div>
-                <div class="col-12 col-md-8 mx-auto mt-5">
-                    <table class="table table-borderless border-center">
-
-                        <tbody>
-                          <tr>
-                            <td>First name:</td>
-                            <td class="text-end"><b>{{user.first_name}}</b></td>
-                          </tr>
-                          <tr>
-                            <td>Last name:</td>
-                            <td class="text-end"><b>{{user.last_name}}</b></td>
-                          </tr>     
-                          <tr>
-                            <td>Email:</td>
-                            <td class="text-end"><b>{{user.email}}</b></td>
-                          </tr>
-                          <tr>
-                            <td>Address</td>
-                            <td class="text-end"><b>{{user.address}}</b></td>
-                          </tr>
-                          <tr>
-                            <td>Country</td>
-                            <td class="text-end"><b>{{user.country.name}}</b></td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <div class="alert alert-primary text-center" role="alert">
+                        <h4>
+                             <a href="#" class="alert-link">Tonglobal Digital Banking.</a>
+                        </h4>
+                      </div>
+                    <h5><span class="text-muted">Welcome back, </span><small>{{user.username}}</small> <i class="bi bi-hand-thumbs-up-fill text-danger"></i></h5>
+                </div>    
+            </section>
+            <section class="row">
+                <div class="col-12 col-md-12">
+                    <article class=" d-flex justify-content-between p-5 bg-white shadow-sm">
+                        <div >
+                            <img src="{% static 'dbank/images/platinumcard-removebg.png' %}" alt="" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover;">
+                        </div>
+                        <div>
+                            <span>First name</span>
+                            <h4>{{user.first_name}}</h4>
+                            <span>Last name</span>
+                            <h4>{{user.last_name}}</h4>
+                        </div>
+                        <div>
+                            <span>Address</span>
+                            <h4>{{user.address}}</h4>
+                            <h4>{{user.country.name}}</h4>
+                            <h5>{{user.email}}</h5>
+                        </div>
+                    </article>
                 </div>
             </section>
             <section class="row pt-5">
@@ -203,6 +202,9 @@
                                 </div>
                                 <div class="form-group col-12 col-md-6">
                                     {{ form.country|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-12 col-md-12 mb-4">
+                                    {{ form.description|as_crispy_field }}
                                 </div>
                                 <div class="form-group col-12">
                                     {{ form.beneficiary_bank_address|as_crispy_field }}
