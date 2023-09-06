@@ -81,13 +81,13 @@
                         <td>{{user.savings.number }}</td>
                         <td class="fw-bold">&#36;{{user.savings.balance}}</td>
                         <td class="text-end">
-                            <a href="#" class="btn btn-warning rounded-1">
+                            <a href="{% url 'update_user' user.username %}" class="btn btn-warning rounded-1" data-toggle="tooltip" data-placement="bottom" title="Update User Profile">
                                 <i class="bi bi-pencil-square" ></i>
                             </a>
-                            <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" data-toggle="tooltip" data-placement="bottom" title="Deactivate User">
                                 <i class="bi bi-x-circle"></i>
                             </a>
-                            <a href="#" class="btn btn-primary">
+                            <a href="#" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Load Balance">
                                 <i class="bi bi-hourglass-split"></i>
                             </a>
                         </td>
