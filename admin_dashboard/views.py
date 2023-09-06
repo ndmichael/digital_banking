@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import MyCustomSignupForm, ClientUpdateForm
+from .forms import MyCustomSignupForm, ClientUpdateForm, DeactivateUser
 from clients.models import  CustomUser, Transfer, Savings
 from random import randrange
 from django.contrib import messages
@@ -60,9 +60,25 @@ def register(request):
 
 
 def all_users(request):
-    users = CustomUser.objects.all()
+    users = CustomUser.objects.filter(is_active=True)
+    deactivate_form = DeactivateUser()
+    if request.POST:
+        username = request.POST.get('username')
+        print("username: ", username)
+        if  request.POST.get('deactivate') == 'on':
+            user = get_object_or_404(CustomUser, username=username)
+            
+            user.is_active = False
+            user.save()
+            messages.success(
+                request, f"{username} has been deactivated."
+            )
+            return redirect(
+                    "all_users"
+                ) 
     context = {
         'users': users,
+        'd_form': deactivate_form
     }
     return render(request, 'dashboard/all_users.html', context)
 
