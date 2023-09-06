@@ -1,0 +1,29 @@
+{% extends 'dbank/base.html' %} {% load static %}  {% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<section id="staffadmin">
+    <div class="container py-5">
+        <section class="row py-4">
+            <div class="col-12 col-md-8 mx-auto bg-white p-4 p-sm-5 shadow-sm">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <h3 class="text-center text-primary">UPDATE CLIENT DETAILS</h3>
+                <p class="mb-4">
+                    <hr />
+                </p>
+                {% csrf_token %} 
+                {{form | crispy}}
+                <div class="pt-3">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        UPDATE USER
+                    </button>
+                </div>
+
+                </form>
+            </div>
+        </section>
+    </div>
+</section>
+
+{% endblock content %}
