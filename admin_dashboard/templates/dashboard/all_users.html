@@ -21,7 +21,7 @@
             </article>
             <article class="col-4 col-md-6 text-end">
                 <a href="{% url 'register' %}" class=" btn btn-danger btn-lg" style=" color: white; display: inline-block;">
-                    Add New Clients
+                    Add New Clients 
                 </a>
             </article>
             <article class="col-12 col-md-11 mx-auto">
@@ -39,7 +39,7 @@
                     </thead>
                     <tbody>
                     {% for user in users %}
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModal{{user.username}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <form action="" method="POST">
                                 <div class="modal-content">
@@ -54,13 +54,14 @@
                                             <!-- <label for="deactivate" class="form-check-label" name="deactivate" id="deactivate">deactivate:</label>
                                             <input type="checkbox" class="form-check-input"> -->
                                             {% csrf_token %}
-                                            <input type="hidden" value="{{client.user.username}}" name="id"> {{d_form | crispy}}
+                                            <input type="hidden" value="{{user.username}}" name="username"> 
+                                            {{d_form | crispy}}
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                                         <button type="submit" class="btn btn-primary">
-                                            Deactivate
+                                            Deactivate {{user.username}}
                                             
                                         </button>
                                     </div>
@@ -84,7 +85,7 @@
                             <a href="{% url 'update_user' user.username %}" class="btn btn-warning rounded-1" data-toggle="tooltip" data-placement="bottom" title="Update User Profile">
                                 <i class="bi bi-pencil-square" ></i>
                             </a>
-                            <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" data-toggle="tooltip" data-placement="bottom" title="Deactivate User">
+                            <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{user.username}}" data-toggle="tooltip" data-placement="bottom" title="Deactivate User">
                                 <i class="bi bi-x-circle"></i>
                             </a>
                             <a href="#" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Load Balance">
