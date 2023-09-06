@@ -20,16 +20,12 @@ def register(request):
     if request.method == "POST":
         c_form = MyCustomSignupForm(request.POST,  request.FILES)
         if c_form.is_valid():
-            
-            # fname = 
             balance = c_form.cleaned_data.get("balance")
             username = c_form.cleaned_data.get("username")
             country = c_form.cleaned_data.get("country")
             
             user = c_form.save(request)
-            
-
-            
+               
             print(f"country: {country} balance: {balance}")
             number = [randrange(10) for i in range(10)]
             number = ''.join(str(i) for i in number)
