@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import MyCustomSignupForm
+from .forms import MyCustomSignupForm, ClientUpdateForm
 from clients.models import  CustomUser, Transfer, Savings
 from random import randrange
 from django.contrib import messages
@@ -76,3 +76,22 @@ def all_transfers(request):
         'transfers': transfers,
     }
     return render(request, 'dashboard/all_transfers.html', context)
+
+def update_user(request, username):
+    user = get_object_or_404(
+            CustomUser, username=username
+        )
+    if request.method == "POST":
+        form = ClientUpdateForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"account successfully updated")
+            return redirect(
+                "all_users"
+            )  
+    else:
+        form = ClientUpdateForm(instance=user)
+    context ={
+        'form': form,
+    }
+    return render(request, 'dashboard/update_user.html', context)
