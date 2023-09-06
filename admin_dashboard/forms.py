@@ -31,6 +31,7 @@ class MyCustomSignupForm(SignupForm):
     def save(self, request):
         CustomUser = super(MyCustomSignupForm, self).save(request)     
         CustomUser.country = self.cleaned_data['country']
+        CustomUser.address = self.cleaned_data['address']
         CustomUser.save() 
         
         return CustomUser
