@@ -3,7 +3,8 @@ from .views import (
     admin_dashboard,
     register,
     all_users,
-    all_transfers
+    all_transfers,
+    update_user
 )
 
 
@@ -13,4 +14,5 @@ urlpatterns = [
     path("register/", register, name="register"),
     path("users/all/", all_users, name="all_users"),
     path("transfer/all/", all_transfers, name="all_transfers"),
+    path("update/user/<str:username>/", update_user, name="update_user"),
 ]
