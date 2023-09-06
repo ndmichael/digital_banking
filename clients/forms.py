@@ -24,6 +24,7 @@ class TransferForm(forms.Form):
     swift_code = forms.CharField(max_length=34, required=False)
     receivers_name = forms.CharField(max_length=30)
     beneficiary_account_number = forms.CharField(max_length=15)
+    description = forms.CharField(max_length=150)
     country = CountryField(blank_label="(Select country)").formfield(widget =  CountrySelectWidget())
     
 
@@ -45,12 +46,11 @@ class TransferForm(forms.Form):
             {'class': 'form-control-lg rounded-4'})
         self.fields["beneficiary_account_number"].widget.attrs.update(
             {'class': 'form-control-lg rounded-4'})
+        # self.fields["description"].widget.attrs.update(
+        #     {'class': 'form-control-lg rounded-4'})
         
 
-class UserUpdateForm(forms.ModelForm):
-    class Meta:
-        model = CustomUser
-        fields = ['last_name', 'first_name', 'address', 'country', 'dob', 'mobile_number', 'image']
+
 
 
 class DeactivateUser(forms.Form):
