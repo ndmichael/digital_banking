@@ -75,7 +75,7 @@
                         </div>
                         <div>
                             <span>Address</span>
-                            <h4>{{user.address}}</h4>
+                            <h4 class="text-muted">{{user.address}},</h4>
                             <h4>{{user.country.name}}</h4>
                             <h5>{{user.email}}</h5>
                         </div>
@@ -92,8 +92,11 @@
         </div>
         <!-- account section-->
         <div id="account" class="container tab-pane fade">
-            <section class="row pt-5">
+            <section class="row">
                 <div class="col-12">
+                    <div class="alert alert-success text-center" role="alert">
+                        <b class="fs-2">${{account.balance}}</b>
+                    </div>
                     <table class="table table-borderless">
                         <h5>Bank Account Details</h5>
                         <thead>
@@ -119,7 +122,7 @@
                         <tbody>
                             <tr>
                                 <td class="text-muted p-4">Account Type:</td>
-                                <td class=" text-primary fw-bold  p-4">Savings</td>
+                                <td class=" text-primary fw-bold  p-4">Elite</td>
                             </tr>
                             <tr >
                                 <td class="text-muted p-4">Currency:</td>
