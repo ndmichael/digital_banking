@@ -65,3 +65,15 @@ class MyCustomSignupForm(SignupForm):
             
 
         )
+
+
+class ClientUpdateForm(forms.ModelForm):
+    country = CountryField().formfield()
+    dob = forms.DateField(widget=DateInput)
+    class Meta:
+        model = CustomUser
+        fields = ['last_name', 'first_name', 'address', 'country', 'dob', 'mobile_number', 'image']
+
+
+class DeactivateUser(forms.Form):
+    deactivate = forms.BooleanField()
