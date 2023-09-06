@@ -22,6 +22,7 @@ class UserAdmin(BaseUserAdmin):
                     "gender",
                     "dob",
                     "country",
+                    "address"
                 ],
             },
         ),
@@ -37,7 +38,8 @@ class UserAdmin(BaseUserAdmin):
                     "last_name",
                     "password1",
                     "password2",
-                    "country"
+                    "country",
+                    "address"
                 ]
             },
         ),
