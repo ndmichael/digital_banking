@@ -78,3 +78,11 @@ class ClientUpdateForm(forms.ModelForm):
 
 class DeactivateUser(forms.Form):
     deactivate = forms.BooleanField()
+
+
+class LoadBalanceForm(forms.Form):
+    amount = forms.DecimalField()
+
+    def __init__(self, *args, **kwargs):
+        super(LoadBalanceForm, self).__init__(*args, **kwargs)
+        self.fields["amount"].widget.attrs.update({'class': 'form-control-lg'})
