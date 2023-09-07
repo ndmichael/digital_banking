@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import MyCustomSignupForm, ClientUpdateForm, DeactivateUser
+from .forms import MyCustomSignupForm, ClientUpdateForm, DeactivateUser, LoadBalanceForm
 from clients.models import  CustomUser, Transfer, Savings
 from random import randrange
 from django.contrib import messages
@@ -107,3 +107,27 @@ def update_user(request, username):
         'form': form,
     }
     return render(request, 'dashboard/update_user.html', context)
+
+
+def load_balance(request, username):
+    client = get_object_or_404(CustomUser, username=username)
+    savings = get_object_or_404(Savings, user=client)
+    if request.POST:
+        form = LoadBalanceForm(request.POST)
+        if form.is_valid():
+            amount = form.cleaned_data.get("amount")
+            savings.balance += amount
+            savings.save()
+            messages.success(
+                request, f"{client.username} current balance is {savings.balance}."
+            )
+            return redirect(
+                "all_users"
+            ) 
+    else:
+        form = LoadBalanceForm()
+    context = {
+        'client': client,
+        'form': form
+    }
+    return render(request, 'dashboard/load_balance.html', context)
