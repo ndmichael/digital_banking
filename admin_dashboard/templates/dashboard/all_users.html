@@ -88,7 +88,7 @@
                             <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{user.username}}" data-toggle="tooltip" data-placement="bottom" title="Deactivate User">
                                 <i class="bi bi-x-circle"></i>
                             </a>
-                            <a href="#" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Load Balance">
+                            <a href="{% url 'loadbalance' user.username %}" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Load Balance">
                                 <i class="bi bi-hourglass-split"></i>
                             </a>
                         </td>
