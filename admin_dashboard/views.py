@@ -60,7 +60,8 @@ def register(request):
 
 
 def all_users(request):
-    users = CustomUser.objects.filter(is_active=True)
+    users = CustomUser.objects.filter(is_active=True, is_staff=False)
+    total_clients = CustomUser.objects.count()
     deactivate_form = DeactivateUser()
     if request.POST:
         username = request.POST.get('username')
@@ -78,7 +79,8 @@ def all_users(request):
                 ) 
     context = {
         'users': users,
-        'd_form': deactivate_form
+        'd_form': deactivate_form,
+        'total_clients': total_clients
     }
     return render(request, 'dashboard/all_users.html', context)
 
