@@ -7,6 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 from django_countries.fields import CountryField
 from django.core.mail import send_mail
+from uuid import uuid4
 # from dateutil.relativedelta import relativedelta
 
 
@@ -181,8 +182,8 @@ class Transfer(models.Model):
     beneficiary_bank_address = models.TextField()
     country = CountryField()
     dotf = models.DateTimeField(default=timezone.now)
-    is_success =  models.CharField(choices=status_choices, default="pending")
-    reference = models.CharField(null=False, blank=False, max_length=15)
+    status =  models.CharField(choices=status_choices, default="pending")
+    reference = models.CharField(null=False, blank=False, max_length=15, default=uuid4().hex[:11].upper())
 
     def __str__(self):
         return f'{self.receivers_name}'
@@ -204,7 +205,8 @@ class Transaction(models.Model):
     amt_aft_charges = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
     description =models.TextField(null=True, blank=True)
     transaction_date = models.DateField(default=timezone.now)
-    is_success =  models.CharField(choices=status_choices, default="pending")
+    status =  models.CharField(choices=status_choices, default="pending")
+    reference = models.CharField(null=False, blank=False, max_length=15, default=uuid4().hex[:11].upper())
 
     def __str__(self):
         return f"{self.transaction_date}"
