@@ -9,7 +9,7 @@
             <article class="col-12 col-md-6">
                 <div class=" pb-4">
                     <h1>
-                        All Clients ()
+                        All Clients ({{total_clients}})
                     </h1>
                     <p>
                         <small class=" text-muted">
@@ -20,8 +20,8 @@
                 </div>
             </article>
             <article class="col-4 col-md-6 text-end">
-                <a href="{% url 'register' %}" class=" btn btn-danger btn-lg" style=" color: white; display: inline-block;">
-                    Add New Clients 
+                <a href="{% url 'register' %}" class=" btn btn-primary" style=" color: white; display: inline-block;">
+                    ADD NEW CLIENTS 
                 </a>
             </article>
             <article class="col-12 col-md-11 mx-auto">
@@ -62,7 +62,6 @@
                                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                                         <button type="submit" class="btn btn-primary">
                                             Deactivate {{user.username}}
-                                            
                                         </button>
                                     </div>
                                 </div>
@@ -80,7 +79,7 @@
                         </td>
                         <td>{{ user.country.name}}</td>
                         <td>{{user.savings.number }}</td>
-                        <td class="fw-bold">&#36;{{user.savings.balance}}</td>
+                        <td class="fw-bold text-primary">&#36;{{user.savings.balance}}</td>
                         <td class="text-end">
                             <a href="{% url 'update_user' user.username %}" class="btn btn-warning rounded-1" data-toggle="tooltip" data-placement="bottom" title="Update User Profile">
                                 <i class="bi bi-pencil-square" ></i>
