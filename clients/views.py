@@ -36,7 +36,8 @@ def profile(request, username):
                 )
 
                 Transaction.objects.create(
-                    user=user, record='debit', 
+                    user=user, 
+                    record='debit', 
                     amount=amount, 
                     description=description,
                     is_success="pending"
