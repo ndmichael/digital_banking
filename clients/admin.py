@@ -24,7 +24,7 @@ class UserAdmin(BaseUserAdmin):
                     "gender",
                     "dob",
                     "country",
-                    "address"
+                    "address",
                 ],
             },
         ),
