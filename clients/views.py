@@ -11,6 +11,8 @@ from django.contrib import messages
 def profile(request, username):
     user = get_object_or_404(CustomUser, username=username)
     account = get_object_or_404(Savings, user=user)
+    transfers = Transfer.objects.all().order_by('-dotf')
+    total_transfer = Transfer.objects.count()
     if request.method == "POST":
         form = TransferForm(request.POST)
         if form.is_valid():
@@ -34,17 +36,18 @@ def profile(request, username):
                     description = description,
                     country= form.cleaned_data['country']
                 )
-
-                Transaction.objects.create(
-                    user=user, 
-                    record='debit', 
-                    amount=amount, 
-                    description=description,
-                    is_success="pending"
-                )
-                
-                messages.success(request,'Transfer Has Been Submitted. Transfer is Under Processing.')
-                return redirect("clientprofile", user.username)
+                if created:
+                    Transaction.objects.create(
+                        user=user, 
+                        record='debit', 
+                        amount=amount, 
+                        description=description,
+                        status="pending",
+                        reference= obj.reference
+                    )
+                    
+                    messages.success(request,'Transfer Has Been Submitted. Transfer is Under Processing.')
+                    return redirect("clientprofile", user.username)
     else:
         form = TransferForm()
     
@@ -52,6 +55,7 @@ def profile(request, username):
         "user": user,
         "form": form,
         "account": account,
+        'transfers': transfers
     }
     return render(request, 'users/profile.html', context)
 
