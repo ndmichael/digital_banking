@@ -1,0 +1,32 @@
+{% extends 'dbank/base.html' %}{% load static %} {% load crispy_forms_tags %} {% block content %}
+
+<section class="py-5" style="min-height: 70vh;">
+    <div class="container">
+        <section class="row">
+            <article class="col-12 col-md-4 offset-md-2 border-end p-3 p-sm-4 text-center">
+                <div class=" ">
+                    <h1 class="h4">For: <span class=" text-muted">{{user.username}}</span> </h1>
+                    <p>
+                        balance: <span class=" text-muted">{{user.savings.balance}}</span>
+                    </p>
+                </div>
+            </article>
+
+
+            <article class="col-12 col-md-4">
+                <div class="p-3 p-sm-4">
+                    <form action="" method="POST">
+                        {% csrf_token %} {{form | crispy}}
+
+                        <div class="pt-4">
+                            <button type="submit" class=" btn btn-primary">
+                                add history
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </article>
+        </section>
+    </div>
+</section>
+{% endblock content %}
