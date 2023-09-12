@@ -34,35 +34,6 @@
                     </thead>
                     <tbody>
                     {% for user in users %}
-                    <div class="modal fade" id="exampleModal{{user.username}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <form action="" method="POST">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">
-                                            DEACTIVATE FORM.
-                                        </h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div>
-                                            <!-- <label for="deactivate" class="form-check-label" name="deactivate" id="deactivate">deactivate:</label>
-                                            <input type="checkbox" class="form-check-input"> -->
-                                            {% csrf_token %}
-                                            <input type="hidden" value="{{user.username}}" name="username"> 
-                                            {{d_form | crispy}}
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">
-                                            Deactivate {{user.username}}
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
                     <tr>
                         <td>
                             <a href="{% url 'clientprofile' user.username %}">
@@ -76,7 +47,7 @@
                         <td>{{user.savings.number }}</td>
                         <td class="fw-bold text-primary">&#36;{{user.savings.balance}}</td>
                         <td class="text-end">
-                            <a href="{% url 'loadbalance' user.username %}" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Add Histories">
+                            <a href="{% url 'addtransaction' user.username %}" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Add Histories">
                                 <i class="bi bi-clock-history"></i>
                             </a>
                         </td>
