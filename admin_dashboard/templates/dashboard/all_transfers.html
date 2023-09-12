@@ -58,14 +58,17 @@
                             {% endif %}
                         </td>
                         <td class="text-end">
+                            {% if transfer.status == 'pending' %}
                             <form action="" method="POST">
                                 {% csrf_token %}
                                 {{form | crispy}}
                                 <input type="hidden" value="{{transfer.id}}" name="id">
-                                <!-- <div> -->
-                                    <button type="submit" class=" btn btn-sm btn-outline-success">update</button>
-                                <!-- </div> -->
+                                
+                                <button type="submit" class=" btn btn-sm btn-outline-success">update</button>
                             </form>
+                            {% else %}
+                                <span>---</span>
+                            {% endif %}
                         </td>
                     </tr>
                     {% endfor %}
