@@ -1,7 +1,7 @@
 from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column
-from clients.models import CustomUser, Transfer
+from clients.models import CustomUser, Transfer, Transaction
 from allauth.account.forms import SignupForm, LoginForm
 from django_countries.fields import CountryField
 from crispy_bootstrap5.bootstrap5 import FloatingField
@@ -94,3 +94,11 @@ status_choices = (
 )
 class TransferStatusForm(forms.Form):    
     status = forms.CharField(widget=forms.Select(choices=status_choices), label="")
+
+
+class AddTransactionForm(forms.ModelForm):
+    transaction_date = forms.DateField(widget=DateInput)
+    description = forms.CharField(required=False, widget=forms.Textarea(attrs={'name':'body', 'rows':'2'}))
+    class Meta:
+        model = Transaction
+        fields = ['record', 'amount', 'transaction_date', 'description']
