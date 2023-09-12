@@ -1,7 +1,7 @@
 from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column
-from clients.models import CustomUser
+from clients.models import CustomUser, Transfer
 from allauth.account.forms import SignupForm, LoginForm
 from django_countries.fields import CountryField
 from crispy_bootstrap5.bootstrap5 import FloatingField
@@ -82,7 +82,15 @@ class DeactivateUser(forms.Form):
 
 class LoadBalanceForm(forms.Form):
     amount = forms.DecimalField()
-
     def __init__(self, *args, **kwargs):
         super(LoadBalanceForm, self).__init__(*args, **kwargs)
         self.fields["amount"].widget.attrs.update({'class': 'form-control-lg'})
+
+
+status_choices = (
+    ('success', 'SUCCESS'),
+    ('pending', 'PENDING'),
+    ('failed', 'FAILED')
+)
+class TransferStatusForm(forms.Form):    
+    status = forms.CharField(widget=forms.Select(choices=status_choices), label="")
