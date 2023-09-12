@@ -26,10 +26,12 @@
                 <a href="{% url 'all_users' %}" class="shadow-sm py-4 px-3 border-start border-success border-5  hvr-float-shadow actions">
                     <div class=" d-flex  justify-content-around">
                         <div class="ps-3">
-                            <h4>Add Histories</h4>
+                            <h4>Manage Accounts</h4>
                             <p class="text-muted">
-                                Here you can add debit, credit histories...
+                                delete, change pin...
                             </p>
+                            <span><b>{{total_clients}}</b> Active
+                                Accounts</span>
                         </div>
                         <i class="bi bi-person-circle "></i>
                     </div>
@@ -67,14 +69,13 @@
         <section class="row mt-5 g-5">
             <div class="col-12 col-sm-6 col-md-4">
                 <div>
-                    <a href="" class="shadow-sm py-4 px-3 border-start border-warning border-5  bg-white hvr-float-shadow actions">
+                    <a href="{% url 'historypage' %}" class="shadow-sm py-4 px-3 border-start border-warning border-5  bg-white hvr-float-shadow actions">
                         <div class=" d-flex  justify-content-around">
                             <div class="ps-3">
                                 <h4>Add History</h4>
                                 <p class="text-muted">
                                     transaction histories
                                 </p>
-                                <span>All Histories</span>
                             </div>
                             <i class="bi bi-clock-history "></i>
                         </div>
