@@ -61,7 +61,7 @@ def register(request):
 
 
 def all_users(request):
-    users = CustomUser.objects.filter(is_active=True, is_staff=False)
+    users = CustomUser.objects.filter(is_active=True, is_staff=False).order_by('-date_joined')
     total_clients = CustomUser.objects.count()
     deactivate_form = DeactivateUser()
     if request.POST:
