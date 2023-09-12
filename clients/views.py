@@ -11,7 +11,7 @@ from django.contrib import messages
 def profile(request, username):
     user = get_object_or_404(CustomUser, username=username)
     account = get_object_or_404(Savings, user=user)
-    transfers = Transfer.objects.all().order_by('-dotf')
+    transactions = Transaction.objects.all().order_by('-transaction_date')
     total_transfer = Transfer.objects.count()
     if request.method == "POST":
         form = TransferForm(request.POST)
@@ -55,7 +55,8 @@ def profile(request, username):
         "user": user,
         "form": form,
         "account": account,
-        'transfers': transfers
+        'transactions': transactions,
+        "total_transfers": total_transfer
     }
     return render(request, 'users/profile.html', context)
 
