@@ -97,7 +97,7 @@ class TransferStatusForm(forms.Form):
 
 
 class AddTransactionForm(forms.ModelForm):
-    transaction_date = forms.DateField(widget=DateInput)
+    transaction_date = forms.DateTimeField(widget=DateInput)
     description = forms.CharField(required=False, widget=forms.Textarea(attrs={'name':'body', 'rows':'2'}))
     class Meta:
         model = Transaction

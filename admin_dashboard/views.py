@@ -194,7 +194,7 @@ def addtransaction(request, username):
             savings.save()
             set_form.save()
             messages.success(
-                (f"banking history added.")
+                request, f"banking history added."
             )
             return redirect(
                 "addtransaction", username
