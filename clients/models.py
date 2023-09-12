@@ -205,7 +205,7 @@ class Transaction(models.Model):
     amt_aft_charges = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
     description =models.TextField(null=True, blank=True)
     transaction_date = models.DateTimeField(default=timezone.now)
-    status =  models.CharField(choices=status_choices, default="pending")
+    status =  models.CharField(choices=status_choices, default="success")
     reference = models.CharField(null=False, blank=False, max_length=15, default=uuid4().hex[:11].upper())
 
     def __str__(self):
