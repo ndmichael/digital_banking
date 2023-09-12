@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import MyCustomSignupForm, ClientUpdateForm, DeactivateUser, LoadBalanceForm
+from .forms import MyCustomSignupForm, ClientUpdateForm, DeactivateUser, LoadBalanceForm, TransferStatusForm
 from clients.models import  CustomUser, Transfer, Savings
 from random import randrange
 from django.contrib import messages
@@ -85,9 +85,20 @@ def all_users(request):
     return render(request, 'dashboard/all_users.html', context)
 
 def all_transfers(request):
-    transfers = Transfer.objects.all()
+    transfers = Transfer.objects.all().order_by('-dotf')
+    form = TransferStatusForm()
+    if request.method == "POST":
+        status = request.POST.get('status')
+        transfer_id = request.POST.get('id')
+        transfer = get_object_or_404(Transfer, id=transfer_id)
+
+        transfer.status = status
+        transfer.save()
+        print(transfer.status)
+    
     context = {
         'transfers': transfers,
+        "form": form
     }
     return render(request, 'dashboard/all_transfers.html', context)
 
