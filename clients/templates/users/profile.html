@@ -58,21 +58,22 @@
                              <a href="#" class="alert-link">Tonglobal Digital Banking.</a>
                         </h4>
                       </div>
-                    <h5><span class="text-muted">Welcome back, </span><small>{{user.username}}</small> <i class="bi bi-hand-thumbs-up-fill text-danger"></i></h5>
+                    <h5 class="py-4"><span class="text-muted">Welcome back, </span><small>{{user.username}}</small> <i class="bi bi-hand-thumbs-up-fill text-danger"></i></h5>
                 </div>    
             </section>
             <section class="row">
-                <div class="col-12 col-md-12">
+                <div class="col-12 col-md-8 mx-auto">
                     <article class=" d-flex justify-content-between p-5 bg-white shadow-sm">
-                        <div >
+                        <div class="d-md-flex">
                             <img src="{% static 'dbank/images/platinumcard-removebg.png' %}" alt="" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover;">
+                            <div class="ps-3">
+                                <span>First name</span>
+                                <h4>{{user.first_name}}</h4>
+                                <span>Last name</span>
+                                <h4>{{user.last_name}}</h4>
+                            </div>
                         </div>
-                        <div>
-                            <span>First name</span>
-                            <h4>{{user.first_name}}</h4>
-                            <span>Last name</span>
-                            <h4>{{user.last_name}}</h4>
-                        </div>
+                        
                         <div>
                             <span>Address</span>
                             <h4 class="text-muted">{{user.address}},</h4>
@@ -86,6 +87,7 @@
                 <div class="col-12 col-md-8 mx-auto p-5 bg-white shadow-sm rounded-4">
                     {% if transactions %}
                         <table class=" table table-responsive">
+                            <h4 class="py-4 text-primary">Recent Transactions</h4>
                             <thead>
                                 <tr>
                                     <th>Date</th>
@@ -100,7 +102,7 @@
                                     <tr>
                                         <td>{{transaction.transaction_date}}</td>
                                         <td>{{transaction.record}}</td>
-                                        <td>{{transaction.amount}}</td>
+                                        <td>${{transaction.amount}}</td>
                                         <td>{{transaction.reference}}</td>
                                         {% if transaction.status == 'pending' %}
                                             <td><span class="fw-bolder text-warning">{{transaction.status}}</span></td>
@@ -110,7 +112,6 @@
                                             <td><span class="fw-bolder text-danger">{{transaction.status}}</span></td>
                                         {% endif %}
                                     </tr>
-
                                 {% endfor %}
                             </tbody>
                         </table>
