@@ -15,31 +15,29 @@
                     </span>
                 </div>
             </article>
-            <article class="col-4 col-md-6 text-end">
+            <article class="col-12 col-md-6 text-end">
                 <a href="{% url 'register' %}" class=" btn btn-primary">
                     ADD NEW CLIENT
                 </a>
             </article>
         </section>
         <section class="row g-5 pt-5">
-            <article class="col-12 col-md-4 mb-3">
+            <article class="col-12 col-sm-6 col-md-4 mb-3">
                 <a href="{% url 'all_users' %}" class="shadow-sm py-4 px-3 border-start border-success border-5  hvr-float-shadow actions">
                     <div class=" d-flex  justify-content-around">
                         <div class="ps-3">
-                            <h4>Manage Accounts</h4>
+                            <h4>Add Histories</h4>
                             <p class="text-muted">
-                                delete, change pin...
+                                Here you can add debit, credit histories...
                             </p>
-                            <span><b>{{total_clients}}</b> Active
-                                Accounts</span>
                         </div>
                         <i class="bi bi-person-circle "></i>
                     </div>
                 </a>
             </article>
-            <article class="col-12 col-md-4 mb-3">
+            <article class="col-12 col-sm-6 col-md-4 mb-3">
                 <a href="{% url 'all_transfers' %}" class="shadow-sm py-4 px-3 border-start border-primary border-5  hvr-float-shadow d-block actions">
-                    <div class=" d-flex  justify-content-around">
+                    <div class=" d-flex  justify-content-between">
                         <div class="ps-3">
                             <h4>Transfer Request</h4>
                             <p class="text-muted">
@@ -51,7 +49,7 @@
                     </div>
                 </a>
             </article>
-            <article class="col-12 col-md-4 mb-3">
+            <article class="col-12 col-sm-6 col-md-4 mb-3">
                 <a href="" class="shadow-sm py-4 px-3 border-start border-danger border-5  bg-white hvr-float-shadow actions">
                     <div class=" d-flex  justify-content-around">
                         <div class="ps-3">
@@ -67,17 +65,28 @@
             </article>
         </section>
         <section class="row mt-5 g-5">
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-sm-6 col-md-4">
                 <div>
-                    <img src="{% static 'dashboard/images/chart1.jpg' %}" alt="" class="img-fluid" style="height: 300px; width: 100%; object-fit: cover; object-position: bottom;">
+                    <a href="" class="shadow-sm py-4 px-3 border-start border-warning border-5  bg-white hvr-float-shadow actions">
+                        <div class=" d-flex  justify-content-around">
+                            <div class="ps-3">
+                                <h4>Add History</h4>
+                                <p class="text-muted">
+                                    transaction histories
+                                </p>
+                                <span>All Histories</span>
+                            </div>
+                            <i class="bi bi-clock-history "></i>
+                        </div>
+                    </a>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-sm-6 col-md-4">
                 <div>
                     <a href="" class="shadow-sm py-4 px-3 border-start border-dark border-5  bg-white hvr-float-shadow actions">
                         <div class=" d-flex  justify-content-around">
                             <div class="ps-3">
-                                <h4>Manage Card Request</h4>
+                                <h4>Manage Card</h4>
                                 <p class="text-muted">
                                     Card Request Details
                                 </p>
