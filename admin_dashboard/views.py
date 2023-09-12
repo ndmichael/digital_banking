@@ -1,5 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import MyCustomSignupForm, ClientUpdateForm, DeactivateUser, LoadBalanceForm, TransferStatusForm
+from .forms import (
+    MyCustomSignupForm, ClientUpdateForm, 
+    DeactivateUser, LoadBalanceForm, 
+    TransferStatusForm, AddTransactionForm
+)
 from clients.models import  CustomUser, Transfer, Savings, Transaction
 from random import randrange
 from django.contrib import messages
@@ -101,10 +105,11 @@ def all_transfers(request):
             charges = transfer.amount * Decimal(0.02)
             if transaction.record == 'credit':
                 transaction.amt_aft_charges = transaction.amount - charges
+                bank_acc.balance = bank_acc.balance + transaction.amt_aft_charges
             else:
                 transaction.amt_aft_charges = transaction.amount + charges
+                bank_acc.balance = bank_acc.balance - transaction.amt_aft_charges
             
-            bank_acc.balance = bank_acc.balance - transaction.amt_aft_charges
             bank_acc.save()
 
         transaction.status = status
@@ -163,7 +168,40 @@ def load_balance(request, username):
 
 
 def historypage(request):
+    users = CustomUser.objects.filter(is_active=True, is_staff=False).order_by('-date_joined')
     context = {
-
+        'users': users
     }
     return render(request, 'dashboard/historypage.html', context)
+
+def addtransaction(request, username):
+    user = get_object_or_404(CustomUser, username=username)
+    savings = get_object_or_404(Savings, user=user)
+    if request.method == "POST":
+        form = AddTransactionForm(request.POST)   
+        if form.is_valid():
+            amount = form.cleaned_data['amount']
+            record = form.cleaned_data['record']
+            set_form = form.save(commit=False)
+            set_form.user = user
+            charges = amount * Decimal(0.02)
+            if record == 'credit':
+                set_form.amt_aft_charges = amount - charges
+                savings.balance += set_form.amt_aft_charges
+            else:
+                set_form.amt_aft_charges = amount + charges
+                savings.balance -= set_form.amt_aft_charges
+            savings.save()
+            set_form.save()
+            messages.success(
+                (f"banking history added.")
+            )
+            return redirect(
+                "addtransaction", username
+            ) 
+    form = AddTransactionForm()
+    context = {
+        'form': form,
+        'user': user
+    }
+    return render(request, 'dashboard/add_history.html', context)
