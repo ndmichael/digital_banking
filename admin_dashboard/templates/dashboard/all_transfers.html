@@ -49,12 +49,12 @@
                         <td class="fw-bold">&#36;{{transfer.amount}}</td>
                         <td class="fw-bold">
                             {% if transfer.status == 'pending' %}
-                                <span class="p-3 rounded-5" style="background: rgb(255, 255,0,.18); color:#ffac0d">{{transfer.status}}</span>
+                                <span class="py-3 px-4 rounded-5" style="background: rgb(255, 255,0,.18); color:#ffac0d">{{transfer.status}}</span>
                             
                             {% elif  transfer.status == 'success' %}
-                            <span class="p-3 rounded-5" style="background: rgba(152, 254, 191, .28); color:#0c8b2e">{{transfer.status}}</span>
+                            <span class="p-3 px-4 rounded-5" style="background: rgba(152, 254, 191, .28); color:#0c8b2e">{{transfer.status}}</span>
                              {% else %}   
-                             <span class="p-3 rounded-5" style="background: rgba(253, 182, 144, 0.28); color:#ff0d0d">{{transfer.status}}</span>
+                             <span class="p-3 px-4 rounded-5" style="background: rgba(253, 182, 144, 0.28); color:#ff0d0d">{{transfer.status}}</span>
                             {% endif %}
                         </td>
                         <td class="text-end">
