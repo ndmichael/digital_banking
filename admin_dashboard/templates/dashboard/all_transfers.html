@@ -13,7 +13,7 @@
                     </h1>
                     <p>
                         <small class=" text-muted">
-                            Here you can add confirm, accept of reject history.
+                            Here you can add confirm, accept of reject transfer.
                         </small>
                     </p>
                 </div>
@@ -30,9 +30,10 @@
                         <tr>
                             <th scope="col">Full Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Country</th>
-                            <th scope="col">Acc Number</th>
-                            <th scope="col">Balance</th>
+                            <th scope="col">Beneficiary</th>
+                            <th scope="col">Beneficial Account</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Status</th>
                             <th scope="col" class="text-end">Actions</th>
                         </tr>
                     </thead>
@@ -45,21 +46,21 @@
                             </a>
                         </td>
                         <td>
-                            {{user.email}}
+                            {{transfer.user.email}}
                         </td>
-                        <td>{{ user.country.name}}</td>
-                        <td>{{user.savings.number }}</td>
-                        <td class="fw-bold">&#36;{{user.savings.balance}}</td>
+                        <td>{{ transfer.receivers_name}}</td>
+                        <td>{{ transfer.beneficiary_account_number }}</td>
+                        <td class="fw-bold">&#36;{{transfer.amount}}</td>
+                        <td class="fw-bold">{{transfer.status}}</td>
                         <td class="text-end">
-                            <a href="#" class="btn btn-warning rounded-1">
-                                <i class="bi bi-pencil-square" ></i>
-                            </a>
-                            <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <i class="bi bi-x-circle"></i>
-                            </a>
-                            <a href="#" class="btn btn-primary">
-                                <i class="bi bi-hourglass-split"></i>
-                            </a>
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                {{form | crispy}}
+                                <input type="hidden" value="{{transfer.id}}" name="id">
+                                <!-- <div> -->
+                                    <button type="submit" class=" btn btn-sm btn-outline-success">update</button>
+                                <!-- </div> -->
+                            </form>
                         </td>
                     </tr>
                     {% endfor %}
@@ -67,7 +68,6 @@
                     </table>
                 {% else %}
                     <h3 class="text-danger">No Available Transfers</h3 class="text-danger">
-
                 {% endif %}
             </article>
         </section>
