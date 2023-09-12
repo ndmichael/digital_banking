@@ -160,3 +160,10 @@ def load_balance(request, username):
         'form': form
     }
     return render(request, 'dashboard/load_balance.html', context)
+
+
+def historypage(request):
+    context = {
+
+    }
+    return render(request, 'dashboard/historypage.html', context)
