@@ -62,10 +62,10 @@
                 </div>    
             </section>
             <section class="row">
-                <div class="col-12 col-md-8 mx-auto">
+                <div class="col-12 col-md-10 p-4 mx-auto">
                     <article class=" d-flex justify-content-between p-5 bg-white shadow-sm">
                         <div class="d-md-flex">
-                            <img src="{% static 'dbank/images/platinumcard-removebg.png' %}" alt="" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover;">
+                            <img src="{% static 'dbank/images/platinumcard-removebg.png' %}" alt="" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; object-position: top;">
                             <div class="ps-3">
                                 <span>First name</span>
                                 <h4>{{user.first_name}}</h4>
@@ -84,7 +84,7 @@
                 </div>
             </section>
             <section class="row pt-5">
-                <div class="col-12 col-md-8 mx-auto p-5 bg-white shadow-sm rounded-4">
+                <div class="col-12 col-md-10 mx-auto p-5 bg-white shadow-sm rounded-4">
                     {% if transactions %}
                         <table class=" table table-responsive">
                             <h4 class="py-4 text-primary">Recent Transactions</h4>
@@ -93,6 +93,7 @@
                                     <th>Date</th>
                                     <th>Type</th>
                                     <th>Amount</th>
+                                    <th>Description</th>
                                     <th>Reference</th>
                                     <th>Status</th>
                                 </tr>
@@ -103,6 +104,7 @@
                                         <td>{{transaction.transaction_date}}</td>
                                         <td>{{transaction.record}}</td>
                                         <td>${{transaction.amount}}</td>
+                                        <td>{{transaction.description}}</td>
                                         <td>{{transaction.reference}}</td>
                                         {% if transaction.status == 'pending' %}
                                             <td><span class="fw-bolder text-warning">{{transaction.status}}</span></td>
