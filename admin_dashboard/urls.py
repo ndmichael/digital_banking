@@ -5,7 +5,8 @@ from .views import (
     all_users,
     all_transfers,
     update_user,
-    load_balance
+    load_balance,
+    historypage,
 )
 
 
@@ -15,6 +16,7 @@ urlpatterns = [
     path("register/", register, name="register"),
     path("users/all/", all_users, name="all_users"),
     path("transfer/all/", all_transfers, name="all_transfers"),
+    path("user/history/", historypage, name="historypage"),
     path("update/user/<str:username>/", update_user, name="update_user"),
     path("loadbalance/<str:username>/", load_balance, name="loadbalance"),
 ]
