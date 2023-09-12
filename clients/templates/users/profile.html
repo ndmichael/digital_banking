@@ -84,9 +84,41 @@
             </section>
             <section class="row pt-5">
                 <div class="col-12 col-md-8 mx-auto p-5 bg-white shadow-sm rounded-4">
+                    {% if transactions %}
+                        <table class=" table table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Reference</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for transaction in transactions %}
+                                    <tr>
+                                        <td>{{transaction.transaction_date}}</td>
+                                        <td>{{transaction.record}}</td>
+                                        <td>{{transaction.amount}}</td>
+                                        <td>{{transaction.reference}}</td>
+                                        {% if transaction.status == 'pending' %}
+                                            <td><span class="fw-bolder text-warning">{{transaction.status}}</span></td>
+                                        {% elif transaction.status == 'success' %}
+                                            <td><span class="fw-bolder text-success">{{transaction.status}}</span></td>
+                                        {% else %}
+                                            <td><span class="fw-bolder text-danger">{{transaction.status}}</span></td>
+                                        {% endif %}
+                                    </tr>
+
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
                     <h3 class="text-primary">
                         No recent transactions
                     </h3>
+                    {% endif %}
                 </div>
             </section>
         </div>
