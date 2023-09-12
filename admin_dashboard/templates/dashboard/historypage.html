@@ -1,0 +1,96 @@
+{% extends 'dbank/base.html' %} {% load static %} 
+{% load crispy_forms_tags %} 
+
+{% block content %}
+
+<section id="all_user">
+    <div class="container">
+        <section class="row">
+            <article class="col-12 col-md-6">
+                <div class=" pb-4">
+                    <h1>
+                        All Clients
+                    </h1>
+                    <p>
+                        <small class=" text-muted">
+                            Here you can add history, update clients profile, or deactivate
+                            clients account.
+                        </small>
+                    </p>
+                </div>
+            </article>
+            <article class="col-12 col-md-11 mx-auto">
+                {% if users %}
+                <table class="table table-responsive table-light shadow-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">Acc Number</th>
+                            <th scope="col">Balance</th>
+                            <th scope="col" class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                    <div class="modal fade" id="exampleModal{{user.username}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <form action="" method="POST">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            DEACTIVATE FORM.
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div>
+                                            <!-- <label for="deactivate" class="form-check-label" name="deactivate" id="deactivate">deactivate:</label>
+                                            <input type="checkbox" class="form-check-input"> -->
+                                            {% csrf_token %}
+                                            <input type="hidden" value="{{user.username}}" name="username"> 
+                                            {{d_form | crispy}}
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">
+                                            Deactivate {{user.username}}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <tr>
+                        <td>
+                            <a href="{% url 'clientprofile' user.username %}">
+                                {{user.get_full_name}}
+                            </a>
+                        </td>
+                        <td>
+                            {{user.email}}
+                        </td>
+                        <td>{{ user.country.name}}</td>
+                        <td>{{user.savings.number }}</td>
+                        <td class="fw-bold text-primary">&#36;{{user.savings.balance}}</td>
+                        <td class="text-end">
+                            <a href="{% url 'loadbalance' user.username %}" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Add Histories">
+                                <i class="bi bi-clock-history"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                    </table>
+                {% else %}
+                    <h2>no users to add history</h2>
+
+                {% endif %}
+            </article>
+        </section>
+    </div>
+</section>
+
+{% endblock %}
