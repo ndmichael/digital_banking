@@ -12,9 +12,9 @@
         <div class="carousel-inner">
           <div class="carousel-item active c-item drk" data-bs-interval="10000">
             <img src="{% static 'dbank/images/slide1.jpg' %}" class="d-block w-100 c-img" alt="...">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption">
               <h1 class="">SAFE AND SECURED BANKING</h1>
-              <p>
+              <p class=" d-none d-md-block">
                 We don't only keep your money safe and secured,
                 but also your transaction activities.
                 Today you can make transfer to any part of the world through digital baking.
@@ -25,10 +25,10 @@
             </div>
           </div>
           <div class="carousel-item c-item drk" data-bs-interval="2000">
-            <img src="{% static 'dbank/images/slide2.jpg' %}" class="d-block w-100 c-img" alt="...">
-            <div class="carousel-caption d-none d-md-block">
+            <img src="{% static 'dbank/images/slide2.jpg' %}" class="d-block w-100  c-img" alt="...">
+            <div class="carousel-caption">
               <h1>EARN MONEY AT COMFORT</h1>
-              <p>Earn money easily by investing with us, we trade for you while you earn for free.</p>
+              <p class=" d-none d-md-block">Earn money easily by investing with us, we trade for you while you earn for free.</p>
               <p class="pt-4">
                 <a href="{% url 'investments' %}" class="btn btn-primary btn-lg col-12 col-md-4 rounded-pill">KNOW MORE</a>
               </p>
@@ -36,9 +36,9 @@
           </div>
           <div class="carousel-item c-item drk">
             <img src="{% static 'dbank/images/slide3.jpg' %}" class="d-block w-100 c-img" alt="...">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption">
               <h1>CREDIT CARDS WITH NO RESTRICTION</h1>
-              <p>We provide both physical and virtual credit card at your request, 
+              <p class=" d-none d-md-block">We provide both physical and virtual credit card at your request, 
                 to shop and make payments without hassles. </p>
               <p class="pt-4">
                 <a href="{% url 'visagold' %}" class="btn btn-primary btn-lg col-12 col-md-5 rounded-pill">EXPLORE</a>
@@ -85,7 +85,7 @@
                         money...
                     </p>
                     <p>
-                        <a href="#" class="btn btn-primary">KNOW MORE</a>
+                        <a href="{% url 'investments' %}" class="btn btn-primary">KNOW MORE</a>
                     </p>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                         through mentorship, lectures and assistance...
                     </p>
                     <p>
-                        <a href="#" class="btn btn-primary">KNOW MORE</a>
+                        <a href="{% url 'investments' %}" class="btn btn-primary">KNOW MORE</a>
                     </p>
                 </div>
             </div>
@@ -183,19 +183,19 @@
 
         <section class="row g-5 py-5">
             <div class="col-12 col-md-4">
-                <a href="" class="creditcard shadow">
+                <a href="{% url 'visaplatinum' %}" class="creditcard shadow">
                     <h4>Request For your credit card today</h4>
                 </a>
             </div>
 
             <div class="col-12 col-md-4">
-                <a href="" class="savings">
+                <a href="{% url 'baccounts' %}" class="savings">
                     <h4>Explore more for your accounts</h4>
                 </a>
             </div>
 
             <div class="col-12 col-md-4">
-                <a href="" class="investment-bank">
+                <a href="{% url 'investments' %}" class="investment-bank">
                     <h4>Investments are future securities</h4>
                 </a>
             </div>
