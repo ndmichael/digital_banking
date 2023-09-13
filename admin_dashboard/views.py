@@ -13,15 +13,20 @@ from decimal import Decimal
 
 
 def admin_dashboard(request):
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
     return render(request, 'dashboard/dashboard.html', {'title': 'admin-dashboard'})
 
 
 def register(request):
-    # if not request.user.is_staff:
-    #     messages.error(
-    #             request, f"You do not have permission to access this page."
-    #         )
-        # return redirect("/")
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
     if request.method == "POST":
         c_form = MyCustomSignupForm(request.POST,  request.FILES)
         if c_form.is_valid():
@@ -65,6 +70,11 @@ def register(request):
 
 
 def all_users(request):
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
     users = CustomUser.objects.filter(is_active=True, is_staff=False).order_by('-date_joined')
     total_clients = CustomUser.objects.count()
     deactivate_form = DeactivateUser()
@@ -90,6 +100,11 @@ def all_users(request):
     return render(request, 'dashboard/all_users.html', context)
 
 def all_transfers(request):
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
     transfers = Transfer.objects.all().order_by('-dotf')
     form = TransferStatusForm()
     if request.method == "POST":
@@ -124,6 +139,11 @@ def all_transfers(request):
     return render(request, 'dashboard/all_transfers.html', context)
 
 def update_user(request, username):
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
     user = get_object_or_404(
             CustomUser, username=username
         )
@@ -144,6 +164,11 @@ def update_user(request, username):
 
 
 def load_balance(request, username):
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
     client = get_object_or_404(CustomUser, username=username)
     savings = get_object_or_404(Savings, user=client)
     if request.POST:
@@ -168,6 +193,11 @@ def load_balance(request, username):
 
 
 def historypage(request):
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
     users = CustomUser.objects.filter(is_active=True, is_staff=False).order_by('-date_joined')
     context = {
         'users': users
@@ -175,6 +205,11 @@ def historypage(request):
     return render(request, 'dashboard/historypage.html', context)
 
 def addtransaction(request, username):
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
     user = get_object_or_404(CustomUser, username=username)
     savings = get_object_or_404(Savings, user=user)
     if request.method == "POST":
