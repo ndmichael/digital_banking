@@ -10,7 +10,7 @@
                 <div class="d-flex">
                     <img class="img-fluid rounded-circle shadow" style="height: 100px; width: 100px; object-fit: cover;" src="{{ request.user.profile.photo_url }}">
                     <span class="ps-4 align-self-center">
-                        <h5>{{request.user.get_full_name}}</h5>
+                        <h5>{{user.get_full_name}}</h5>
                         <b class="text-danger">admin</b>
                     </span>
                 </div>
@@ -52,7 +52,7 @@
                 </a>
             </article>
             <article class="col-12 col-sm-6 col-md-4 mb-3">
-                <a href="" class="shadow-sm py-4 px-3 border-start border-danger border-5  bg-white hvr-float-shadow actions">
+                <a href="{% url 'all_users' %}" class="shadow-sm py-4 px-3 border-start border-danger border-5  bg-white hvr-float-shadow actions">
                     <div class=" d-flex  justify-content-around">
                         <div class="ps-3">
                             <h4>Load Balance</h4>
