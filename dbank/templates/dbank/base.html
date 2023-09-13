@@ -14,13 +14,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm ">
+    <nav class="navbar navbar-expand-sm w-100">
         <div class="container">
           <a class="navbar-brand text-primary" href="/">Banking</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse " id="navbarNav">
+            <!-- <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="nav-link btn btn-primary text-white" aria-current="page" href="{% url 'admindashboard' %}">ADMIN DASHBOARD <i class="bi bi-speedometer text-white ps-3"></i></a>
+              </li>
+          </ul> -->
             <ul class="navbar-nav mx-auto">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
@@ -46,12 +51,33 @@
                 <a class="nav-link" href="{% url 'baccounts' %}">Account & Deposit</a>
               </li>
             </ul>
+            
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            {% if request.user.is_authenticated %}
+              <li class="nav-item dropdown">
+                <a class="navbar-item dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img class="img-fluid rounded-circle" style="height: 40px; width: 40px; object-fit: cover; padding-top: -100px;" src="{{ request.user.profile.photo_url }}">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item disabled text-danger" href="#">
+                        <b>{{request.user.username}}</b>
+                    </a>
 
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link btn btn-primary text-white" aria-current="page" href="{% url 'account_login' %}">LOGIN <i class="bi bi-box-arrow-in-right text-white ps-3"></i></a>
-                </li>
+                    {% if not request.user.is_staff %}
+                    <a class="dropdown-item" href="{% url 'clientprofile' request.user.username %}">
+                        <p>Profile</p>
+                    </a>
+                    {% endif %}
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'account_logout' %}">Logout </a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                  <a class="nav-link btn btn-primary text-white" aria-current="page" href="{% url 'account_login' %}">LOGIN <i class="bi bi-box-arrow-in-right text-white ps-3"></i></a>
+              </li>
             </ul>
+            {% endif %}
+            
           </div>
         </div>
       </nav>
@@ -105,7 +131,7 @@
 
     </footer>
 
-    <script src="{% static 'dbank/js/b52js/bootstrap.min.js' %}"></script>
+    <!-- <script src="{% static 'dbank/js/b52js/bootstrap.min.js' %}"></script> -->
     <script src="{% static 'dbank/js/b52js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
