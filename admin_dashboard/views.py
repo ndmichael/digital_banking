@@ -8,10 +8,12 @@ from clients.models import  CustomUser, Transfer, Savings, Transaction
 from random import randrange
 from django.contrib import messages
 from decimal import Decimal
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 
+@login_required
 def admin_dashboard(request):
     if not request.user.is_staff:
         messages.error(
@@ -69,6 +71,7 @@ def register(request):
     return render(request, 'dashboard/register.html', context)
 
 
+@login_required
 def all_users(request):
     if not request.user.is_staff:
         messages.error(
@@ -99,6 +102,8 @@ def all_users(request):
     }
     return render(request, 'dashboard/all_users.html', context)
 
+
+@login_required
 def all_transfers(request):
     if not request.user.is_staff:
         messages.error(
@@ -138,6 +143,8 @@ def all_transfers(request):
     }
     return render(request, 'dashboard/all_transfers.html', context)
 
+
+@login_required
 def update_user(request, username):
     if not request.user.is_staff:
         messages.error(
@@ -163,6 +170,7 @@ def update_user(request, username):
     return render(request, 'dashboard/update_user.html', context)
 
 
+@login_required
 def load_balance(request, username):
     if not request.user.is_staff:
         messages.error(
@@ -192,6 +200,7 @@ def load_balance(request, username):
     return render(request, 'dashboard/load_balance.html', context)
 
 
+@login_required
 def historypage(request):
     if not request.user.is_staff:
         messages.error(
@@ -204,6 +213,8 @@ def historypage(request):
     }
     return render(request, 'dashboard/historypage.html', context)
 
+
+@login_required
 def addtransaction(request, username):
     if not request.user.is_staff:
         messages.error(
