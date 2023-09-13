@@ -60,3 +60,10 @@ def profile(request, username):
     }
     return render(request, 'users/profile.html', context)
 
+
+@login_required
+def current_user_profile(request):
+    if request.user.is_staff:
+        return redirect('admindashboard')
+    return redirect('clientprofile', username=request.user.username)
+
