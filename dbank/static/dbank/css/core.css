@@ -65,8 +65,6 @@ p{
 }
 
 .navbar-expand-sm {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
     background: #daedff;
     padding: 20px 5px 20px 5px !important;
   }
