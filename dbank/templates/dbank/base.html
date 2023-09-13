@@ -21,12 +21,13 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse " id="navbarNav">
-            <!-- <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                  <a class="nav-link btn btn-primary text-white" aria-current="page" href="{% url 'admindashboard' %}">ADMIN DASHBOARD <i class="bi bi-speedometer text-white ps-3"></i></a>
-              </li>
-          </ul> -->
+            
             <ul class="navbar-nav mx-auto">
+              {% if request.user.is_staff %}
+                <li class="nav-item">
+                  <a class="nav-link btn btn-primary text-white" aria-current="page" href="{% url 'admindashboard' %}">ADMIN DASHBOARD <i class="bi bi-speedometer text-white ps-3"></i></a>
+                </li>
+              {% else %}
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
@@ -46,10 +47,10 @@
                   <li><a class="dropdown-item" href="{% url 'visaplatinum' %}">Visa Platinum Credit</a></li>
                 </ul>
               </li>
-      
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'baccounts' %}">Account & Deposit</a>
               </li>
+              {% endif %}
             </ul>
             
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
