@@ -56,7 +56,7 @@
             {% if request.user.is_authenticated %}
               <li class="nav-item dropdown">
                 <a class="navbar-item dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img class="img-fluid rounded-circle" style="height: 40px; width: 40px; object-fit: cover; padding-top: -100px;" src="{{ request.user.profile.photo_url }}">
+                    <img class="img-fluid rounded-circle" style="height: 40px; width: 40px; object-fit: cover; padding-top: -100px;" src="{{ request.user.photo_url }}">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item disabled text-danger" href="#">
