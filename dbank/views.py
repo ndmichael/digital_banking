@@ -4,8 +4,6 @@ from django.shortcuts import render, redirect
 
 
 def index(request):
-    if request.user.is_authenticated:
-        return redirect("clientprofile", username=request.user.username)
     return render(request, 'dbank/index.html', {'title': 'home'})
 
 
