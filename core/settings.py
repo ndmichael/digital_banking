@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-^6^rwl=(4b3j*#0@^ap6%k1dg6@tpya7*%67(pw*y*yh8yd1$_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','localhost',  'digitalbanking-production.up.railway.app']
 
 
 # Application definition
