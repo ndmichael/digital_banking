@@ -37,7 +37,7 @@
                     {% for transfer in transfers %}
                     <tr>
                         <td>
-                            <a href="">
+                            <a href="{% url 'clientprofile' user.username %}" target="_blank">
                                 {{transfer.user.get_full_name}}
                             </a>
                         </td>
