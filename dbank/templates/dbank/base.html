@@ -65,7 +65,7 @@
                     </a>
 
                     {% if not request.user.is_staff %}
-                    <a class="dropdown-item" href="{% url 'clientprofile' request.user.username %}">
+                    <a class="dropdown-item" href="{% url 'clientprofile' request.user.username %}" target="_blank">
                         <p>Profile</p>
                     </a>
                     {% endif %}
