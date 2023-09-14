@@ -5,12 +5,14 @@
 
 <section id="wrapper">
     <nav class="navbar navbar-expand d-flex flex-column align-items-start" id="sidebar">
-        <a href="#" class=" navbar-brand text-light mt-5">
-            <div class="fw-bolder display-4">
-                Banking
+        <a href="#" class=" navbar-brand text-light mx-auto text-center">
+            <img class="img-fluid rounded-circle" style="height: 70px; width: 70px; object-fit: cover; padding-top: -100px;" src="{{ request.user.photo_url }}">
+            <div>
+                <p>{{ user.get_full_name }}</p>
+                <p class="fw-bold text-warning">{{user.username}}</p>
             </div>
         </a> 
-        <ul class="nav nav-tabs d-flex flex-column mt-5 w-100" id="myTab" role="tablist">
+        <ul class="nav nav-tabs d-flex flex-column mt-3 w-100" id="myTab" role="tablist">
             <li class="nav-item w-100">
                 <a href="#dashboard" class="nav-link active ps-4" data-bs-toggle="tab">
                     <i class=" bi bi-house-door" style="font-size: 1em;"></i>
@@ -29,12 +31,12 @@
                     Cards
                 </a>
             </li>
-            <li class="nav-item w-100">
-                <a href="#investment" class="nav-link ps-4" data-bs-toggle="tab">
+            <!-- <li class="nav-item w-100 disabled">
+                <a href="" class="nav-link ps-4" data-bs-toggle="tab">
                     <i class=" bi bi-bar-chart-line" style="font-size: 1em;"></i>
                     Investment
                 </a>
-            </li>
+            </li> -->
             <li class="nav-item w-100">
                 <a href="#transfer" class="nav-link ps-4" data-bs-toggle="tab">
                     <i class=" bi bi-send-plus" style="font-size: 1em;"></i>
@@ -63,10 +65,10 @@
             </section>
             <section class="row">
                 <div class="col-12 col-md-10 p-4 mx-auto">
-                    <article class=" d-flex justify-content-between p-5 bg-white shadow-sm">
-                        <div class="d-md-flex">
-                            <img src="{% static 'dbank/images/platinumcard-removebg.png' %}" alt="" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; object-position: top;">
-                            <div class="ps-3">
+                    <article class=" d-flex flex-column flex-sm-row justify-content-between p-5 bg-white shadow-sm">
+                        <div class="d-flex flex-column flex-sm-row">
+                            <img class="img-fluid rounded-circle" style="height: 120px; width: 120px; object-fit: cover; padding-top: -100px;" src="{{ request.user.photo_url }}">
+                            <div class="ps-4">
                                 <span>First name</span>
                                 <h4>{{user.first_name}}</h4>
                                 <span>Last name</span>
@@ -128,14 +130,15 @@
                 </div>
             </section>
         </div>
+
         <!-- account section-->
         <div id="account" class="container tab-pane fade">
-            <section class="row">
+            <section class="row g-5">
                 <div class="col-12">
                     <div class="alert alert-success text-center" role="alert">
                         <b class="fs-2">${{account.balance}}</b>
                     </div>
-                    <table class="table table-borderless">
+                    <table class="table table-borderless py-4">
                         <h5>Bank Account Details</h5>
                         <thead>
                             <tr>
@@ -155,7 +158,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-12">
+                <div class="col-12 py-4">
                     <table class="table table-light table-borderless shadow-sm">
                         <tbody>
                             <tr>
@@ -164,7 +167,7 @@
                             </tr>
                             <tr >
                                 <td class="text-muted p-4">Currency:</td>
-                                <td class="text-primary fw-bold p-4">$ (Dollars)</td>
+                                <td class="text-primary fw-bold p-4">$ (USD)</td>
                             </tr>
                         </tbody>
                     </table>
@@ -172,16 +175,33 @@
             </section>
             <section class="row g-5">
                 <div class="col-12 col-md-6">
-                    <div class="bg-white shadow-sm p-5">box will be here</div>
+                    <div class="shadow-sm p-5 rounded bg-primary rounded-3">
+                        <h4 class="text-white">Talk To Our Customer Care</h4>
+                        <p class="py-4 text-light">
+                            Get access to helpful tips, informations and how to to invest.
+                        </p>
+                        <a href="#" class="text-white fw-bold" style="text-decoration: none;" >
+                            Contact Care     >
+                        </a>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="bg-white shadow-sm p-5">box will be here</div>
+                    <div class="bg-dark shadow-sm p-5 rounded-3">
+                        <h4 class="text-white">Request For Card</h4>
+                        <p class="py-4 text-light">
+                            Have access to borrow up to $20K, With 0.0 balance.
+                        </p>
+                        <a href="#" class="text-white fw-bold" style="text-decoration: none;" >
+                            Contact Care     >
+                        </a>
+
+                    </div>
                 </div>
             </section>
         </div>
         <div id="cards" class="container tab-pane fade pt-5">
-            <section class="row">
-                <div class="col-12 col-md-4">
+            <section class="row g-5">
+                <div class="col-12 col-md-4 offset-md-2">
                     <div>
                         <img src="{% static 'dbank/images/platinumcard-removebg.png' %}" alt=""  class="img-fluid rounded-5" >
                     </div>
@@ -204,8 +224,8 @@
                         <p>No maintainance fee</p>
                     </span>
                 </div>
-                <div class="col-12 col-md-4 align-self-center">
-                    <a href="#" class="btn btn-primary ntm-lg">
+                <div class="col-12 col-md-4 mx-auto">
+                    <a href="#" class="btn btn-primary">
                         REQUEST TODAY.
                     </a>
                 </div>
