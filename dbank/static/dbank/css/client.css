@@ -5,6 +5,10 @@
     /* word-wrap: break-word; */
 }
 
+a{
+    text-decoration: none;
+}
+
 #sidebar{
     width: 250px;
     height: 100vh;
