@@ -94,19 +94,19 @@ DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'digitalbank',
-            'USER': "postgres",
-            'PASSWORD': 'daliMIKE0417',
-            'HOST': 'localhost',
-            'PORT': 5432
+            # 'ENGINE': 'django.db.backends.postgresql',
+            # 'NAME': 'digitalbank',
+            # 'USER': "postgres",
+            # 'PASSWORD': env('LOCALPW'),
+            # 'HOST': 'localhost',
+            # 'PORT': 5432
 
-        # 'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': 'railway',
-        # 'USER': env('PGUSER'),
-        # 'PASSWORD': env('PGPASSWORD'),
-        # 'HOST': env('PGHOST'),
-        # 'PORT': env('PGPORT'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': env('PGUSER'),
+        'PASSWORD': env('PGPASSWORD'),
+        'HOST': env('PGHOST'),
+        'PORT': env('PGPORT'),
     }
 }
 
