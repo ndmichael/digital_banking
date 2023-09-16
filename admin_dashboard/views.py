@@ -79,7 +79,7 @@ def all_users(request):
             )
         return redirect("/")
     users = CustomUser.objects.filter(is_active=True, is_staff=False).order_by('-date_joined')
-    total_clients = CustomUser.objects.count()
+    total_clients = CustomUser.objects.filter(is_active=True, is_staff=False).count()
     deactivate_form = DeactivateUser()
     if request.POST:
         username = request.POST.get('username')
