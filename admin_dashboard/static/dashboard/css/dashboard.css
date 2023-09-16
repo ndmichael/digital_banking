@@ -67,11 +67,11 @@
     font-size: 14px;
 }
 
-#all_user th{
+.table th{
     padding: 20px;
 }
- 
-#all_user .table tr > td{
+
+.table tr > td{
     padding: 20px;
 }
 
