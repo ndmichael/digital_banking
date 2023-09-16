@@ -102,41 +102,43 @@
         <section class="row mt-5">
             <div class="col-12 col-md-12">
                 <h4 class="pt-4">List Of Recently Created Clients</h4>
-                {% if clients %}
+                {% if users %}
                 <table class="table table-responsive bg-white shadow">
                     <thead>
                         <tr>
-                            <th scope="col">Full Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Country</th>
-                            <th scope="col">Acc Number</th>
-                            <th scope="col">Balance</th>
-                            <th scope="col">Action</th>
+                            <th>Full Name</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Country</th>
+                            <th>Acc Number</th>
+                            <th>Balance</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {%for client in clients %}
+                        {%for user in users %}
                         <tr>
                             <td>
                                 <b>
                                     <a href=""
                                         class="text-primary">
-                                        {{client.user.last_name}}
-                                        {{client.user.first_name}}
+                                        {{user.last_name}}
+                                        {{user.first_name}}
                                     </a>
                                 </b>
                             </td>
                             <td>
-                                {{client.user.email}}
+                                {{user.username}}
                             </td>
-                            <td>{{ client.country.name}}</td>
-                            <td>{{client.account_number }}</td>
-                            <td>&#36;{{client.balance}}</td>
                             <td>
-                                <a href="" class="btn btn-sm btn-primary text-light">
-                                    Add History
-                                </a>
+                                {{user.email}}
                             </td>
+                            <td>
+                                {{user.gender}}
+                            </td>
+                            <td>{{ user.country.name}}</td>
+                            <td>{{user.savings.number }}</td>
+                            <td>&#36;{{user.savings.balance}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
