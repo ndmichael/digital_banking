@@ -207,3 +207,8 @@ AWS_DEFAULT_UCL = None
 
 # if not DEBUG:
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+
+SECURE_SSL_REDIRECT=False
+SESSION_COOKIE_SECURE=False
+CSRF_COOKIE_SECURE=False
