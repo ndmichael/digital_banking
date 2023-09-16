@@ -20,7 +20,13 @@ def admin_dashboard(request):
                 request, f"You do not have permission to access this page."
             )
         return redirect("/")
-    return render(request, 'dashboard/dashboard.html', {'title': 'admin-dashboard'})
+    users = CustomUser.objects.filter(is_active=True, is_staff=False).order_by('-date_joined')[:10]
+    context={
+        "users": users,
+        "title": "admin-dashboard"
+    }
+    
+    return render(request, 'dashboard/dashboard.html', context)
 
 
 def register(request):
