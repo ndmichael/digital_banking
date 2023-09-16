@@ -209,7 +209,7 @@ AWS_DEFAULT_UCL = None
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 
-CSRF_TRUSTED_ORIGINS = ['https://digitalbanking-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://digitalbanking-production.up.railway.app', "https://tropicalfinancecu.com"]
 
 # SECURE_SSL_REDIRECT=False
 # SESSION_COOKIE_SECURE=False
