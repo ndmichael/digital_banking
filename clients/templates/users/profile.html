@@ -6,7 +6,7 @@
 <section id="wrapper">
     <nav class="navbar navbar-expand d-flex flex-column align-items-start" id="sidebar">
         <a href="#" class=" navbar-brand text-light mx-auto text-center">
-            <img class="img-fluid rounded-circle" style="height: 70px; width: 70px; object-fit: cover; padding-top: -100px;" src="{{ request.user.photo_url }}">
+            <img class="img-fluid rounded-circle" style="height: 70px; width: 70px; object-fit: cover; padding-top: -100px;" src="{{ user.photo_url }}">
             <div>
                 <p>{{ user.get_full_name }}</p>
                 <p class="fw-bold text-warning">{{user.username}}</p>
@@ -67,7 +67,7 @@
                 <div class="col-12 col-md-10 p-4 mx-auto">
                     <article class=" d-flex flex-column flex-sm-row justify-content-between p-5 bg-white shadow-sm">
                         <div class="d-flex flex-column flex-sm-row">
-                            <img class="img-fluid rounded-circle" style="height: 120px; width: 120px; object-fit: cover; padding-top: -100px;" src="{{ request.user.photo_url }}">
+                            <img class="img-fluid rounded-circle" style="height: 120px; width: 120px; object-fit: cover; padding-top: -100px;" src="{{ user.photo_url }}">
                             <div class="ps-4">
                                 <span>First name</span>
                                 <h4>{{user.first_name}}</h4>
