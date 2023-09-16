@@ -1,55 +1,58 @@
 {% extends 'users/base.html' %} {% load static %} {% load crispy_forms_tags %}
 
+{% block sidebar %}
+<nav class="navbar navbar-expand d-flex flex-column align-items-start" id="sidebar">
+    <a href="#" class=" navbar-brand text-light mx-auto">
+        <img class="img-fluid rounded-circle" style="height: 70px; width: 70px; object-fit: cover; padding-top: -100px;" src="{{ user.photo_url }}">
+        <div>
+            <p>{{ user.get_full_name }}</p>
+            <p class="fw-bold text-warning">{{user.username}}</p>
+        </div>
+    </a> 
+    <ul class="nav nav-tabs d-flex flex-column mt-3 w-100" id="myTab" role="tablist">
+        <li class="nav-item w-100">
+            <a href="#dashboard" class="nav-link active ps-4" data-bs-toggle="tab">
+                <i class=" bi bi-house-door" style="font-size: 1em;"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="nav-item w-100">
+            <a href="#account" class="nav-link ps-4" data-bs-toggle="tab">
+                <i class=" bi bi-wallet2" style="font-size: 1em;"></i>
+                Account
+            </a>
+        </li>
+        <li class="nav-item w-100">
+            <a href="#cards" class="nav-link ps-4" data-bs-toggle="tab">
+                <i class=" bi bi-credit-card-2-back" style="font-size: 1em;"></i>
+                Cards
+            </a>
+        </li>
+        <!-- <li class="nav-item w-100 disabled">
+            <a href="" class="nav-link ps-4" data-bs-toggle="tab">
+                <i class=" bi bi-bar-chart-line" style="font-size: 1em;"></i>
+                Investment
+            </a>
+        </li> -->
+        <li class="nav-item w-100">
+            <a href="#transfer" class="nav-link ps-4" data-bs-toggle="tab">
+                <i class=" bi bi-send-plus" style="font-size: 1em;"></i>
+                Make Transfer
+            </a>
+        </li>
+        <a href="{% url 'account_logout' %}" class="nav-link ps-4">
+            <i class=" bi bi-door-closed" style="font-size: .7em;"></i>
+            <small class="text-muted">Logout</small>
+        </a>
+    </ul>
+</nav>
+
+{% endblock sidebar %}
 
 {% block content %}
 
 <section id="wrapper">
-    <nav class="navbar navbar-expand d-flex flex-column align-items-start" id="sidebar">
-        <a href="#" class=" navbar-brand text-light mx-auto text-center">
-            <img class="img-fluid rounded-circle" style="height: 70px; width: 70px; object-fit: cover; padding-top: -100px;" src="{{ user.photo_url }}">
-            <div>
-                <p>{{ user.get_full_name }}</p>
-                <p class="fw-bold text-warning">{{user.username}}</p>
-            </div>
-        </a> 
-        <ul class="nav nav-tabs d-flex flex-column mt-3 w-100" id="myTab" role="tablist">
-            <li class="nav-item w-100">
-                <a href="#dashboard" class="nav-link active ps-4" data-bs-toggle="tab">
-                    <i class=" bi bi-house-door" style="font-size: 1em;"></i>
-                    Dashboard
-                </a>
-            </li>
-            <li class="nav-item w-100">
-                <a href="#account" class="nav-link ps-4" data-bs-toggle="tab">
-                    <i class=" bi bi-wallet2" style="font-size: 1em;"></i>
-                    Account
-                </a>
-            </li>
-            <li class="nav-item w-100">
-                <a href="#cards" class="nav-link ps-4" data-bs-toggle="tab">
-                    <i class=" bi bi-credit-card-2-back" style="font-size: 1em;"></i>
-                    Cards
-                </a>
-            </li>
-            <!-- <li class="nav-item w-100 disabled">
-                <a href="" class="nav-link ps-4" data-bs-toggle="tab">
-                    <i class=" bi bi-bar-chart-line" style="font-size: 1em;"></i>
-                    Investment
-                </a>
-            </li> -->
-            <li class="nav-item w-100">
-                <a href="#transfer" class="nav-link ps-4" data-bs-toggle="tab">
-                    <i class=" bi bi-send-plus" style="font-size: 1em;"></i>
-                    Make Transfer
-                </a>
-            </li>
-            <a href="{% url 'account_logout' %}" class="nav-link ps-4">
-                <i class=" bi bi-door-closed" style="font-size: .7em;"></i>
-                <small class="text-muted">Logout</small>
-            </a>
-        </ul>
-
-    </nav>
+    
 
     <div class="tab-content" id="tab-content">
         <div id="dashboard" class="container tab-pane active">
@@ -65,9 +68,9 @@
             </section>
             <section class="row">
                 <div class="col-12 col-md-10 p-4 mx-auto">
-                    <article class=" d-flex flex-column flex-sm-row justify-content-between p-5 bg-white shadow-sm">
-                        <div class="d-flex flex-column flex-sm-row">
-                            <img class="img-fluid rounded-circle" style="height: 120px; width: 120px; object-fit: cover; padding-top: -100px;" src="{{ user.photo_url }}">
+                    <article class=" d-flex flex-column flex-sm-row justify-content-between p-5 bg-white shadow-sm text-center">
+                        <div class="d-flex flex-column flex-sm-row mx-auto mx-sm-0" >
+                            <img class="img-fluid" style="height: 120px; width: 120px; object-fit: cover; padding-top: -100px;" src="{{ user.photo_url }}">
                             <div class="ps-4">
                                 <span>First name</span>
                                 <h4>{{user.first_name}}</h4>
