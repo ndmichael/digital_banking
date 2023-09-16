@@ -1,0 +1,77 @@
+#staffadmin .actions{
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    background: white;
+}
+
+#staffadmin .bi{
+    font-size: 2.4em;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    transform: translateX(40px);
+}
+
+#staffadmin .bi-arrow-left-right{
+    background: rgb(218, 218, 255);
+    color: rgb(92, 24, 243);
+    
+}
+
+#staffadmin .bi-person-circle{
+    background: rgb(199, 255, 199);
+    color: rgb(18, 121, 18);
+}
+
+#staffadmin .bi-currency-exchange{
+    background: rgb(255, 208, 208);
+    color: rgb(186, 20, 20);
+}
+
+#staffadmin .bi-credit-card-2-back{
+    background: rgb(237, 237, 237);
+    color: black;
+}
+
+#staffadmin .bi-clock-history{
+    background: rgb(252, 255, 216);
+    color: orange;
+}
+
+#staffadmin .form-floating > label{
+    left: 10px;
+}
+
+#staffadmin textarea{
+    height: 100px;
+}
+
+
+#all_user{
+    padding-top: 4em;
+    padding-bottom: 4em;
+}
+
+#all_user a{
+    padding: 5px 12px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+#all_user a > .bi {
+    font-size: 14px;
+}
+
+#all_user th{
+    padding: 20px;
+}
+ 
+#all_user .table tr > td{
+    padding: 20px;
+}
+
