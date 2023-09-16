@@ -25,6 +25,7 @@ class UserAdmin(BaseUserAdmin):
                     "dob",
                     "country",
                     "address",
+                     "image"
                 ],
             },
         ),
@@ -41,7 +42,7 @@ class UserAdmin(BaseUserAdmin):
                     "password1",
                     "password2",
                     "country",
-                    "address"
+                    "address",
                 ]
             },
         ),
