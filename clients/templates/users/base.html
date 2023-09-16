@@ -16,6 +16,19 @@
 </head>
 
 <body>
+    {% block sidebar %}
+
+    {% endblock sidebar %}
+    <div class="bg-transparent py-2">
+        <section class="container">
+            <div class="row">
+                <div class="col-12 text-end">
+                    <button class="openbtn btn btn-primary btn-small" onclick="openNav()">☰</button> 
+                </div>
+            </div>
+        </section>
+    </div>
+    
     <section class="container">
         <div class="row">
             <div class="offset-sm-3 col-sm-6">
@@ -54,6 +67,16 @@
             easing: 'ease-in-sine',
         });
     </script>
+
+<script>
+    function openNav() {
+      document.getElementById("sidebar").style.width = "250px";
+    }
+    
+    function closeNav() {
+      document.getElementById("sidebar").style.width = "0";
+    }
+</script>
 
 </body>
 
