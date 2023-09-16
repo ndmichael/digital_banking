@@ -30,7 +30,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost',  'digitalbanking-production.up.railway.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost',  'digitalbanking-production.up.railway.app', 'tropicalfinancecu.com']
 
 
 # Application definition
@@ -94,19 +94,19 @@ DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
-            # 'ENGINE': 'django.db.backends.postgresql',
-            # 'NAME': 'digitalbank',
-            # 'USER': "postgres",
-            # 'PASSWORD': 'daliMIKE0417',
-            # 'HOST': 'localhost',
-            # 'PORT': 5432
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'digitalbank',
+            'USER': "postgres",
+            'PASSWORD': 'daliMIKE0417',
+            'HOST': 'localhost',
+            'PORT': 5432
 
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': env('PGUSER'),
-        'PASSWORD': env('PGPASSWORD'),
-        'HOST': env('PGHOST'),
-        'PORT': env('PGPORT'),
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'railway',
+        # 'USER': env('PGUSER'),
+        # 'PASSWORD': env('PGPASSWORD'),
+        # 'HOST': env('PGHOST'),
+        # 'PORT': env('PGPORT'),
     }
 }
 
