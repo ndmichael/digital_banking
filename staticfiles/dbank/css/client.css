@@ -5,7 +5,11 @@
     /* word-wrap: break-word; */
 }
 
-.navbar{
+a{
+    text-decoration: none;
+}
+
+#sidebar{
     width: 250px;
     height: 100vh;
     position: fixed; 
@@ -51,7 +55,7 @@
 
 
 @media(max-width:768px){
-    .navbar{
+    #sidebar{
         width: 0px;
         height: 100vh;
         position: fixed; 
