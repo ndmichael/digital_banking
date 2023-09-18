@@ -23,7 +23,7 @@
         <section class="container">
             <div class="row">
                 <div class="col-12 text-end">
-                    <button class="openbtn btn btn-primary btn-small" onclick="openNav()">☰</button> 
+                    <button class="openbtn btn btn-primary btn-small" id="toggleSidebar">☰</button> 
                 </div>
             </div>
         </section>
@@ -69,13 +69,11 @@
     </script>
 
 <script>
-    function openNav() {
-      document.getElementById("sidebar").style.width = "250px";
-    }
+    $('#toggleSidebar').click(function(e){
+        e.preventDefault();
+        $('#sidebar').toggleClass('toggler');
+    })
     
-    function closeNav() {
-      document.getElementById("sidebar").style.width = "0";
-    }
 </script>
 
 </body>
