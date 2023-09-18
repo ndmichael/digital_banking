@@ -18,6 +18,7 @@ a{
     overflow-y: hidden;
 }
 
+
 .nav-link{
     font-size: 1em;
     z-index: 100;
@@ -62,6 +63,11 @@ a{
         background: #3c24aa;
         z-index: 1;
         overflow-y: hidden;
+        transition: .3s ease-in-out;
+    }
+
+    .toggler{
+        width: 250px !important;
     }
 
     #tab-content{
