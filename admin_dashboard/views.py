@@ -9,6 +9,7 @@ from random import randrange
 from django.contrib import messages
 from decimal import Decimal
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -84,7 +85,14 @@ def all_users(request):
                 request, f"You do not have permission to access this page."
             )
         return redirect("/")
-    users = CustomUser.objects.filter(is_active=True, is_staff=False).order_by('-date_joined')
+    # users = CustomUser.objects.filter(is_active=True, is_staff=False).order_by('-date_joined')
+
+    # setting up pagination
+    p = Paginator(CustomUser.objects.filter(is_active=True, is_staff=False).order_by('-date_joined'), 10)
+    page = request.GET.get('page')
+    users = p.get_page(page)
+
+
     total_clients = CustomUser.objects.filter(is_active=True, is_staff=False).count()
     deactivate_form = DeactivateUser()
     if request.POST:
