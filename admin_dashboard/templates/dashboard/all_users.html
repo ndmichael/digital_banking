@@ -94,10 +94,31 @@
                     </tr>
                     {% endfor %}
                     </tbody>
-                    </table>
+                </table>
+
+                    <!-- pagination added to clients -->
+                    <div class="pt-3 text-center">
+                        {% if users.paginator.num_pages > 1 %}
+                            {% if users.has_previous %}
+                            <a class="btn btn-outline-dark" href="?page=1">First</a>
+                            <a class="btn btn-outline-dark" href="?page={{ users.previous_page_number }}">Previous</a>
+                            {% endif %}
+                            {% for num in users.paginator.page_range %}
+                                {% if users.number == num %}
+                                    <a class="btn btn-primary" href="?page={{ num }}">{{ num }}</a>
+                                {% elif num > users.number|add:'-3' and num < users.number|add:'3' %}
+                                    <a class="btn btn-outline-dark" href="?page={{ num }}">{{ num }}</a>
+                                {% endif %}
+                            {% endfor %}
+                            {% if users.has_next %}
+                                <a class="btn btn-outline-primary btn-lg" href="?page={{ users.next_page_number }}">Next</a>
+                                <a class="btn btn-dark " href="?page={{ users.paginator.num_pages }}">Last</a>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+
                 {% else %}
                     <h2>no users</h2>
-
                 {% endif %}
             </article>
         </section>
