@@ -138,10 +138,16 @@ def all_transfers(request):
             
             bank_acc.save()
 
-        transaction.status = status
-        transfer.status = status
-        transaction.save()
-        transfer.save()
+            transaction.status = status
+            transfer.status = status
+            transaction.save()
+            transfer.save()
+
+            messages.success(request, f"Transfer has been set as success")
+            return redirect(
+                "all_transfers"
+            )  
+
     
     context = {
         'transfers': transfers,
