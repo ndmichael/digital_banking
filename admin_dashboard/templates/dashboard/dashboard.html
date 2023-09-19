@@ -6,7 +6,7 @@
 <section id="staffadmin">
     <div class="container py-5">
         <section class="row py-4">
-            <article class="col-8 col-md-6">
+            <article class="col-12 col-md-6">
                 <div class="d-flex">
                     <img class="img-fluid rounded-circle shadow" style="height: 100px; width: 100px; object-fit: cover;" src="{{ user.photo_url }}">
                     <span class="ps-4 align-self-center">
@@ -24,7 +24,7 @@
         <section class="row g-5 pt-5">
             <article class="col-12 col-sm-6 col-md-4 mb-3">
                 <a href="{% url 'all_users' %}" class="shadow-sm py-4 px-3 border-start border-success border-5  hvr-float-shadow actions">
-                    <div class=" d-flex  justify-content-around">
+                    <div class=" d-flex  justify-content-between">
                         <div class="ps-3">
                             <h4>Manage Accounts</h4>
                             <p class="text-muted">
@@ -38,7 +38,7 @@
                 </a>
             </article>
             <article class="col-12 col-sm-6 col-md-4 mb-3">
-                <a href="{% url 'all_transfers' %}" class="shadow-sm py-4 px-3 border-start border-primary border-5  hvr-float-shadow d-block actions">
+                <a href="{% url 'all_transfers' %}" class="shadow-sm py-4 px-3 border-start border-primary border-5  hvr-float-shadow actions">
                     <div class=" d-flex  justify-content-between">
                         <div class="ps-3">
                             <h4>Transfer Request</h4>
@@ -53,7 +53,7 @@
             </article>
             <article class="col-12 col-sm-6 col-md-4 mb-3">
                 <a href="{% url 'all_users' %}" class="shadow-sm py-4 px-3 border-start border-danger border-5  bg-white hvr-float-shadow actions">
-                    <div class=" d-flex  justify-content-around">
+                    <div class=" d-flex  justify-content-between">
                         <div class="ps-3">
                             <h4>Load Balance</h4>
                             <p class="text-muted">
@@ -65,12 +65,11 @@
                     </div>
                 </a>
             </article>
-        </section>
-        <section class="row mt-5 g-5">
+
             <div class="col-12 col-sm-6 col-md-4">
                 <div>
                     <a href="{% url 'historypage' %}" class="shadow-sm py-4 px-3 border-start border-warning border-5  bg-white hvr-float-shadow actions">
-                        <div class=" d-flex  justify-content-around">
+                        <div class=" d-flex  justify-content-between">
                             <div class="ps-3">
                                 <h4>Add History</h4>
                                 <p class="text-muted">
@@ -85,7 +84,7 @@
             <div class="col-12 col-sm-6 col-md-4">
                 <div>
                     <a href="" class="shadow-sm py-4 px-3 border-start border-dark border-5  bg-white hvr-float-shadow actions">
-                        <div class=" d-flex  justify-content-around">
+                        <div class=" d-flex  justify-content-between">
                             <div class="ps-3">
                                 <h4>Manage Card</h4>
                                 <p class="text-muted">
@@ -99,6 +98,7 @@
                 </div>
             </div>
         </section>
+        
         <section class="row mt-5">
             <div class="col-12 col-md-12">
                 <h4 class="pt-4">List Of Recently Created Clients</h4>
