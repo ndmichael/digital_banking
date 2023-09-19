@@ -101,7 +101,6 @@ DATABASES = {
             # 'HOST': 'localhost',
             # 'PORT': 5432
 
-        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': env('PGUSER'),
         'PASSWORD': env('PGPASSWORD'),
@@ -204,6 +203,8 @@ AWS_S3_REGION_NAME = "us-east-2"
 AWS_S3_SIGNATURE_VERSION = "s3v4"
 
 AWS_DEFAULT_UCL = None
+
+USE_THOUSAND_SEPARATOR = True
 
 # if not DEBUG:
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
