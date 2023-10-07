@@ -203,8 +203,8 @@
     </div>
 </section>
 
-<!-- partners section -->
-<section id="partners" class="py-5 bg-light">
+<!-- partners section for medium to large screen -->
+<section id="partners" class="py-5 bg-light d-none d-md-block">
     <div class="container">
         <section class="row pb-5">
             <div class=" col-12 col-md-8 mx-auto text-center">
@@ -230,23 +230,23 @@
             </div>
         </section>
 
-        <section class="row text-center justify-content-center gx-4">
-            <div class="col-6 col-md-2 py-4">
+        <section class="row  justify-content-center g-4">
+            <div class="col-4 col-md-2 py-4">
                 <div class="p-4 shadow-sm bg-white">
                     <img src="{% static 'dbank/images/logos/Wells-Fargo.svg' %}" alt="" class="img-fluid">
                 </div>
             </div>
-            <div class="col-6 col-md-2 py-3" >
+            <div class="col-4  col-md-2 py-3" >
                 <div class="p-4 shadow-sm bg-white">
                     <img src="{% static 'dbank/images/logos/Zelle.svg' %}" alt="" class="img-fluid">
                 </div>
             </div>
-            <div class="col-6 col-md-2 py-3">
+            <div class="col-4 col-md-2 py-3">
                 <div class="p-4 shadow-sm bg-white">
                     <img src="{% static 'dbank/images/logos/TD-Ameritrade-01.svg' %}" alt="" class="img-fluid">
                 </div>
             </div>
-            <div class="col-6 col-md-2 py-3">
+            <div class="col-4 col-md-2 py-3">
                 <div class="p-4 shadow-sm bg-white">
                     <img src="{% static 'dbank/images/logos/RoboForex.svg' %}" alt="" class="img-fluid">
                 </div>
@@ -254,17 +254,17 @@
         </section>
 
         <section class="row text-center justify-content-center gx-4">
-            <div class="col-6 col-md-2 py-3">
+            <div class="col-4 col-md-2 py-3">
                 <div class="p-4 shadow-sm bg-white">
                     <img src="{% static 'dbank/images/logos/cnn.png' %}" alt="" class="img-fluid">
                 </div>
             </div>
-            <div class="col-6 col-md-2 py-3" >
+            <div class="col-4 col-md-2 py-3" >
                 <div class="p-4 shadow-sm bg-white">
                     <img src="{% static 'dbank/images/logos/bitcoin.png' %}" alt="" class="img-fluid ">
                 </div>
             </div>
-            <div class="col-6 col-md-2 py-3">
+            <div class="col-4 col-md-2 py-3">
                 <div class="p-4 shadow-sm bg-white">
                     <img src="{% static 'dbank/images/logos/hsbc.png' %}" alt="" class="img-fluid">
                 </div>
@@ -273,8 +273,59 @@
     </div>
 </section>
 
-<section>
+<!--only display for extra smalla and small screen -->
+<section id="partners" class="py-5 bg-light d-sm-block d-md-none">
+    <div class="container">
+        <section class="row pb-5">
+            <div class=" col-12 col-md-8 mx-auto text-center">
+                <h4 class="text-primary">Everyone got to smile</h4>
+                <h2>Some of our partners and clients</h2>
+            </div>
+        </section>
+        <section class="row g-4">
+            <div class="col-3">
+                <div class="shadow-sm bg-white">
+                    <img src="{% static 'dbank/images/logos/Wells-Fargo.svg' %}" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-3" >
+                <div class="shadow-sm bg-white">
+                    <img src="{% static 'dbank/images/logos/Zelle.svg' %}" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="shadow-sm bg-white">
+                    <img src="{% static 'dbank/images/logos/TD-Ameritrade-01.svg' %}" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="shadow-sm bg-white">
+                    <img src="{% static 'dbank/images/logos/RoboForex.svg' %}" alt="" class="img-fluid">
+                </div>
+            </div>
 
+            <div class="col-3">
+                <div class="shadow-sm bg-white">
+                    <img src="{% static 'dbank/images/logos/Binance-Smart-Chain.svg' %}" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-3" >
+                <div class="shadow-sm bg-white">
+                    <img src="{% static 'dbank/images/logos/JF-JForex4.png' %}" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="shadow-sm bg-white">
+                    <img src="{% static 'dbank/images/logos/Microsoft-HoloLens.svg' %}" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="shadow-sm bg-white">
+                    <img src="{% static 'dbank/images/logos/cnn.png' %}" alt="" class="img-fluid">
+                </div>
+            </div>
+        </section>
+    </div>
 </section>
 
 {% endblock content %}
