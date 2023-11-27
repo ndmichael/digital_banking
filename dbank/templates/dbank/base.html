@@ -13,6 +13,57 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet"> 
     <link rel="icon" type="image/x-icon" href="{% static '/dbank/images/favicon.png' %}">
+
+    <style>
+      .cardtype input[type="radio"]{
+        display: none;
+        opacity: 0;
+      }
+        
+      .cardtype > label{
+      position: relative;
+      color:#4169E1;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      border: 2px solid #4169E1;
+      border-radius: 5px;
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+
+      }
+
+      .cardtype > label:hover{
+      color:  white;
+      background-color: #002064;
+      border-radius: 5px;
+      padding: 5px 10px;
+      }
+
+      .cardtype label::before{
+      content: "";
+      height: 15px;
+      width: 15px;
+      border: 2px solid #4169E1;
+      border-radius: 50%;
+      margin-right: 20px !important;
+
+      }
+
+      .cardtype input[type="radio"]:checked + label{
+      background: #4169E1 !important;
+      color: white !important;
+      }
+
+      .cardtype input[type="radio"]:checked + label::before{
+      height: 14px;
+      width: 14px;
+      /* border-radius: 50%; */
+      border: 5px solid white !important;
+      background: #4169E1 !important;
+      }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-sm w-100">
