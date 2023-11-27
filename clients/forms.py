@@ -33,11 +33,6 @@ class TransferForm(forms.Form):
     description = forms.CharField(max_length=150)
     country = CountryField(blank_label="(Select country)").formfield(widget =  CountrySelectWidget())
 
-
-class CardRequestForm(forms.Form):
-    pass
-    
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
@@ -62,3 +57,12 @@ class CardRequestForm(forms.Form):
 
 class DeactivateUser(forms.Form):
     deactivate = forms.BooleanField()
+
+
+class CardRequestForm(forms.Form):
+    cardTypes = (
+        ('gold', 'GOLD'),
+        ('infinite', 'INFINITE'),
+        ('platinum', 'PLATINUM')
+    )
+    cardtype = forms.ChoiceField(choices=cardTypes, widget=forms.RadioSelect(attrs={"class": "test", "required": True}), required=True)
