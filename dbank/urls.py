@@ -12,4 +12,5 @@ urlpatterns = [
     path('virtualcards/visainfinite', visainfinite, name="visaInfinite"),
     path('virtualcards/visaplatinum', visaplatinum, name="visaplatinum"),
     path('banking/accounts/types', bank_account_types, name="baccounts"),
+    
 ]
