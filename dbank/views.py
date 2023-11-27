@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -24,3 +25,5 @@ def visaplatinum(request):
 
 def bank_account_types(request):
     return render(request, 'dbank/accounttypes.html', {'title': 'visa infinite'})
+
+
