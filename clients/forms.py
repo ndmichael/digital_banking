@@ -32,6 +32,10 @@ class TransferForm(forms.Form):
     beneficiary_account_number = forms.CharField(max_length=15)
     description = forms.CharField(max_length=150)
     country = CountryField(blank_label="(Select country)").formfield(widget =  CountrySelectWidget())
+
+
+class CardRequestForm(forms.Form):
+    pass
     
 
     def __init__(self, *args, **kwargs):
@@ -55,9 +59,6 @@ class TransferForm(forms.Form):
         # self.fields["description"].widget.attrs.update(
         #     {'class': 'form-control-lg rounded-4'})
         
-
-
-
 
 class DeactivateUser(forms.Form):
     deactivate = forms.BooleanField()
