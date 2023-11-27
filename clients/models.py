@@ -152,13 +152,15 @@ class Investment(models.Model):
     pass
 
 
+cardTypes = (
+    ('gold', 'GOLD'),
+    ('infinite', 'INFINITE'),
+    ('platinum', 'PLATINUM')
+)
+
 class Card(models.Model):
-    cardTypes = (
-        ('gold', 'GOLD'),
-        ('infinite', 'INFINITE'),
-        ('platinum', 'PLATINUM')
-    )
-    user = models.ForeignKey(CustomUser, unique=False, on_delete=models.CASCADE, related_name="client")
+    
+    user = models.ForeignKey(CustomUser, unique=False, on_delete=models.CASCADE, related_name="client_cards")
     cardtype = models.CharField(default='gold', choices=cardTypes, max_length=10)
     number = models.CharField(max_length=16,  null=True, blank=True)
     cvv = models.CharField(max_length=3,  null=True, blank=True)
@@ -170,6 +172,12 @@ class Card(models.Model):
     def ExpiringDate(self):
         expires = self.created - timezone.timedelta(days=1460)
         return expires
+    
+
+class CardRequest(models.Model):
+    user = models.ForeignKey(CustomUser, unique=False, on_delete=models.SET_NULL, null=True, related_name="card_request")
+    cardtype = models.CharField(default='gold', choices=cardTypes, max_length=10)
+    created = models.DateTimeField(default=timezone.now)
 
 
 class Transfer(models.Model):
