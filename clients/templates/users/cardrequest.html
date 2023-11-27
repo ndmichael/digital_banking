@@ -1,0 +1,26 @@
+{% extends 'dbank/base.html' %} {% load static %} 
+
+
+{% block content %}
+    <section class="about">
+        <div class="container">
+            <section class="row gx-5 gy-4">
+                <div class="col-12 col-md-8 mx-auto">
+                    <div>
+                        <div class="text-center">
+                            <h2 class="display-2 pb-4">Card Request Form</h2>
+                        
+                            <h4><span class="text-muted">Fullname:</span><br> <span>{{request.user.get_full_name}}</span></h4>
+                            <h4><span class="text-muted">Email:</span><br> <span>{{request.user.email}}</span></h4>
+                            <h4><span class="text-muted">Address:</span><br> <span>{{request.user.address}}</span></h4>
+                        </div>
+                    </div>
+                    <form action="" method="POST" enctype="multipart/form-data">
+
+                    </form>
+                </div>
+            </section>
+        </div>
+    </section>
+
+{% endblock content %}
