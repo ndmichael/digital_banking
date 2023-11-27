@@ -67,3 +67,11 @@ def current_user_profile(request):
         return redirect('admindashboard')
     return redirect('clientprofile', username=request.user.username)
 
+
+@login_required
+def card_request(request):
+    context = {
+        "title": "card request"
+    }
+    return render(request, 'users/cardrequest.html', context)
+
