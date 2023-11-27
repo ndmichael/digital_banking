@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.decorators import login_required
 from .models import CustomUser, Savings, Transfer, Transaction
-from .forms import TransferForm
+from .forms import TransferForm, CardRequestForm
 from django.contrib import messages
 
 # Create your views here.
@@ -70,7 +70,9 @@ def current_user_profile(request):
 
 @login_required
 def card_request(request):
+    form = CardRequestForm()
     context = {
+        "form": form,
         "title": "card request"
     }
     return render(request, 'users/cardrequest.html', context)
