@@ -194,8 +194,8 @@
                         <p class="py-4 text-light">
                             Have access to borrow up to $20K, With 0.0 balance.
                         </p>
-                        <a href="mailto:contact@tropicalfinancecu.com" class="text-white fw-bold" style="text-decoration: none;" >
-                            Contact Care     >
+                        <a href="{% url 'card_request' %}" data-bs-toggle="tab" class="text-white fw-bold" style="text-decoration: none;" >
+                            Request Now     >
                         </a>
 
                     </div>
@@ -230,9 +230,14 @@
                     </span>
                 </div>
                 <div class="col-12 col-md-6 mx-auto">
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <a href="{% url 'card_request' %}" target="_blank" class="btn btn-primary" >
                         Request For Card
+                    </a>
+
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Customer Care
                     </button>
+                    
                     <div class="collapse my-4" id="collapseExample">
                         <div class="card card-body">
                           <div class=" d-flex">
