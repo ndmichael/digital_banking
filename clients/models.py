@@ -179,6 +179,9 @@ class CardRequest(models.Model):
     cardtype = models.CharField(default='gold', choices=cardTypes, max_length=10)
     created = models.DateTimeField(default=timezone.now)
 
+    def __str__(self) -> str:
+        return f"{self.user} {self.cardtype}"
+
 
 class Transfer(models.Model):
     status_choices = (
