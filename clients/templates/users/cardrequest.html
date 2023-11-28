@@ -5,24 +5,21 @@
     <section class="about">
         <div class="container">
             <section class="row gx-5 gy-4">
-                <div class="col-12 col-md-8 mx-auto">
-                    <div>
-                        <div class="text-center">
-                            <h2 class="display-4 pb-4">Card Request Form</h2>
-                        
-                            <h5><span class="text-muted">Fullname:</span><br> <span>{{request.user.get_full_name}}</span></h5>
-                            <h5><span class="text-muted">Email:</span><br> <span>{{request.user.email}}</span></h5>
-                            <h5><span class="text-muted">Address:</span><br> <span>{{request.user.address}}</span></h5>
-                        </div>
+                <h2 class="display-4 text-center">Card Request Form</h2>
+                <div class="col-12 col-md-4 offset-md-4">
+                    <div class="d-flex justify-content-between">
+                        <h5><span class="text-muted">Fullname:</span><br> <span>{{request.user.get_full_name}}</span></h5>
+                        <h5><span class="text-muted">Email:</span><br> <span>{{request.user.email}}</span></h5>
                     </div>
+                    <div>
+                        <h5><span class="text-muted">Address:</span><br> <span>{{request.user.address}}</span></h5>
+                    </div>
+
                     <form action="" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
-                        
-                        
-                        <div class="col-12 col-md-6 mx-auto my-5">
+                        <div class="col-12 mx-auto my-5">
                             <h5 class="my-3 ms-2">Choose CardType:</h5>
-                            {% for choice in form.cardtype %}
-                                
+                            {% for choice in form.cardtype %}   
                                 <div class="cardtype my-3">
                                     <!-- {{choice}} -->
                                     {{choice.tag}}
