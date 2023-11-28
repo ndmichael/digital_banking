@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.decorators import login_required
-from .models import CustomUser, Savings, Transfer, Transaction
+from .models import CustomUser, Savings, Transfer, Transaction, CardRequest
 from .forms import TransferForm, CardRequestForm
 from django.contrib import messages
 
@@ -70,7 +70,16 @@ def current_user_profile(request):
 
 @login_required
 def card_request(request):
-    form = CardRequestForm()
+    
+    if request.method == "POST":
+        form = CardRequestForm(request.POST)
+        if form.is_valid():
+            cardtype = form.cleaned_data['cardtype']
+            CardRequest.objects.create(cardtype=cardtype, user=request.user)
+            messages.success(request,'Request is being processed, Our bank will contact.')
+            return redirect("clientprofile", request.user.username)
+    else:
+        form = CardRequestForm()
     context = {
         "form": form,
         "title": "card request"
