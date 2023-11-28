@@ -61,8 +61,8 @@ class DeactivateUser(forms.Form):
 
 class CardRequestForm(forms.Form):
     cardTypes = (
-        ('gold', 'GOLD'),
-        ('infinite', 'INFINITE'),
-        ('platinum', 'PLATINUM')
+        ('gold', 'GOLD CREDIT CARD'),
+        ('infinite', 'INFINITE CREDIT CARD'),
+        ('platinum', 'PLATINUM CREDIT CARD')
     )
     cardtype = forms.ChoiceField(choices=cardTypes, widget=forms.RadioSelect(attrs={"class": "test", "required": True}), required=True)
