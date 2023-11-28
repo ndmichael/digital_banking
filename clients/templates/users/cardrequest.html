@@ -18,7 +18,7 @@
                     <form action="" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="col-12 mx-auto my-5">
-                            <h5 class="my-3 ms-2">Choose CardType:</h5>
+                            <h4 class="my-3 ms-2">Choose CardType:</h4>
                             {% for choice in form.cardtype %}   
                                 <div class="cardtype my-3">
                                     <!-- {{choice}} -->
