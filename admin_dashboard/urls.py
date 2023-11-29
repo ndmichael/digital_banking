@@ -8,6 +8,7 @@ from .views import (
     load_balance,
     historypage,
     addtransaction,
+    card_feature,
 )
 
 
@@ -15,6 +16,7 @@ from .views import (
 urlpatterns = [
     path("", admin_dashboard, name="admindashboard"),
     path("register/", register, name="register"),
+    path("card/request/", card_feature, name="credit_card"),
     path("users/all/", all_users, name="all_users"),
     path("transfer/all/", all_transfers, name="all_transfers"),
     path("user/history/", historypage, name="historypage"),
