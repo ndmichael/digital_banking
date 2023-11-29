@@ -46,16 +46,22 @@
         </a>
     </ul>
 </nav>
-
 {% endblock sidebar %}
+<!-- end of the navbar section-->
 
 {% block content %}
 
+<!--
+    -- wrapper section linked to the navbar
+-->
 <section id="wrapper">
-    
-
     <div class="tab-content" id="tab-content">
+        <!-- 
+            -The navbar section.
+            - first view when a user is login
+        -->
         <div id="dashboard" class="container tab-pane active">
+            <!-- row one -->
             <section class="row">
                 <div class="col-12">
                     <div class="alert alert-primary text-center" role="alert">
@@ -66,6 +72,9 @@
                     <h5 class="py-4"><span class="text-muted">Welcome back, </span><small>{{user.username}}</small> <i class="bi bi-hand-thumbs-up-fill text-danger"></i></h5>
                 </div>    
             </section>
+            <!-- 
+                -row two
+            -->
             <section class="row">
                 <div class="col-12 col-md-10 p-4 mx-auto">
                     <article class=" d-flex flex-column flex-sm-row justify-content-between p-5 bg-white shadow-sm text-center">
@@ -88,6 +97,9 @@
                     </article>
                 </div>
             </section>
+            <!--
+                - row three
+            -->
             <section class="row pt-5">
                 <div class="col-12 col-md-10 mx-auto p-5 bg-white shadow-sm rounded-4">
                     {% if s_transactions %}
@@ -134,7 +146,10 @@
             </section>
         </div>
 
-        <!-- account section-->
+        <!-- 
+            - account section
+            - everything about the clients account.
+        -->
         <div id="account" class="container tab-pane fade">
             <section class="row g-5">
                 <div class="col-12">
@@ -203,8 +218,14 @@
             </section>
         </div>
 
-        <!-- card section -->
+        <!-- 
+            - card section 
+            - this holds logics for the card section
+        -->
         <div id="cards" class="container tab-pane fade">
+            <!--
+                - first row
+            -->
             <section class=" row g-5 mb-5">
                 <div class="col-12 col-md-10 mx-auto text-center">
                     <header class="py-4">
@@ -234,6 +255,9 @@
                     </div>
                 </div>
             </section>
+            <!--
+                - row two
+            -->
             <section class="row g-5">
                 <div class="col-12 col-md-4">
                     <div>
@@ -324,6 +348,10 @@
                 </div>   
             </section>
         </div>
+        <!--
+            - the investment section
+            - contains logics for the banking investments
+        -->
         <div id="investment" class="container tab-pane fade">
             <section class="row">
                 <div class="col-12">
