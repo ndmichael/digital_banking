@@ -204,33 +204,14 @@
         </div>
 
         <!-- card section -->
-        <div id="cards" class="container tab-pane fade pt-5">
-            <section class="row g-5">
-                <div class="col-12 col-md-4 offset-md-2">
-                    <div>
-                        <img src="{% static 'dbank/images/platinumcard-removebg.png' %}" alt=""  class="img-fluid rounded-5" >
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 align-self-center">
-                    <span class="d-flex">
-                        <i class="bi bi-check-all pe-4 text-primary"></i>
-                        <p>Spend more</p> 
-                    </span>
-                    <span class="d-flex">
-                        <i class="bi bi-check-all pe-4 text-primary"></i>
-                        <p>Access to up to $150,000.00 loan.</p>
-                    </span>
-                    <span class="d-flex">
-                        <i class="bi bi-check-all pe-4 text-primary"></i>
-                        <p>No hidden charges</p>
-                    </span>
-                    <span class="d-flex">
-                        <i class="bi bi-check-all pe-4 text-primary"></i>
-                        <p>No maintainance fee</p>
-                    </span>
-                </div>
-                <div class="col-12 col-md-6 mx-auto">
-                    <a href="{% url 'card_request' %}" target="_blank" class="btn btn-primary" >
+        <div id="cards" class="container tab-pane fade">
+            <section class=" row g-5 mb-5">
+                <div class="col-12 col-md-10 mx-auto text-center">
+                    <header class="py-4">
+                        <h4 class="display-5">Credit With Just a Click</h4>
+                        <p>No multi steps forms, or too much requirements nor verifications</p>
+                    </header>
+                    <a href="{% url 'card_request' %}" target="_blank" class="btn btn-primary me-4" >
                         Request For Card
                     </a>
 
@@ -252,7 +233,95 @@
                         </div>
                     </div>
                 </div>
-                
+            </section>
+            <section class="row g-5">
+                <div class="col-12 col-md-4">
+                    <div>
+                        <img src="{% static 'dbank/images/goldcard0.jpg' %}" alt=""  class="img-fluid rounded-5" >
+                        <div class="p-4">
+                            <header class="h3">Visa Gold Credit</header>
+                            <p class="fw-bold text-primary fs-3 py-3 border-top border-bottom">$4,650</p>
+                            <span class="d-flex">
+                                <i class="bi bi-check-all pe-4 text-primary"></i>
+                                <p>Access to <b>$23,250</b> card limit.</p> 
+                            </span>
+                            <span class="d-flex">
+                                <i class="bi bi-check-all pe-4 text-primary"></i>
+                                <p>Pay back only 30% of what you use.</p>
+                            </span>
+                            <span class="d-flex">
+                                <i class="bi bi-check-all pe-4 text-primary"></i>
+                                <p>Accepted by over 23M merchat points</p>
+                            </span>
+                            <span class="d-flex">
+                                <i class="bi bi-check-all pe-4 text-primary"></i>
+                                <p>No maintainance or hidden fee</p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div>
+                        <img src="{% static 'dbank/images/infinitecard.jpg' %}" alt=""  class="img-fluid rounded-5" >
+                        <div class="p-4">
+                            <header class="h3">Visa Infinite Credit</header>
+                            <p class="fw-bold text-primary fs-3 py-3 border-top border-bottom">$20,650</p>
+                            <span class="d-flex">
+                                <i class="bi bi-check-all pe-4 text-primary"></i>
+                                <p>Access to <b>$114,650</b> card limit.</p> 
+                            </span>
+                            <span class="d-flex">
+                                <i class="bi bi-check-all pe-4 text-primary"></i>
+                                <p>Pay back only 30% - 50% of what you use.</p>
+                            </span>
+                            <span class="d-flex">
+                                <i class="bi bi-check-all pe-4 text-primary"></i>
+                                <p>No limit caps</p>
+                            </span>
+                            <span class="d-flex">
+                                <i class="bi bi-check-all pe-4 text-primary"></i>
+                                <p>Accepted in multiple points.</p>
+                            </span>
+                            <span class="d-flex">
+                                <i class="bi bi-check-all pe-4 text-primary"></i>
+                                <p>Emergency cash advance via moneygram or western union.</p>
+                            </span>
+                            <span class="d-flex">
+                                <i class="bi bi-check-all pe-4 text-primary"></i>
+                                <p>100% transaction success late with no drawbacks.</p>
+                            </span>
+                            <span class="d-flex">
+                                <i class="bi bi-check-all pe-4 text-primary"></i>
+                                <p>Billing cycle of every 30days, for only the top elites 5%.</p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div>
+                        <img src="{% static 'dbank/images/platinumcard.jpg' %}" alt=""  class="img-fluid rounded-5">
+                        <div class="p-4">
+                            <header class="h3">Visa Platinum Credit</header>
+                            <p class="fw-bold text-primary fs-3 py-3 border-top border-bottom">$9,650</p>
+                            <span class="d-flex">
+                                <i class="bi bi-check-all pe-4 text-primary"></i>
+                                <p>Access to <b>$67,200</b> card limit.</p> 
+                            </span>
+                            <span class="d-flex">
+                                <i class="bi bi-check-all pe-4 text-primary"></i>
+                                <p>Pay back only 50% of what you use.</p>
+                            </span>
+                            <span class="d-flex">
+                                <i class="bi bi-check-all pe-4 text-primary"></i>
+                                <p>Accepted by over 23M merchat points</p>
+                            </span>
+                            <span class="d-flex">
+                                <i class="bi bi-check-all pe-4 text-primary"></i>
+                                <p>No maintainance or hidden fee</p>
+                            </span>
+                        </div>
+                    </div>
+                </div>   
             </section>
         </div>
         <div id="investment" class="container tab-pane fade">
@@ -264,7 +333,7 @@
         </div>
         <div id="transfer" class="container tab-pane fade">
             <section class="row">
-                <div class="col-12 col-md-10  mx-auto">
+                <div class="col-12 col-md-8  mx-auto">
                     <div class="bg-white shadow-sm rounded-5 p-4 p-md-5">
                         <h3 class="py-4">International Transfer Form.</h3>
                         <form method="post" action="">
