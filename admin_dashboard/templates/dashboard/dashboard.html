@@ -83,7 +83,7 @@
             </div>
             <div class="col-12 col-sm-6 col-md-4">
                 <div>
-                    <a href="" class="shadow-sm py-4 px-3 border-start border-dark border-5  bg-white hvr-float-shadow actions">
+                    <a href="{% url 'credit_card' %}" class="shadow-sm py-4 px-3 border-start border-dark border-5  bg-white hvr-float-shadow actions">
                         <div class=" d-flex  justify-content-between">
                             <div class="ps-3">
                                 <h4>Manage Card</h4>
@@ -108,10 +108,10 @@
                         <tr>
                             <th>Full Name</th>
                             <th>Username</th>
-                            <th>Email</th>
-                            <th>Gender</th>
+                            <th>Email</th>        
+                            <th>Gender</th>        
                             <th>Country</th>
-                            <th>Acc Number</th>
+                            <th>Account Number</th>
                             <th>Balance</th>
                         </tr>
                     </thead>
@@ -122,8 +122,7 @@
                                 <b>
                                     <a href=""
                                         class="text-primary">
-                                        {{user.last_name}}
-                                        {{user.first_name}}
+                                        {{user.get_full_name}}
                                     </a>
                                 </b>
                             </td>
