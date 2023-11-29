@@ -281,9 +281,11 @@ def card_feature(request):
             )
         return redirect("/")
     cards = CardRequest.objects.all().order_by('-date')
+    total_request = CardRequest.objects.all().count()
     # print(cards)
     context = {
-        'cards': cards
+        'cards': cards,
+        'total_request': total_request
     }
     
     return render(request, 'dashboard/cards.html', context)
