@@ -177,7 +177,7 @@ class Card(models.Model):
 class CardRequest(models.Model):
     user = models.ForeignKey(CustomUser, unique=False, on_delete=models.SET_NULL, null=True, related_name="card_request")
     cardtype = models.CharField(default='gold', choices=cardTypes, max_length=10)
-    created = models.DateTimeField(default=timezone.now)
+    date = models.DateTimeField(default=timezone.now)
 
     def __str__(self) -> str:
         return f"{self.user} {self.cardtype}"
