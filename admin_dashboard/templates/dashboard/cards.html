@@ -1,0 +1,116 @@
+{% extends 'dbank/base.html' %} {% load static %} 
+{% load crispy_forms_tags %} 
+
+{% block content %}
+
+<section id="all_user">
+    <div class="container">
+        <section class="row">
+            <article class="col-12 col-md-8 mx-auto text-center">
+                <div class=" pb-5">
+                    <h1>
+                        All Card Request ({{total_requests}})
+                    </h1>
+                    <p>
+                        <small class=" text-muted">
+                            See who is requesting for cards, type and prices.
+                        </small>
+                    </p>
+                </div>
+            </article>
+            <article class="col-12 col-md-11 mx-auto">
+                {% if cards %}
+                <table class="table table-responsive table-light shadow-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">Card Type</th>
+                            <th scope="col">Request Date</th>
+                            <th scope="col" class="text-end">Generate Card</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for card in cards %}
+                    <div class="modal fade" id="exampleModal{{user.username}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <form action="" method="POST">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            DEACTIVATE FORM.
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div>
+                                            <!-- <label for="deactivate" class="form-check-label" name="deactivate" id="deactivate">deactivate:</label>
+                                            <input type="checkbox" class="form-check-input"> -->
+                                            {% csrf_token %}
+                                            <input type="hidden" value="{{user.username}}" name="username"> 
+                                            {{d_form | crispy}}
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">
+                                            Deactivate {{user.username}}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <tr>
+                        <td>
+                            <a href="{% url 'clientprofile' user.username %}" target="_blank">
+                                {{card.user.get_full_name}}
+                            </a>
+                        </td>
+                        <td>
+                            {{card.user.email}}
+                        </td>
+                        <td>{{ card.user.country.name}}</td>
+                        <td class="fw-bolder text-warning">{{card.cardtype}}</td>
+                        <td>{{card.date}}</td>
+                        <td class="text-end">
+                            <a href="{% url 'update_user' user.username %}" class="btn btn-warning rounded-1" data-toggle="tooltip" data-placement="bottom" title="Update User Profile">
+                                <i class="bi bi-pencil-square" ></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                    <!-- pagination added to clients -->
+                    <div class="pt-3 text-center">
+                        {% if users.paginator.num_pages > 1 %}
+                            {% if users.has_previous %}
+                            <a class="btn btn-outline-dark" href="?page=1">First</a>
+                            <a class="btn btn-outline-dark" href="?page={{ users.previous_page_number }}">Previous</a>
+                            {% endif %}
+                            {% for num in users.paginator.page_range %}
+                                {% if users.number == num %}
+                                    <a class="btn btn-primary" href="?page={{ num }}">{{ num }}</a>
+                                {% elif num > users.number|add:'-3' and num < users.number|add:'3' %}
+                                    <a class="btn btn-outline-dark" href="?page={{ num }}">{{ num }}</a>
+                                {% endif %}
+                            {% endfor %}
+                            {% if users.has_next %}
+                                <a class="btn btn-outline-primary btn-lg" href="?page={{ users.next_page_number }}">Next</a>
+                                <a class="btn btn-dark " href="?page={{ users.paginator.num_pages }}">Last</a>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+
+                {% else %}
+                    <h2>no users</h2>
+                {% endif %}
+            </article>
+        </section>
+    </div>
+</section>
+
+{% endblock %}
