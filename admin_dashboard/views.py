@@ -4,7 +4,7 @@ from .forms import (
     DeactivateUser, LoadBalanceForm, 
     TransferStatusForm, AddTransactionForm
 )
-from clients.models import  CustomUser, Transfer, Savings, Transaction
+from clients.models import  CustomUser, Transfer, Savings, Transaction, CardRequest
 from random import randrange
 from django.contrib import messages
 from decimal import Decimal
@@ -271,3 +271,19 @@ def addtransaction(request, username):
         'user': user
     }
     return render(request, 'dashboard/add_history.html', context)
+
+
+@login_required
+def card_feature(request):
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
+    cards = CardRequest.objects.all().order_by('-date')
+    # print(cards)
+    context = {
+        'cards': cards
+    }
+    
+    return render(request, 'dashboard/cards.html', context)
