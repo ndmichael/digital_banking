@@ -101,50 +101,52 @@
         
         <section class="row mt-5">
             <div class="col-12 col-md-12">
-                <h4 class="pt-4">List Of Recently Created Clients</h4>
-                {% if users %}
-                <table class="table table-responsive bg-white shadow-sm">
-                    <thead>
-                        <tr>
-                            <th>Full Name</th>
-                            <th>Username</th>
-                            <th>Email</th>        
-                            <th>Gender</th>        
-                            <th>Country</th>
-                            <th>Account Number</th>
-                            <th>Balance</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {%for user in users %}
-                        <tr>
-                            <td>
-                                <b>
-                                    <a href=""
-                                        class="text-primary">
-                                        {{user.get_full_name}}
-                                    </a>
-                                </b>
-                            </td>
-                            <td>
-                                {{user.username}}
-                            </td>
-                            <td>
-                                {{user.email}}
-                            </td>
-                            <td>
-                                {{user.gender}}
-                            </td>
-                            <td>{{ user.country.name}}</td>
-                            <td>{{user.savings.number }}</td>
-                            <td class="fw-bold text-primary">&#36;{{user.savings.balance}}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                {% else %}
-                <h3>No registered clients.</h3>
-                {% endif %}
+                <div class="table-responsive">
+                    <h4 class="pt-4">List Of Recently Created Clients</h4>
+                    {% if users %}
+                    <table class="table bg-white shadow-sm">
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Username</th>
+                                <th>Email</th>        
+                                <th>Gender</th>        
+                                <th>Country</th>
+                                <th>Account Number</th>
+                                <th>Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for user in users %}
+                            <tr>
+                                <td>
+                                    <b>
+                                        <a href=""
+                                            class="text-primary">
+                                            {{user.get_full_name}}
+                                        </a>
+                                    </b>
+                                </td>
+                                <td>
+                                    {{user.username}}
+                                </td>
+                                <td>
+                                    {{user.email}}
+                                </td>
+                                <td>
+                                    {{user.gender}}
+                                </td>
+                                <td>{{ user.country.name}}</td>
+                                <td>{{user.savings.number }}</td>
+                                <td class="fw-bold text-primary">&#36;{{user.savings.balance}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <h3>No registered clients.</h3>
+                    {% endif %}
+                </div>
             </div>
         </section>
     </div>
