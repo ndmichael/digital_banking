@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.decorators import login_required
-from .models import CustomUser, Savings, Transfer, Transaction, CardRequest
+from .models import (
+    CustomUser, Savings, Transfer, 
+    Transaction, CardRequest
+)
 from .forms import TransferForm, CardRequestForm
 from django.contrib import messages
 

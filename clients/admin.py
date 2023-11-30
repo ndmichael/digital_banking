@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import Savings, CustomUser, FixedDeposit, Card, Transfer, Transaction, CardRequest
+from .models import (
+    Savings, CustomUser, FixedDeposit, 
+    Card, Transfer, Transaction, CardRequest
+)
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 # Register your models here.

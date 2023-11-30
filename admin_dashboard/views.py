@@ -4,7 +4,8 @@ from .forms import (
     DeactivateUser, LoadBalanceForm, 
     TransferStatusForm, AddTransactionForm
 )
-from clients.models import  CustomUser, Transfer, Savings, Transaction, CardRequest
+from clients.models import  CustomUser, Transfer, Savings, Transaction
+# CardRequest
 from random import randrange
 from django.contrib import messages
 from decimal import Decimal
