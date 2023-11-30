@@ -20,66 +20,67 @@
             </article>
             
             <article class="col-12 col-md-11 mx-auto">
-                {% if transfers %}
-                <table class="table table-responsive table-light shadow-sm">
-                    <thead>
+                <div class="table-responsive">
+                    {% if transfers %}
+                    <table class="table table-light shadow-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Beneficiary</th>
+                                <th scope="col">Beneficial Account</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Status</th>
+                                <th scope="col" class="text-end">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for transfer in transfers %}
                         <tr>
-                            <th scope="col">Full Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Beneficiary</th>
-                            <th scope="col">Beneficial Account</th>
-                            <th scope="col">Amount</th>
-                            <th scope="col">Status</th>
-                            <th scope="col" class="text-end">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {% for transfer in transfers %}
-                    <tr>
-                        <td>
-                            <a href="{% url 'clientprofile' transfer.user.username %}" target="_blank">
-                                {{transfer.user.get_full_name}}
-                            </a>
-                        </td>
-                        <td>
-                            {{transfer.user.email}}
-                        </td>
-                        <td>{{ transfer.receivers_name}}</td>
-                        <td>{{ transfer.beneficiary_account_number }}</td>
-                        <td class="fw-bold">&#36;{{transfer.amount}}</td>
-                        <td class="fw-bold">
-                            {% if transfer.status == 'pending' %}
-                                <span class="py-3 px-4 rounded-5" style="background: rgb(255, 255,0,.18); color:#ffac0d">{{transfer.status}}</span>
-                            
-                            {% elif  transfer.status == 'success' %}
-                            <span class="p-3 px-4 rounded-5" style="background: rgba(152, 254, 191, .28); color:#0c8b2e">{{transfer.status}}</span>
-                             {% else %}   
-                             <span class="p-3 px-4 rounded-5" style="background: rgba(253, 182, 144, 0.28); color:#ff0d0d">{{transfer.status}}</span>
-                            {% endif %}
-                        </td>
-                        <td class="text-end">
-                            {% if transfer.status == 'pending' %}
-                            <form action="" method="POST">
-                                {% csrf_token %}
-                                {{form | crispy}}
-                                <input type="hidden" value="{{transfer.id}}" name="id">
+                            <td>
+                                <a href="{% url 'clientprofile' transfer.user.username %}" target="_blank">
+                                    {{transfer.user.get_full_name}}
+                                </a>
+                            </td>
+                            <td>
+                                {{transfer.user.email}}
+                            </td>
+                            <td>{{ transfer.receivers_name}}</td>
+                            <td>{{ transfer.beneficiary_account_number }}</td>
+                            <td class="fw-bold">&#36;{{transfer.amount}}</td>
+                            <td class="fw-bold">
+                                {% if transfer.status == 'pending' %}
+                                    <span class="py-3 px-4 rounded-5" style="background: rgb(255, 255,0,.18); color:#ffac0d">{{transfer.status}}</span>
                                 
-                                <button type="submit" class=" btn btn-sm btn-outline-success">update</button>
-                            </form>
-                            {% else %}
-                                <span>---</span>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                    </table>
-                {% else %}
-                    <h3 class="text-danger">No Available Transfers</h3 class="text-danger">
-                {% endif %}
+                                {% elif  transfer.status == 'success' %}
+                                <span class="p-3 px-4 rounded-5" style="background: rgba(152, 254, 191, .28); color:#0c8b2e">{{transfer.status}}</span>
+                                {% else %}   
+                                <span class="p-3 px-4 rounded-5" style="background: rgba(253, 182, 144, 0.28); color:#ff0d0d">{{transfer.status}}</span>
+                                {% endif %}
+                            </td>
+                            <td class="text-end">
+                                {% if transfer.status == 'pending' %}
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    {{form | crispy}}
+                                    <input type="hidden" value="{{transfer.id}}" name="id">
+                                    
+                                    <button type="submit" class=" btn btn-sm btn-outline-success">update</button>
+                                </form>
+                                {% else %}
+                                    <span>---</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                        </table>
+                    {% else %}
+                        <h3 class="text-danger">No Available Transfers</h3 class="text-danger">
+                    {% endif %}
+                </div>
             </article>
         </section>
     </div>
 </section>
-
 {% endblock %}
