@@ -44,9 +44,12 @@
                     <p class="py-3">
                         Enjoy an exclusive range of benefits and privileges designed to let you get the most out of life.
                     </p>
-                    <p>
-                        <!-- <a href="{% url 'card_request' %}" class=" btn btn-lg btn-primary">APPLY NOW !</a> -->
+                    <p>   
+                        {% if request.user.is_authenticated %}
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{user.username}}" data-toggle="tooltip" data-placement="bottom" title="Send Mail">APPLY NOW</a>
+                        {% else %}
+                        <a href="{% url 'account_login' %}" class=" btn btn-lg btn-primary">APPLY NOW !</a>
+                        {% endif %}
                     </p>
                 </div>
             </article>
