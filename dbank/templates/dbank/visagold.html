@@ -5,6 +5,39 @@
 <section class="vcards" id="visagold">
     <div class="container">
         <section class="row g-4">
+            <!--
+                - Modal pop up for card request visa gold 
+            -->
+            <div class="modal fade" id="exampleModal{{user.username}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <form action="" method="POST">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">
+                                    Visa Gold Credit Card Request.
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div>
+                                    <p>For your security we ask you to mail us directly</p>
+                                    <a href="mailto:contact@tropicalfinancecu.com" style="color: inherit; text-decoration: none;">
+                                        <h3>Send us a request Mail</h3>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <!-- <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button> -->
+                                <button type="submit" class="btn btn-primary">
+                                    <a href="mailto:contact@tropicalfinancecu.com" style="color: inherit; text-decoration: none;">
+                                        Send Mail
+                                    </a>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <article class="col-12 col-md-6">
                 <div class="write-up">
                     <h3>Visa Gold Credit Card</h3>
@@ -12,7 +45,8 @@
                         Enjoy an exclusive range of benefits and privileges designed to let you get the most out of life.
                     </p>
                     <p>
-                        <a href="{% url 'card_request' %}" class=" btn btn-lg btn-primary">APPLY NOW !</a>
+                        <!-- <a href="{% url 'card_request' %}" class=" btn btn-lg btn-primary">APPLY NOW !</a> -->
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{user.username}}" data-toggle="tooltip" data-placement="bottom" title="Send Mail">APPLY NOW</a>
                     </p>
                 </div>
             </article>
@@ -20,6 +54,10 @@
     </div>
 </section>
 
+<!-- 
+    - Key features benefits
+    - For visagold
+-->
 <section class="py-5 px-2 vcards">
     <div class="container">
         <section class="row mb-5">
