@@ -12,7 +12,12 @@
                         Enjoy specially curated privileges designed to enhance an exclusive lifestyle with no boundaries.
                     </p>
                     <p>
-                        <a href="{% url 'card_request' %}" class=" btn btn-lg btn-primary">APPLY NOW !</a>
+                        <!--logic to check if user is authenticated -->
+                        {% if request.user.is_authenticated %}
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{user.username}}" data-toggle="tooltip" data-placement="bottom" title="Send Mail">APPLY NOW</a>
+                        {% else %}
+                        <a href="{% url 'account_login' %}" class=" btn btn-lg btn-primary">APPLY NOW !</a>
+                        {% endif %}
                     </p>
                 </div3
             </article>
