@@ -11,11 +11,14 @@ from decimal import Decimal
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 
-# Create your views here.
+
 
 
 @login_required
 def admin_dashboard(request):
+    '''Dashboard section for admin
+    - Return account details for customers.
+    '''
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
@@ -31,6 +34,9 @@ def admin_dashboard(request):
 
 
 def register(request):
+    '''Dashboard to handle register of new users
+    - Validate user registration form.
+    '''
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
@@ -80,6 +86,13 @@ def register(request):
 
 @login_required
 def all_users(request):
+
+    '''Dashboard section for all users
+    - Return account customers.
+    - Return total clients.
+    - Deactivate user directly
+    '''
+
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
@@ -119,6 +132,12 @@ def all_users(request):
 
 @login_required
 def all_transfers(request):
+
+    '''Dashboard section for transfers
+    - return all transfers.
+    - Validate transfers and manage transfer forms.
+    '''
+
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
@@ -166,6 +185,11 @@ def all_transfers(request):
 
 @login_required
 def update_user(request, username):
+
+    '''Dashboard section to update user
+    - Return a single user
+    '''
+
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
@@ -222,6 +246,11 @@ def load_balance(request, username):
 
 @login_required
 def historypage(request):
+
+    '''Dashboard section for history page
+    - Add debit and credit history from admin.
+    '''
+
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
@@ -236,6 +265,11 @@ def historypage(request):
 
 @login_required
 def addtransaction(request, username):
+
+    '''Dashboard section for transactions
+    - accept or reject transactions.
+    '''
+
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
@@ -275,6 +309,11 @@ def addtransaction(request, username):
 
 @login_required
 def card_feature(request):
+
+    '''Dashboard section for card feature
+    - Return all card request from forms.
+    '''
+
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
