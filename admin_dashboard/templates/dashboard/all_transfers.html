@@ -2,7 +2,9 @@
 {% load crispy_forms_tags %} 
 
 {% block content %}
-
+<!--
+    - Page for displaying and accepting transfers.
+-->
 <section id="all_user">
     <div class="container">
         <section class="row">
@@ -58,6 +60,11 @@
                                 <span class="p-3 px-4 rounded-5" style="background: rgba(253, 182, 144, 0.28); color:#ff0d0d">{{transfer.status}}</span>
                                 {% endif %}
                             </td>
+
+                            <!--
+                                - Form to accept or reject transfer
+                            -->
+
                             <td class="text-end">
                                 {% if transfer.status == 'pending' %}
                                 <form action="" method="POST">
