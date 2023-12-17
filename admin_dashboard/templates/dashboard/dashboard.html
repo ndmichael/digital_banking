@@ -2,7 +2,17 @@
 
 
 {% block content %}
-
+<!-- 
+    ** the Admin Dashboard
+    ** display all key features an admin can do 
+    ** -- features --
+    ** - Add Clients
+    ** - Manage Transfers
+    ** - Load Balance
+    ** - Manage cards
+    ** - Add history
+    ** - Display list of newly added clients (10)
+-->
 <section id="staffadmin">
     <div class="container py-5">
         <section class="row py-4">
@@ -15,6 +25,7 @@
                     </span>
                 </div>
             </article>
+            <!-- add client feature -->
             <article class="col-12 col-md-6 text-end">
                 <a href="{% url 'register' %}" class=" btn btn-primary">
                     ADD NEW CLIENT
@@ -22,6 +33,8 @@
             </article>
         </section>
         <section class="row g-5 pt-5">
+
+            <!-- Manage accounts feature -->
             <article class="col-12 col-sm-6 col-md-4 mb-3">
                 <a href="{% url 'all_users' %}" class="shadow-sm py-4 px-3 border-start border-success border-5  hvr-float-shadow actions">
                     <div class=" d-flex  justify-content-between">
@@ -37,6 +50,8 @@
                     </div>
                 </a>
             </article>
+
+            <!-- Transferb Request -->
             <article class="col-12 col-sm-6 col-md-4 mb-3">
                 <a href="{% url 'all_transfers' %}" class="shadow-sm py-4 px-3 border-start border-primary border-5  hvr-float-shadow actions">
                     <div class=" d-flex  justify-content-between">
@@ -51,6 +66,8 @@
                     </div>
                 </a>
             </article>
+
+            <!-- load balance feature -->
             <article class="col-12 col-sm-6 col-md-4 mb-3">
                 <a href="{% url 'all_users' %}" class="shadow-sm py-4 px-3 border-start border-danger border-5  bg-white hvr-float-shadow actions">
                     <div class=" d-flex  justify-content-between">
@@ -66,6 +83,7 @@
                 </a>
             </article>
 
+            <!-- add history feature -->
             <div class="col-12 col-sm-6 col-md-4">
                 <div>
                     <a href="{% url 'historypage' %}" class="shadow-sm py-4 px-3 border-start border-warning border-5  bg-white hvr-float-shadow actions">
@@ -81,6 +99,8 @@
                     </a>
                 </div>
             </div>
+
+            <!-- manage card feature -->
             <div class="col-12 col-sm-6 col-md-4">
                 <div>
                     <a href="{% url 'credit_card' %}" class="shadow-sm py-4 px-3 border-start border-dark border-5  bg-white hvr-float-shadow actions">
@@ -99,6 +119,7 @@
             </div>
         </section>
         
+        <!-- display list of all newly created clients -->
         <section class="row mt-5">
             <div class="col-12 col-md-12">
                 <div class="table-responsive">
