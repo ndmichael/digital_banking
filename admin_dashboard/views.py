@@ -214,6 +214,9 @@ def update_user(request, username):
     return render(request, 'dashboard/update_user.html', context)
 
 
+'''
+    * Logic to load balance for users
+'''
 @login_required
 def load_balance(request, username):
     if not request.user.is_staff:
@@ -278,6 +281,7 @@ def addtransaction(request, username):
     user = get_object_or_404(CustomUser, username=username)
     savings = get_object_or_404(Savings, user=user)
     if request.method == "POST":
+        # logic to manually add transactions
         form = AddTransactionForm(request.POST)   
         if form.is_valid():
             amount = form.cleaned_data['amount']
