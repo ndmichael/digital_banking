@@ -2,8 +2,12 @@
 {% load crispy_forms_tags %} 
 
 {% block content %}
-
-<section id="all_user">
+<!-- 
+    ** the History page
+    ** -- functionalities --
+    ** - add transaction histories(credit, debit) for a user
+-->
+<section id="historypage">
     <div class="container">
         <section class="row">
             <article class="col-12 col-md-6">
@@ -57,7 +61,6 @@
                     </table>
                 {% else %}
                     <h2>no users to add history</h2>
-
                 {% endif %}
             </article>
         </section>
