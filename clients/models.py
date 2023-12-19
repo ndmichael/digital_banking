@@ -13,8 +13,20 @@ from uuid import uuid4
 
 
 
-# Create your models here.
+'''
+    - All data models are created here
+    - ** LIST OF DATA MODELS HERE **
+    - * Custom User
+    - * Savings (Elites)
+    - * FixDeposit
+    - * Investment
+    - * Card
+    - * CardRequest
+    - * Transfer
+    - * Trasaction
+'''
 
+# method to return only date from timezone
 def today():
     return timezone.now().date
 
@@ -24,7 +36,12 @@ class CustomUserManager(UserManager):
         return self.get(**{case_insensitive_username_field: username})
 
 
-
+'''
+    - Override the django AbstractBaseUser
+    - to create and update the model features
+    - Reasons are (to add more fields, make emails and username all lowercase and email unqiue)
+    - including other utility methods
+'''
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     username_validator = ASCIIUsernameValidator()
     gender = (
@@ -113,6 +130,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
             return "/media/avatar.png"
 
 
+# The savings data model
 class Savings(models.Model):
     TIER_TUP = (
         ('tier1', 'TIER1'),
@@ -131,6 +149,7 @@ class Savings(models.Model):
         return f"{self.number}"
 
 
+# The fixeddeposit data model
 class FixedDeposit(models.Model):
     interest_type = (
         ('monthly', 'MONTHLY'),
@@ -148,10 +167,12 @@ class FixedDeposit(models.Model):
         pass
 
 
+# The investment data model
 class Investment(models.Model):
     pass
 
 
+# card data model and tuple of card types
 cardTypes = (
     ('gold', 'GOLD'),
     ('infinite', 'INFINITE'),
@@ -174,6 +195,8 @@ class Card(models.Model):
         return expires
     
 
+# Card Request data model to handle all request for cards
+# from the admin dashboard
 class CardRequest(models.Model):
     user = models.ForeignKey(CustomUser, unique=False, on_delete=models.SET_NULL, null=True, related_name="card_request")
     cardtype = models.CharField(default='gold', choices=cardTypes, max_length=10)
@@ -183,6 +206,7 @@ class CardRequest(models.Model):
         return f"{self.user} {self.cardtype}"
 
 
+# The transfer data model 
 class Transfer(models.Model):
     status_choices = (
         ('success', 'SUCCESS'),
@@ -207,6 +231,7 @@ class Transfer(models.Model):
         return f'{self.receivers_name}'
 
 
+# The transaction data model.
 class Transaction(models.Model):
     RECORD = (
         ('credit', 'CREDIT'),
