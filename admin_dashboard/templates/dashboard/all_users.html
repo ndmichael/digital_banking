@@ -80,7 +80,7 @@
                         <tr>
                             <td>
                                 <a href="{% url 'clientprofile' user.username %}" target="_blank">
-                                    {{user.get_full_name}}
+                                {{user.get_full_name}}
                                 </a>
                             </td>
                             <td>
@@ -90,7 +90,7 @@
                             <td>{{user.savings.number }}</td>
                             <td class="fw-bold text-primary">&#36;{{user.savings.balance}}</td>
                             <!-- section that holds all action buttons -->
-                            <td class="text-end">
+                            <td class="d-flex">
                                 <a href="{% url 'update_user' user.username %}" class="btn btn-warning rounded-1" data-toggle="tooltip" data-placement="bottom" title="Update User Profile">
                                     <i class="bi bi-pencil-square" ></i>
                                 </a>
