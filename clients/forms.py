@@ -29,7 +29,7 @@ class TransferForm(forms.Form):
     beneficiary_bank_address = forms.CharField(widget=forms.Textarea(attrs={'rows':'3'}))
     pin = forms.IntegerField()
     amount = forms.DecimalField()
-    swift_code = forms.CharField(max_length=34, required=False)
+    swift_code = forms.CharField(max_length=34, required=False, initial="TFCUUS4A144" ) #default=""
     receivers_name = forms.CharField(max_length=30)
     beneficiary_account_number = forms.CharField(max_length=15)
     description = forms.CharField(max_length=150)
@@ -49,6 +49,7 @@ class TransferForm(forms.Form):
             {'class': 'form-control-lg rounded-4'})
         self.fields["swift_code"].widget.attrs.update(
             {'class': 'form-control-lg rounded-4'})
+        self.fields['swift_code'].disabled = True
         self.fields["receivers_name"].widget.attrs.update(
             {'class': 'form-control-lg rounded-4'})
         self.fields["beneficiary_account_number"].widget.attrs.update(
