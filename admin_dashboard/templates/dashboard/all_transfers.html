@@ -70,8 +70,7 @@
                                 <form action="" method="POST">
                                     {% csrf_token %}
                                     {{form | crispy}}
-                                    <input type="hidden" value="{{transfer.id}}" name="id">
-                                    
+                                    <input type="hidden" value="{{transfer.id}}" name="id">                                  
                                     <button type="submit" class=" btn btn-sm btn-outline-success">update</button>
                                 </form>
                                 {% else %}
