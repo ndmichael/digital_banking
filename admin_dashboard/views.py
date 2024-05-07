@@ -146,24 +146,28 @@ def all_transfers(request):
     transfers = Transfer.objects.all().order_by('-dotf')
     form = TransferStatusForm()
     if request.method == "POST":
-        status = request.POST.get('status')
-        transfer_id = request.POST.get('id')
-                
-        transfer = get_object_or_404(Transfer, id=transfer_id)
-        user = CustomUser.objects.get(id=transfer.user.id)
-        bank_acc = Savings.objects.get(user=user)
-        transaction = Transaction.objects.get(user=user, reference=transfer.reference)
+        form = TransferStatusForm(request.POST)
+        if form.is_valid():
+            status = form.cleaned_data.get("status")
+            transfer_id = request.POST.get('id')
+                    
+            transfer = get_object_or_404(Transfer, id=transfer_id)
+            user = CustomUser.objects.get(id=transfer.user.id)
+            bank_acc = Savings.objects.get(user=user)
+            transaction = Transaction.objects.get(user=user, reference=transfer.reference)
 
-        if status == "success":
-            charges = transfer.amount * Decimal(0.02)
-            if transaction.record == 'credit':
-                transaction.amt_aft_charges = transaction.amount - charges
-                bank_acc.balance = bank_acc.balance + transaction.amt_aft_charges
-            else:
-                transaction.amt_aft_charges = transaction.amount + charges
-                bank_acc.balance = bank_acc.balance - transaction.amt_aft_charges
-            
-            bank_acc.save()
+            print(status)
+
+            if status == "success":
+                charges = transfer.amount * Decimal(0.02)
+                if transaction.record == 'credit':
+                    transaction.amt_aft_charges = transaction.amount - charges
+                    bank_acc.balance = bank_acc.balance + transaction.amt_aft_charges
+                else:
+                    transaction.amt_aft_charges = transaction.amount + charges
+                    bank_acc.balance = bank_acc.balance - transaction.amt_aft_charges
+                
+                bank_acc.save()
 
             transaction.status = status
             transfer.status = status
