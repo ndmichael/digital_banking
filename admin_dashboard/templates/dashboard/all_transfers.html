@@ -22,27 +22,27 @@
             </article>
             
             <article class="col-12 col-md-11 mx-auto">
-                <div class="table-responsive">
+                <div class="table-responsive bg-white rounded-5 shadow-sm w-100">
                     {% if transfers %}
-                    <table class="table table-light shadow-sm">
+                    <table class="table">
                         <thead>
                             <tr>
-                                <th scope="">Full Name</th>
-                                <th scope="">Email</th>
-                                <th scope="">Beneficiary</th>
-                                <th scope="">Beneficial Account</th>
-                                <th scope="">Amount</th>
-                                <th scope="">Status</th>
-                                <th scope="" class="text-end">Actions</th>
+                                <th scope="col">Names</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Beneficiary</th>
+                                <th scope="col">Beneficial Account</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                         {% for transfer in transfers %}
                         <tr>
                             <td>
-                                <a href="{% url 'clientprofile' transfer.user.username %}" target="_blank">
-                                    {{transfer.user.get_full_name}}
-                                </a>
+                            <!-- <a href="{% url 'clientprofile' transfer.user.username %}" target="_blank"> -->
+                                {{transfer.user.first_name}} {{transfer.user.last_name}}
+                            <!-- </a> -->
                             </td>
                             <td>
                                 {{transfer.user.email}}
@@ -52,12 +52,12 @@
                             <td class="fw-bold">&#36;{{transfer.amount}}</td>
                             <td class="fw-bold">
                                 {% if transfer.status == 'pending' %}
-                                    <span class="py-3 px-4 rounded-5" style="background: rgb(255, 255,0,.18); color:#ffac0d">{{transfer.status}}</span>
+                                    <span class="fw-bolder text-warning">{{transfer.status}}</span>
                                 
                                 {% elif  transfer.status == 'success' %}
-                                <span class="p-3 px-4 rounded-5" style="background: rgba(152, 254, 191, .28); color:#0c8b2e">{{transfer.status}}</span>
+                                <span class="fw-bolder text-success">{{transfer.status}}</span>
                                 {% else %}   
-                                <span class="p-3 px-4 rounded-5" style="background: rgba(253, 182, 144, 0.28); color:#ff0d0d">{{transfer.status}}</span>
+                                <span class="fw-bolder text-danger">{{transfer.status}}</span>
                                 {% endif %}
                             </td>
 
@@ -71,11 +71,12 @@
                                     {% csrf_token %}
                                     {{form | crispy}}
                                     <input type="hidden" value="{{transfer.id}}" name="id">                                  
-                                    <button type="submit" class=" btn btn-sm btn-outline-success">update</button>
+                                    <button type="submit" class=" btn btn-sm btn-outline-success" style="padding: 7px 25px;">update</button>
                                 </form>
                                 {% else %}
                                     <span>---</span>
                                 {% endif %}
+                                
                             </td>
                         </tr>
                         {% endfor %}
