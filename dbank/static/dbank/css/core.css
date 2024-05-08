@@ -37,6 +37,7 @@ body{
 table, td, th{
   font-family: 'Quicksand', sans-serif;
   padding: 20px;
+  font-size: 0.9rem;
 }
 
 h1, h2, h3, h4{
