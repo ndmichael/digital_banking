@@ -69,7 +69,7 @@
 
             <!-- load balance feature -->
             <article class="col-12 col-sm-6 col-md-4 mb-3">
-                <a href="{% url 'all_users' %}" class="shadow-sm py-4 px-3 border-start border-danger border-5  bg-white hvr-float-shadow actions">
+                <a href="{% url 'all_users' %}" class="shadow-sm py-4 px-3 border-start border-danger border-5 h-100  bg-white hvr-float-shadow actions">
                     <div class=" d-flex  justify-content-between">
                         <div class="ps-3">
                             <h4>Load Balance</h4>
@@ -86,13 +86,24 @@
             <!-- add history feature -->
             <div class="col-12 col-sm-6 col-md-4">
                 <div>
-                    <a href="{% url 'historypage' %}" class="shadow-sm py-4 px-3 border-start border-warning border-5  bg-white hvr-float-shadow actions">
+                    <a href="{% url 'historypage' %}" 
+                        class="
+                            shadow-sm 
+                            py-4 px-3 
+                            border-start 
+                            border-warning 
+                            border-5  
+                            bg-white 
+                            hvr-float-shadow 
+                            actions
+                        ">
                         <div class=" d-flex  justify-content-between">
                             <div class="ps-3">
                                 <h4>Add History</h4>
                                 <p class="text-muted">
                                     transaction histories
                                 </p>
+                                <span>All transactions</span>
                             </div>
                             <i class="bi bi-clock-history "></i>
                         </div>
