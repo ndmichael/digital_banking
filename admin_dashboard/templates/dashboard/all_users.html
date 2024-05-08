@@ -33,9 +33,9 @@
                 </a>
             </article>
             <article class="col-12 col-md-11 mx-auto">
-                <div class="table-responsive">
+                <div class="table-responsive bg-white shadow-sm rounded-5">
                     {% if users %}
-                    <table class="table table-light shadow-sm">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">Full Name</th>
@@ -79,7 +79,10 @@
                         </div>
                         <tr>
                             <td>
-                                <a href="{% url 'clientprofile' user.username %}" target="_blank">
+                                <a href="{% url 'clientprofile' user.username %}" 
+                                    target="_blank"
+                                    class="w-100"
+                                >
                                 {{user.get_full_name}}
                                 </a>
                             </td>
@@ -90,7 +93,7 @@
                             <td>{{user.savings.number }}</td>
                             <td class="fw-bold text-primary">&#36;{{user.savings.balance}}</td>
                             <!-- section that holds all action buttons -->
-                            <td class="d-flex">
+                            <td class="d-flex actions">
                                 <a href="{% url 'update_user' user.username %}" class="btn btn-warning rounded-1" data-toggle="tooltip" data-placement="bottom" title="Update User Profile">
                                     <i class="bi bi-pencil-square" ></i>
                                 </a>
@@ -107,7 +110,7 @@
                     </table>
 
                         <!-- pagination added to clients -->
-                        <div class="pt-3 text-center">
+                        <div class="pt-3 text-center actions">
                             {% if users.paginator.num_pages > 1 %}
                                 {% if users.has_previous %}
                                 <a class="btn btn-outline-dark" href="?page=1">First</a>
