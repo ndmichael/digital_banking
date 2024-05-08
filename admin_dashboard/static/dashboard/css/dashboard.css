@@ -82,7 +82,7 @@ html, body{
     padding-bottom: 4em;
 }
 
-#all_user a{
+#all_user .actions a{
     padding: 5px 12px;
     border-radius: 5px;
     margin-right: 10px;
