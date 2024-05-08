@@ -98,6 +98,9 @@ status_choices = (
 class TransferStatusForm(forms.Form):    
     status = forms.CharField(widget=forms.Select(choices=status_choices), label="")
 
+    def __init__(self, *args, **kwargs):
+        super(TransferStatusForm, self).__init__(*args, **kwargs)
+        self.fields["status"].widget.attrs.update({'class': 'form-select-sm'})
 
 class AddTransactionForm(forms.ModelForm):
     transaction_date = forms.DateTimeField(widget=DateInput)
