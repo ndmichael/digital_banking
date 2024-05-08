@@ -6,6 +6,11 @@
     /* word-wrap: break-word; */
 }
 
+html, body{
+  font-size-adjust: none;
+  font-size: 100%;
+}
+
 :root{
   --primary-color: #4169E1;
   --secondary-bg-one: #FAF9F6;

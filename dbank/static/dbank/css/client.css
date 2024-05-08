@@ -5,6 +5,11 @@
     /* word-wrap: break-word; */
 }
 
+html, body{
+    font-size-adjust: none;
+    font-size: 100%;
+}
+
 a{
     text-decoration: none;
 }
@@ -47,11 +52,12 @@ a{
 }
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
-    border-left: 4px solid darkorchid !important;
+    border-left: 4px solid #1C3FFD !important;
+    color: #1C3FFD !important;
 }
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link:hover{
-    color: darkorchid;
+    color: #020873;
 }
 
 
