@@ -23,6 +23,10 @@ a{
     overflow: hidden;
 }
 
+#wrapper{
+    padding-left: 250px;
+}
+
 #wrapper .navbar{
     color: black;
     z-index: 10;
@@ -52,10 +56,8 @@ a{
 #tab-content{
     width: 100%;
     min-height: 100vh !important;
-    padding-top: 7rem;
+    padding-top: 4.5rem;
     padding-bottom: 2rem;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
@@ -78,6 +80,10 @@ a{
         z-index: 1;
         overflow-y: hidden;
         transition: .3s ease-in-out;
+    }
+
+    #wrapper{
+        padding-left: 0;
     }
 
     .toggler{
