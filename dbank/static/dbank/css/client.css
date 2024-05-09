@@ -19,8 +19,13 @@ a{
     height: 100vh;
     position: fixed; 
     background: #3c24aa;
-    z-index: 1;
-    overflow-y: hidden;
+    z-index: 100;
+    overflow: hidden;
+}
+
+#wrapper .navbar{
+    color: black;
+    z-index: 10;
 }
 
 
