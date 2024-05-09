@@ -13,13 +13,18 @@
     </a>
     
     <ul class="nav nav-tabs d-flex flex-column mt-4 w-100" id="myTab" role="tablist">
-        <a href="#" class=" navbar-brand text-light mx-auto">
-            <img class="img-fluid rounded-circle" style="height: 70px; width: 70px; object-fit: cover; padding-top: -100px;" src="{{ user.photo_url }}">
-            <div>
-                <p>{{ user.get_full_name }}</p>
-                <p class="fw-bold text-warning">{{user.username}}</p>
-            </div>
-        </a>
+        <!-- <li class="nav-item w-100">
+            <a href="#" class=" text-light mx-auto d-flex ps-1 pb-4">
+                <img class="img-fluid rounded-circle" style="height: 70px; width: 70px; object-fit: cover;" src="{{ user.photo_url }}">
+                <div class="ms-2">
+                    <p>
+                        {{ user.get_full_name }}
+                        <span>{{user.email}}</span>
+                    </p>
+                </div>
+            </a>
+        </li> -->
+        
         <li class="nav-item w-100">
             <a href="#dashboard" class="nav-link active ps-4" data-bs-toggle="tab">
                 <i class=" bi bi-house-door" style="font-size: 1em;"></i>
@@ -64,7 +69,7 @@
 <!--
     -- wrapper section linked to the navbar
 -->
-<section id="wrapper" class="">
+<section>
     <div class="tab-content" id="tab-content">
         <!-- 
             == The navbar section.
