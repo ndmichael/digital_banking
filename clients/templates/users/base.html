@@ -20,30 +20,61 @@
     {% block sidebar %}
 
     {% endblock sidebar %}
-    <div class="bg-transparent py-2">
+    <section id="wrapper" style="padding-left:250px !important; margin-bottom: 5rem;">
+        <nav class=" navbar fixed-top navbar-expand-sm shadow-sm">
+            <section class="container">
+                <ul class="navbar-nav mb-lg-0 ms-auto">
+                    <li><p class="me-3 pt-1">Hello <span>{{user.username}}</span></p></li>
+                    <li><i class="bi bi-person-circle me-4"  style="font-size: 22px;"></i> </li>
+                    <li><a
+                        type="menu"
+                        class="
+                            openbtn 
+                            btn 
+                            btn-dark
+                            btn-small 
+                            d-inline-block
+                            d-md-none
+                            " 
+                        id="toggleSidebar"
+                        
+                    >
+                        <i class="bi bi-menu-app" style="font-size: 18px;"></i>
+                    </a> </li>
+                </ul>
+            </section>
+        </nav>
+
+        <div class="bg-transparent py-2">
+            <section class="container">
+                <div class="row">
+                    <div class="col-12 text-end d-block d-md-none">
+                        <button class="openbtn btn btn-primary btn-small" id="toggleSidebar">☰</button> 
+                    </div>
+                </div>
+            </section>
+        </div>
+
         <section class="container">
             <div class="row">
-                <div class="col-12 text-end d-block d-md-none">
-                    <button class="openbtn btn btn-primary btn-small" id="toggleSidebar">☰</button> 
+                <div class="offset-sm-3 col-sm-6">
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        <b>{{ message }}</b>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
-    </div>
-    
-    <section class="container">
-        <div class="row">
-            <div class="offset-sm-3 col-sm-6">
-                {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                    <b>{{ message }}</b>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
 
- {% block content %} {% endblock content %}
+        {% block content %} {% endblock content %}
+    </section>
+    
+    
+    
+
+ 
 
 
 
