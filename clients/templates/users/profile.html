@@ -1,15 +1,25 @@
 {% extends 'users/base.html' %} {% load static %} {% load crispy_forms_tags %}
 
 {% block sidebar %}
-<nav class="navbar navbar-expand d-flex flex-column align-items-start" id="sidebar">
-    <a href="#" class=" navbar-brand text-light mx-auto">
-        <img class="img-fluid rounded-circle" style="height: 70px; width: 70px; object-fit: cover; padding-top: -100px;" src="{{ user.photo_url }}">
-        <div>
-            <p>{{ user.get_full_name }}</p>
-            <p class="fw-bold text-warning">{{user.username}}</p>
-        </div>
-    </a> 
-    <ul class="nav nav-tabs d-flex flex-column mt-3 w-100" id="myTab" role="tablist">
+<nav class="navbar navbar-expand p-0 m-0 d-flex flex-column align-items-start" id="sidebar">
+     
+    <a href="/" target="_blank" class="w-100 bg-white d-flex justify-content-center">
+        <img src="{% static 'dbank/images/logo5.png' %}" 
+            alt="tropicalfinancecu" 
+            width="90"
+            style="margin: auto; padding: .9em 0"
+            class="d-inline-block align-text-top img-fluid"
+        ">
+    </a>
+    
+    <ul class="nav nav-tabs d-flex flex-column mt-4 w-100" id="myTab" role="tablist">
+        <a href="#" class=" navbar-brand text-light mx-auto">
+            <img class="img-fluid rounded-circle" style="height: 70px; width: 70px; object-fit: cover; padding-top: -100px;" src="{{ user.photo_url }}">
+            <div>
+                <p>{{ user.get_full_name }}</p>
+                <p class="fw-bold text-warning">{{user.username}}</p>
+            </div>
+        </a>
         <li class="nav-item w-100">
             <a href="#dashboard" class="nav-link active ps-4" data-bs-toggle="tab">
                 <i class=" bi bi-house-door" style="font-size: 1em;"></i>
@@ -62,7 +72,7 @@
         -->
         <div id="dashboard" class="container tab-pane active">
             <!-- row one -->
-            <section class="row">
+            <!-- <section class="row">
                 <div class="col-12">
                     <div class="alert alert-primary text-center" role="alert">
                         <a href="/" target="_blank">
@@ -71,7 +81,7 @@
                       </div>
                     <h5 class="py-4"><span class="text-muted">Welcome back, </span><small>{{user.username}}</small> <i class="bi bi-hand-thumbs-up-fill text-danger"></i></h5>
                 </div>    
-            </section>
+            </section> -->
             <!-- 
                 -row two
             -->
