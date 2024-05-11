@@ -78,7 +78,7 @@
         <div id="dashboard" class="container tab-pane active">
 
             <!-- === row one === -->
-            <section class="row">
+            <section class="row g-4">
                 <div class="col-12 col-md-8">
                     <article class="row">
                         <div class="col-12 col-md-5 text-center">
@@ -89,7 +89,7 @@
                         </div>
 
                         <div class="col-12 col-md-7">
-                            <div class="p-4 bg-white rounded-5">
+                            <div class="p-4 bg-white shadow-sm rounded-5">
                                 <table class="table table-borderless">
                                     <tbody>
                                         <tr>
@@ -111,7 +111,7 @@
                     </article>
                 </div>
 
-                <div class="col-12 col-md-4 align-self-center">
+                <div class="col-12 col-md-4 align-self-center d-flex flex-column align-items-center">
                     <div class="d-flex mb-3 ">
                         <div class="fw-bolder" 
                              style="height: 50px; 
@@ -127,8 +127,8 @@
                             <i class="bi bi-graph-up-arrow fw-bolder"></i>
                         </div>
                         <div class="ps-3">
-                            <span class=" fw-bold">Total Credit</span>
-                            <p class="text-primary">$100,000</p>
+                            <span>Total Credit</span>
+                            <p class="text-primary fw-bold">$100,000</p>
                         </div>
                     </div>
 
@@ -148,9 +148,35 @@
                             <i class="bi bi-graph-down-arrow"></i>
                         </div>
                         <div class="ps-3">
-                            <span class="fw-bold">Total Credit</span>
-                            <p class="text-danger">$170,000</p>
+                            <span>Total Debit</span>
+                            <p class="text-danger fw-bold">$170,000</p>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="row g-4 mt-4">
+                <div class="col-12 col-md-6">
+                    <div class="p-5 border bg-white rounded-5">
+                        <i class="bi bi-credit-card-2-front" style="font-size: 3rem; color: #3c24aa;"></i>
+                        <h4>Credit Cards</h4>
+                        <p class="text-muted">
+                            Facilitate convenient management of finances, 
+                            enabling users to track spending, monitor transactions, 
+                            and make payments seamlessly within a secure online banking environment.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="p-5 border bg-white rounded-5">
+                        <i class="bi bi bi-coin" style="font-size: 3rem; color: #3c24aa;"></i>
+                        <h4>Seamless Transfers</h4>
+                        <p class="text-muted">
+                            Facilitate convenient management of finances, 
+                            enabling users to track spending, monitor transactions, 
+                            and make payments seamlessly within a secure online banking environment.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -160,7 +186,8 @@
             <section class="row pt-5">
                 <div class="col-12 col-md-10 mx-auto p-5 bg-white shadow-sm rounded-4">
                     {% if s_transactions %}
-                        <table class=" table table-responsive">
+                    <div class="table-responsive">
+                        <table class=" table">
                             <h4 class="py-4 text-primary">Recent Transactions</h4>
                             <thead>
                                 <tr>
@@ -194,6 +221,7 @@
                         <div class="text-center pt-4">
                             <a href="#" class="btn btn-sm btn-primary">View All Transactions</a>
                         </div>
+                    </div>
                     {% else %}
                     <h3 class="text-primary">
                         No recent transactions
