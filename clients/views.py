@@ -7,6 +7,7 @@ from .models import (
 )
 from .forms import TransferForm, CardRequestForm
 from django.contrib import messages
+from django.db.models import Sum
 
 # Create your views here.
 
@@ -15,6 +16,8 @@ def profile(request, username):
     user = get_object_or_404(CustomUser, username=username)
     account = get_object_or_404(Savings, user=user)
     short_transactions = Transaction.objects.filter(user=user).order_by('-transaction_date')[:5]
+    total_credit = Transaction.objects.filter(user=user, record='credit').aggregate(Sum('amt_aft_charges', default=0.00))['amt_aft_charges__sum']
+    total_debit = Transaction.objects.filter(user=user, record='debit').aggregate(Sum('amt_aft_charges', default=0.00))['amt_aft_charges__sum']
     total_transfer = Transfer.objects.count()
     if request.method == "POST":
         form = TransferForm(request.POST)
@@ -59,7 +62,9 @@ def profile(request, username):
         "form": form,
         "account": account,
         's_transactions': short_transactions,
-        "total_transfers": total_transfer
+        "total_transfers": total_transfer,
+        "total_credit": total_credit,
+        "total_debit": total_debit
     }
     return render(request, 'users/profile.html', context)
 
