@@ -25,7 +25,16 @@
             <section class="container">
                 <ul class="navbar-nav mb-lg-0 ms-auto d-flex flex-row">
                     <li><p class="me-3 pt-1">Welcome, <span>{{user.username}}</span></p></li>
-                    <li><i class="bi bi-person-circle me-4"  style="font-size: 22px;"></i> </li>
+                    <li>
+                        <img class="img-fluid" 
+                             style="height: 40px; 
+                                    width: 40px; 
+                                    object-fit: cover; 
+                                    padding-top: -100px;
+                                " 
+                             src="{{ user.photo_url }}"
+                        >
+                    </li>
                     <li>
                         <a
                             type="menu"
