@@ -1,3 +1,8 @@
+html, body{
+    font-size-adjust: none;
+    font-size: 100%;
+}
+
 #staffadmin .actions{
     display: block;
     overflow: hidden;
@@ -7,6 +12,9 @@
 
 #staffadmin .bi{
     font-size: 2.4em;
+}
+
+#staffadmin .icon{
     display: flex;
     align-items: center;
     justify-items: center;
@@ -15,32 +23,48 @@
     height: 90px;
     width: 90px;
     border-radius: 50%;
-    transform: translateX(40px);
+    transform: translateX(30px);
 }
+
+#staffadmin .card-icon{   
+    background: rgb(237, 237, 237);   
+}
+
+#staffadmin .hist-icon{   
+    background: rgb(252, 255, 216);
+}
+
+#staffadmin .transfer-icon{   
+    background: rgb(218, 218, 255);
+}
+
+#staffadmin .accounts-icon{   
+    background: rgb(199, 255, 199);
+}
+
+#staffadmin .load-icon{   
+    background: rgb(255, 208, 208);
+}
+
+
 
 #staffadmin .bi-arrow-left-right{
-    background: rgb(218, 218, 255);
-    color: rgb(92, 24, 243);
-    
+    color: rgb(92, 24, 243);   
 }
 
-#staffadmin .bi-person-circle{
-    background: rgb(199, 255, 199);
+#staffadmin .bi-person-circle{ 
     color: rgb(18, 121, 18);
 }
 
 #staffadmin .bi-currency-exchange{
-    background: rgb(255, 208, 208);
     color: rgb(186, 20, 20);
 }
 
 #staffadmin .bi-credit-card-2-back{
-    background: rgb(237, 237, 237);
     color: black;
 }
 
 #staffadmin .bi-clock-history{
-    background: rgb(252, 255, 216);
     color: orange;
 }
 
@@ -58,7 +82,7 @@
     padding-bottom: 4em;
 }
 
-#all_user a{
+#all_user .actions a{
     padding: 5px 12px;
     border-radius: 5px;
     margin-right: 10px;
@@ -69,10 +93,11 @@
 }
 
 .table th{
-    padding: 20px;
-}
+    padding: 15px;
+} 
 
 .table tr > td{
-    padding: 10px;
+    padding: 15px;
+    font-size: .9rem;
 }
 

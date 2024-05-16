@@ -6,6 +6,11 @@
     /* word-wrap: break-word; */
 }
 
+html, body{
+  font-size-adjust: none;
+  font-size: 100%;
+}
+
 :root{
   --primary-color: #4169E1;
   --secondary-bg-one: #FAF9F6;
@@ -37,6 +42,7 @@ body{
 table, td, th{
   font-family: 'Quicksand', sans-serif;
   padding: 20px;
+  font-size: 0.9rem;
 }
 
 h1, h2, h3, h4{
