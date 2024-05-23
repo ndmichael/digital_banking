@@ -203,7 +203,11 @@
                                 {% for transaction in s_transactions %}
                                     <tr>
                                         <td>{{transaction.transaction_date}}</td>
-                                        <td>{{transaction.record}}</td>
+                                        {% if transaction.record == 'credit' %}
+                                            <td><span class="fw-bold text-success">{{transaction.record}}</span></td>
+                                        {% else %}
+                                            <td><span class="fw-bold text-danger">{{transaction.record}}</span></td>
+                                        {% endif %}
                                         <td>${{transaction.amount}}</td>
                                         <td>{{transaction.description}}</td>
                                         <td>{{transaction.reference}}</td>
