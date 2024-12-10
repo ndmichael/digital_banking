@@ -156,8 +156,6 @@ def all_transfers(request):
             bank_acc = Savings.objects.get(user=user)
             transaction = Transaction.objects.get(user=user, reference=transfer.reference)
 
-            print(status)
-
             if status == "success":
                 charges = transfer.amount * Decimal(0.02)
                 if transaction.record == 'credit':
