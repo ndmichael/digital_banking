@@ -230,7 +230,6 @@ class Transfer(models.Model):
         blank=False, 
         max_length=15, 
         unique=True, 
-        default=uuid4().hex[:11].upper()
     )
 
     def save(self, *args, **kwargs):
