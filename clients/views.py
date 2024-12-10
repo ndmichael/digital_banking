@@ -19,6 +19,7 @@ def profile(request, username):
     total_credit = Transaction.objects.filter(user=user, record='credit').aggregate(Sum('amt_aft_charges', default=0.00))['amt_aft_charges__sum']
     total_debit = Transaction.objects.filter(user=user, record='debit').aggregate(Sum('amt_aft_charges', default=0.00))['amt_aft_charges__sum']
     total_transfer = Transfer.objects.count()
+    
     if request.method == "POST":
         form = TransferForm(request.POST)
         if form.is_valid():
