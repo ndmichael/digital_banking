@@ -202,7 +202,7 @@
                             <tbody>
                                 {% for transaction in s_transactions %}
                                     <tr>
-                                        <td>{{transaction.transaction_date | date:"M-d-Y"}}</td>
+                                        <td>{{transaction.transaction_date | date:"D, d M, Y"}}</td>
                                         {% if transaction.record == 'credit' %}
                                             <td><span class="fw-bold text-success">{{transaction.record}}</span></td>
                                         {% else %}
