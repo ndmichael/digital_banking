@@ -225,7 +225,24 @@ class Transfer(models.Model):
     country = CountryField()
     dotf = models.DateTimeField(default=timezone.now)
     status =  models.CharField(choices=status_choices, default="pending")
-    reference = models.CharField(null=False, blank=False, max_length=15, default=uuid4().hex[:11].upper())
+    reference = models.CharField(
+        null=False, 
+        blank=False, 
+        max_length=15, 
+        unique=True, 
+        default=uuid4().hex[:11].upper()
+    )
+
+    def save(self, *args, **kwargs):
+        if not self.reference:  # Ensure reference is generated only if it's not set
+            self.reference = self.generate_unique_reference()
+        super().save(*args, **kwargs)  # Call the parent save method
+
+    def generate_unique_reference(self):
+        while True:
+            ref = uuid4().hex[-11:].upper()  # Generate a new reference
+            if not Transfer.objects.filter(reference=ref).exists():
+                return ref
 
     def __str__(self):
         return f'{self.receivers_name}'
